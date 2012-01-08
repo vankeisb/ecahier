@@ -8,8 +8,8 @@ import javax.persistence.GenerationType
 import org.compass.annotations.SearchableId
 import org.compass.annotations.SearchableProperty
 import javax.validation.constraints.NotNull
-import javax.persistence.ManyToOne
 import javax.persistence.FetchType
+import javax.persistence.ManyToOne
 
 @Entity
 @Searchable
