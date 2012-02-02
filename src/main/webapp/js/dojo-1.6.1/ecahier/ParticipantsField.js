@@ -50,15 +50,14 @@ dojo.declare("ecahier.ParticipantsField", [ dijit._Widget, dijit._Templated ], {
                             s = s.substring(0, caretPos);
                         }
                         // we have everything up to the caret : fire the completion !
-                        this._fireCompletion(s);
+                        this._fireCompletion(s, capturedCount);
                     }
                 }
             }), 1000);
         }
     },
 
-    _fireCompletion: function(prefix) {
-        console.log(prefix);
+    _fireCompletion: function(prefix, capturedCount) {
         // find last comma & trim
         var lastCommaIndex = prefix.lastIndexOf(",");
         if (lastCommaIndex!=-1) {
@@ -73,6 +72,17 @@ dojo.declare("ecahier.ParticipantsField", [ dijit._Widget, dijit._Templated ], {
         });
         dojo.removeClass(this.completionBoxNode, "completionHidden");
         this.completionBoxNode.innerHTML = "Chargement...";
+        this._populateCompletion(prefix, capturedCount);
+    },
+
+    _populateCompletion: function(prefix, capturedCount) {
+        // TODO simulated xhr & results
+        setTimeout(dojo.hitch(this, function() {
+            console.log(this._counter+"==="+capturedCount);
+            if (this._counter===capturedCount) {
+                this.completionBoxNode.innerHTML = "yeeehaaaa "+ prefix;
+            }
+        }), 1000);
     },
 
     _closeCompletion: function() {
