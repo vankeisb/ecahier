@@ -6,6 +6,7 @@
 <c:set var="o" value="${actionBean.object}"/>
 <w:facet facetName="layout" targetObject="${o}"/>
 <w:facet targetObject="${o}" facetName="renderTitle"/>
+<c:set var="currentUserId" value="${layout.currentUserId}"/>
 <fmt:message var="pageTitle" key="woko.guest.home.pageTitle"/>
 <s:layout-render name="${layout.layoutPath}" layout="${layout}" pageTitle="${pageTitle}">
     <s:layout-component name="body">
@@ -28,8 +29,11 @@
                         dojo.empty(cntr);
                         var items = resp.items;
                         dojo.forEach(items, function(item) {
+                            var editable = ${currentUserId} == item.createdBy._key;
                             var eli = new ecahier.EntryListItem({
-                                entry: item
+                                baseUrl: "${pageContext.request.contextPath}",
+                                entry: item,
+                                editLink: editable
                             });
                             eli.startup();
                             cntr.appendChild(eli.domNode);

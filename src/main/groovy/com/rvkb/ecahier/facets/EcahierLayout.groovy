@@ -4,6 +4,7 @@ import woko.facets.builtin.all.LayoutAll
 import net.sourceforge.jfacets.annotations.FacetKey
 
 @FacetKey(name="layout", profileId="educ")
+@Mixin(FacetCategory)
 class EcahierLayout extends LayoutAll {
 
     @Override
@@ -11,5 +12,9 @@ class EcahierLayout extends LayoutAll {
         '/WEB-INF/jsp/layout.jsp'
     }
 
+    Long getCurrentUserId() {
+        def id = currentUser?.id
+        return id!=null ? id : 0
+    }
 
 }

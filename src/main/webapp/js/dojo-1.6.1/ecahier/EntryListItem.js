@@ -9,6 +9,8 @@ dojo.declare("ecahier.EntryListItem", [ dijit._Widget, dijit._Templated ], {
     templateString: dojo.cache("ecahier", "EntryListItem.html"),
     widgetsInTemplate: true,
 
+    baseUrl: '',
+
     buildRendering: function() {
         this.entry.text = this.entry.text || "Pas de texte !";
         this.inherited('buildRendering', arguments);
@@ -29,6 +31,13 @@ dojo.declare("ecahier.EntryListItem", [ dijit._Widget, dijit._Templated ], {
         } else {
             dojo.addClass(this.participantsNode, 'withoutPeople');
             this.participantsNode.innerHTML = "Pas de participants";
+        }
+        if (this.editLink) {
+            dojo.addClass(this.domNode, "editable");
+            var link = document.createElement("a");
+            link.setAttribute("href", this.baseUrl + "/edit/Entry/" + this.entry._key);
+            link.innerHTML = "&eacute;diter";
+            this.editLinkNode.appendChild(link);
         }
     }
 

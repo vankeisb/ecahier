@@ -38,7 +38,7 @@
             <link rel="stylesheet" type="text/css" href="${cp}/style/ecahier.css">
 
         </head>
-        <body class="${bodyClass}">
+        <body class="claro">
             <div id="wrap">
                 <div id="header-space">
                     <div id="logo">

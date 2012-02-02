@@ -7,13 +7,9 @@ import net.sourceforge.jfacets.annotations.FacetKey
 @FacetKey(name="renderPropertiesEdit", profileId="educ", targetObjectType=Entry.class)
 class RenderEntryPropertiesEdit extends RenderPropertiesEditImpl {
 
-    RenderEntryPropertiesEdit() {
-        useFlatLayout = true
-    }
-
     @Override
     List<String> getPropertyNames() {
-        ["text", "participants"]
+        ["participants", "text"]
     }
 
 }

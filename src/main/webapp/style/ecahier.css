@@ -28,6 +28,11 @@ h1 {
     font-size: 0.8em;
 }
 
+.entryListItem .editLink {
+    float: right;
+    font-size: 0.8em;
+}
+
 .withoutPeople {
     color: #a3a3a3;
 }
