@@ -10,6 +10,7 @@ import org.compass.annotations.SearchableProperty
 import javax.validation.constraints.NotNull
 import javax.persistence.FetchType
 import javax.persistence.ManyToOne
+import javax.persistence.ManyToMany
 
 @Entity
 @Searchable
@@ -27,5 +28,17 @@ class Entry {
 
     @ManyToOne(fetch=FetchType.LAZY)
     User createdBy
+
+    @ManyToMany(fetch=FetchType.LAZY)
+    List<User> participants
+
+    void addToParticipants(User participant) {
+        assert participant, "participant cannot be null"
+        if (participants==null) {
+            participants = []
+        }
+        if (!participants.contains(participant))
+        participants << participant
+    }
 
 }

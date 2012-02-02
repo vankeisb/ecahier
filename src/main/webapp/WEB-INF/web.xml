@@ -74,7 +74,10 @@
 
     <context-param>
         <param-name>Woko.Facet.Packages</param-name>
-        <param-value>com.rvkb.ecahier.facets</param-value>
+        <param-value>
+            com.rvkb.ecahier.facets
+            woko.ext.usermanagement.facets
+        </param-value>
     </context-param>
 
 </web-app>
