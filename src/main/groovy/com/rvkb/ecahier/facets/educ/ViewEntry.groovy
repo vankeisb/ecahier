@@ -1,4 +1,4 @@
-package com.rvkb.ecahier.facets
+package com.rvkb.ecahier.facets.educ
 
 import net.sourceforge.jfacets.annotations.FacetKey
 import com.rvkb.ecahier.model.Entry

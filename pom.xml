@@ -51,6 +51,12 @@
           <artifactId>groovy</artifactId>
           <version>1.7.4</version>
         </dependency>
+        <dependency>
+          <groupId>com.rvkb</groupId>
+          <artifactId>woko-dojo</artifactId>
+          <version>1.6.1</version>
+          <type>war</type>
+        </dependency>
     </dependencies>
     <build>
         <finalName>ecahier</finalName>

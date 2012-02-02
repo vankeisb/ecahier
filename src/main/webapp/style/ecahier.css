@@ -1,0 +1,33 @@
+h1 {
+    border: none;
+}
+
+#entries {
+    border-left: 1px solid #d3d3d3;
+}
+
+.clearfix {
+    clear: both;
+}
+
+.entryListItem {
+    max-width: 600px;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 4px;
+    padding-bottom: 6px;
+    border-top: 1px solid #d3d3d3;
+}
+
+.entryListItem .user {
+    float: left;
+}
+
+.entryListItem .date {
+    float: right;
+    font-size: 0.8em;
+}
+
+.withoutPeople {
+    color: #a3a3a3;
+}
