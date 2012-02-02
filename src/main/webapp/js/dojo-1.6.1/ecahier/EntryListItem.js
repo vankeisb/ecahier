@@ -10,6 +10,7 @@ dojo.declare("ecahier.EntryListItem", [ dijit._Widget, dijit._Templated ], {
     widgetsInTemplate: true,
 
     buildRendering: function() {
+        this.entry.text = this.entry.text || "Pas de texte !";
         this.inherited('buildRendering', arguments);
         var participants = this.entry.participants;
         if (participants && participants.length>0) {
