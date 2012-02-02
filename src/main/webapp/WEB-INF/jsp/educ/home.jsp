@@ -17,22 +17,6 @@
 
             dojo.addOnLoad(function() {
 
-                var createEntryElement = function(entry) {
-
-                    var eli = new ecahier.EntryListItem({
-                        entry: entry
-                    });
-                    eli.startup();
-
-//                    var liText = entry.creationDate + " | " +
-//                      entry.text + " | ";
-//                    dojo.forEach(entry.participants, function(user) {
-//                        liText += user._title + " ";
-//                    });
-//                    var newNode = document.createElement("li");
-//                    newNode.innerHTML = liText;
-                    return eli.domNode;
-                };
 
                 var cli = new woko.rpc.Client({baseUrl:"${pageContext.request.contextPath}"});
                 <%-- populate the entries list --%>
@@ -44,7 +28,11 @@
                         dojo.empty(cntr);
                         var items = resp.items;
                         dojo.forEach(items, function(item) {
-                            cntr.appendChild(createEntryElement(item));
+                            var eli = new ecahier.EntryListItem({
+                                entry: item
+                            });
+                            eli.startup();
+                            cntr.appendChild(eli.domNode);
                         });
                     },
 

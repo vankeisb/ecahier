@@ -8,26 +8,27 @@ dojo.require("ecahier.UserLink");
 dojo.declare("ecahier.EntryListItem", [ dijit._Widget, dijit._Templated ], {
     templateString: dojo.cache("ecahier", "EntryListItem.html"),
     widgetsInTemplate: true,
-    //  your custom code goes here
 
     buildRendering: function() {
+        this.inherited('buildRendering', arguments);
         var participants = this.entry.participants;
         if (participants && participants.length>0) {
-            var s = "";
-            for (var i=0 ; i<participants.length ; i++) {
+            dojo.addClass(this.participantsNode, 'withPeople');
+            for (var i=0;i<participants.length;i++) {
                 var p = participants[i];
-                s+= p._title;
+                var widget = new ecahier.UserLink({ user : p });
+                widget.startup();
+                this.participantsNode.appendChild(widget.domNode);
                 if (i<participants.length-1) {
-                    s+= ", ";
+                    var sepNode = document.createElement("span");
+                    sepNode.innerHTML = ", ";
+                    this.participantsNode.appendChild(sepNode);
                 }
             }
-            this.participantsStr = s;
-            this.participantsCls = "withPeople";
         } else {
-            this.participantsStr = "Pas de participants";
-            this.participantsCls = "withoutPeople";
+            dojo.addClass(this.participantsNode, 'withoutPeople');
+            this.participantsNode.innerHTML = "Pas de participants";
         }
-        this.inherited('buildRendering', arguments);
     }
 
 });
