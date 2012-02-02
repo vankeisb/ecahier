@@ -1,5 +1,10 @@
 <div class="entryListItem">
-    <div class="editLink" data-dojo-attach-point="editLinkNode"></div>
+    <div class="commands">
+        <span class="viewLink">
+            <a href="${baseUrl}/view/Entry/${entry._key}">voir</a>
+        </span>
+        <span class="editLink" data-dojo-attach-point="editLinkNode"></span>
+    </div>
     <div class="clearfix"></div>
     <div>
         <span data-dojo-type="ecahier.UserLink" data-dojo-props="user: this.entry.createdBy"></span>

@@ -9,7 +9,7 @@ class RenderEntryProperties extends RenderPropertiesImpl {
 
     @Override
     List<String> getPropertyNames() {
-        ["participants", "text"]
+        ["createdBy", "participants", "text"]
     }
 
 }
