@@ -50,6 +50,7 @@ dojo.declare("ecahier.ParticipantsField", [ dijit._Widget, dijit._Templated ], {
             // escape
             this._closeCompletion();
         } else {
+            var popCompletion = false;
             if (this._isNavKey(evt) && !this._isCompletionOpen()) {
                 return;
             }
