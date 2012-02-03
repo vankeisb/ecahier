@@ -29,6 +29,19 @@ dojo.declare("ecahier.ParticipantsField", [ dijit._Widget, dijit._Templated ], {
         this.participantsNode.setValue(s);
 
         dojo.connect(this.participantsNode, "onKeyUp", this, "_onKeyUp");
+        dojo.connect(this.participantsNode, "onKeyDown", this, "_disableNavKeys");
+    },
+
+    _isNavKey: function(evt) {
+        return evt.keyCode>=37 && evt.keyCode<=40;
+    },
+
+    _disableNavKeys: function(evt) {
+        if (this._isNavKey(evt) && this._isCompletionOpen()) {
+            evt.preventDefault();
+            return true;
+        }
+        return false;
     },
 
     _onKeyUp: function(evt) {
@@ -37,6 +50,9 @@ dojo.declare("ecahier.ParticipantsField", [ dijit._Widget, dijit._Templated ], {
             // escape
             this._closeCompletion();
         } else {
+            if (this._isNavKey(evt) && !this._isCompletionOpen()) {
+                return;
+            }
             var capturedCount = this._counter;
             setTimeout(dojo.hitch(this, function() {
                 var newCount = this._counter;
@@ -54,34 +70,38 @@ dojo.declare("ecahier.ParticipantsField", [ dijit._Widget, dijit._Templated ], {
                         this._fireCompletion(s, capturedCount);
                     }
                 }
-            }), 500);
+            }), 200);
         }
     },
 
     _fireCompletion: function(prefix, capturedCount) {
-        // find last comma & trim
-        var lastCommaIndex = prefix.lastIndexOf(",");
-        if (lastCommaIndex!=-1) {
-            prefix = prefix.substring(lastCommaIndex+1, prefix.length);
+        if (this._lastPrefix != prefix) {
+
+            // find last comma & trim
+            var lastCommaIndex = prefix.lastIndexOf(",");
+            if (lastCommaIndex!=-1) {
+                prefix = prefix.substring(lastCommaIndex+1, prefix.length);
+            }
+            prefix = dojo.trim(prefix);
+            // we have the prefix for searching, let's go
+
+            // set position
+            var fieldPos = dojo.position(this.domNode);
+            dojo.style(this.completionBoxNode, {
+                top: fieldPos.y + fieldPos.h,
+                left: fieldPos.x
+            });
+
+            // show if needed
+            dojo.removeClass(this.completionBoxNode, "completionHidden");
+
+            // load message
+            this.completionBoxNode.innerHTML = "Chargement...";
+
+            // populate with rows
+            this._populateCompletion(prefix, capturedCount);
+
         }
-        prefix = dojo.trim(prefix);
-        // we have the prefix for searching, let's go
-
-        // set position
-        var fieldPos = dojo.position(this.domNode);
-        dojo.style(this.completionBoxNode, {
-            top: fieldPos.y + fieldPos.h,
-            left: fieldPos.x
-        });
-
-        // show if needed
-        dojo.removeClass(this.completionBoxNode, "completionHidden");
-
-        // load message
-        this.completionBoxNode.innerHTML = "Chargement...";
-
-        // populate with rows
-        this._populateCompletion(prefix, capturedCount);
     },
 
     _isCompletionOpen: function() {
@@ -105,6 +125,7 @@ dojo.declare("ecahier.ParticipantsField", [ dijit._Widget, dijit._Templated ], {
             },
             load: dojo.hitch(this, function(results) {
                 if (this._counter===capturedCount) {
+                    this._lastPrefix = prefix;
                     dojo.empty(this.completionBoxNode);
                     var items = results.items;
                     var hasRows = false;
