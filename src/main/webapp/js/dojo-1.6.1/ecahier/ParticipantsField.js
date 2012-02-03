@@ -4,6 +4,7 @@ dojo.require("dojo.cache");
 dojo.require("dijit._Widget");
 dojo.require("dijit._Templated");
 dojo.require("dijit.form.Textarea");
+dojo.require("ecahier.CompletionRowWidget");
 
 dojo.declare("ecahier.ParticipantsField", [ dijit._Widget, dijit._Templated ], {
     templateString: dojo.cache("ecahier", "ParticipantsField.html"),
@@ -77,10 +78,37 @@ dojo.declare("ecahier.ParticipantsField", [ dijit._Widget, dijit._Templated ], {
 
     _populateCompletion: function(prefix, capturedCount) {
         // TODO simulated xhr & results
+        var results = {
+            limit: 10,
+            start: 0,
+            totalSize: 3,
+            items: [
+                {
+                    _title: "sofiane",
+                    _key: 4
+                },
+                {
+                    _title: "kakou",
+                    _key: 2
+                },
+                {
+                    _title: "david",
+                    _key: 3
+                }
+            ]
+        };
         setTimeout(dojo.hitch(this, function() {
-            console.log(this._counter+"==="+capturedCount);
             if (this._counter===capturedCount) {
-                this.completionBoxNode.innerHTML = "yeeehaaaa "+ prefix;
+                dojo.empty(this.completionBoxNode);
+                var items = results.items;
+                dojo.forEach(items, dojo.hitch(this, function(item) {
+                    var itemWidget = new ecahier.CompletionRowWidget({
+                        owner: this,
+                        item: item
+                    });
+                    itemWidget.startup();
+                    this.completionBoxNode.appendChild(itemWidget.domNode);
+                }));
             }
         }), 1000);
     },
