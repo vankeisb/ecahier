@@ -30,6 +30,9 @@ dojo.declare("ecahier.ParticipantsField", [ dijit._Widget, dijit._Templated ], {
 
         dojo.connect(this.participantsNode, "onKeyUp", this, "_onKeyUp");
         dojo.connect(this.participantsNode, "onKeyDown", this, "_disableNavKeys");
+        dojo.connect(this.participantsNode, "onBlur", this, function() {
+            this._closeCompletion(true);
+        });
     },
 
     _isNavKey: function(evt) {
@@ -46,6 +49,9 @@ dojo.declare("ecahier.ParticipantsField", [ dijit._Widget, dijit._Templated ], {
 
     _onKeyUp: function(evt) {
         this._counter++;
+
+//        console.log(evt);
+
         if (evt.keyCode===27) {
             // escape
             this._closeCompletion();
@@ -152,11 +158,13 @@ dojo.declare("ecahier.ParticipantsField", [ dijit._Widget, dijit._Templated ], {
         });
     },
 
-    _closeCompletion: function() {
+    _closeCompletion: function(byPassFocus) {
         if (this._isCompletionOpen()) {
             dojo.addClass(this.completionBoxNode, "completionHidden");
         }
-        dijit.focus(this.domNode);
+        if (!byPassFocus) {
+            dijit.focus(this.domNode);
+        }
     }
 
 });
