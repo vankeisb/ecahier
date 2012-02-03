@@ -25,12 +25,10 @@ h1 {
 
 .entryListItem .date {
     float: right;
-    font-size: 0.8em;
 }
 
 .entryListItem .commands {
     float: right;
-    font-size: 0.8em;
 }
 
 .withoutPeople {

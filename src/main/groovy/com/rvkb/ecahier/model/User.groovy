@@ -2,6 +2,8 @@ package com.rvkb.ecahier.model
 
 import javax.persistence.Entity
 import woko.ext.usermanagement.hibernate.HbUser
+import javax.persistence.Lob
+import javax.persistence.FetchType
 
 @Entity
 class User extends HbUser {
@@ -19,6 +21,9 @@ class User extends HbUser {
             isDevel = true
         }
     }
+
+    @Lob
+    byte[] avatar
 
 
 }

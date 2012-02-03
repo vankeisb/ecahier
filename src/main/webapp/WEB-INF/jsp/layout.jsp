@@ -49,7 +49,8 @@
                             <span class="authInfo">
                                 <c:choose>
                                     <c:when test="${username != null}">
-                                        <fmt:message key="woko.layout.loggedAs"/> <strong>${username}</strong> -
+                                        <fmt:message key="woko.layout.loggedAs"/>
+                                        <img src="${cp}/avatar/User/${layout.currentUserId}" alt="avatar"/><strong>${username}</strong> -
                                         <a href="${cp}/logout"><fmt:message key="woko.layout.logout"/> </a>
                                     </c:when>
                                     <c:otherwise>

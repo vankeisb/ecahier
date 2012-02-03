@@ -17,4 +17,10 @@ class EcahierLayout extends LayoutAll {
         return id!=null ? id : 0
     }
 
+    @Override
+    List<String> getCssIncludes() {
+        return []
+    }
+
+
 }
