@@ -54,7 +54,7 @@ dojo.declare("ecahier.ParticipantsField", [ dijit._Widget, dijit._Templated ], {
                         this._fireCompletion(s, capturedCount);
                     }
                 }
-            }), 1000);
+            }), 500);
         }
     },
 
@@ -90,51 +90,45 @@ dojo.declare("ecahier.ParticipantsField", [ dijit._Widget, dijit._Templated ], {
     },
 
     _populateCompletion: function(prefix, capturedCount) {
+        prefix = prefix || "";
         var sanitizedPrefix = prefix.toLowerCase();
-        // TODO simulated xhr & results
-        var results = {
-            limit: 10,
-            start: 0,
-            totalSize: 3,
-            items: [
-                {
-                    _title: "sofiane",
-                    _key: 4
-                },
-                {
-                    _title: "kakou",
-                    _key: 2
-                },
-                {
-                    _title: "david",
-                    _key: 3
-                }
-            ]
-        };
-        setTimeout(dojo.hitch(this, function() {
-            if (this._counter===capturedCount) {
-                dojo.empty(this.completionBoxNode);
-                var items = results.items;
-                var hasRows = false;
-                dojo.forEach(items, dojo.hitch(this, function(item) {
-                    // check if the item matches completion criterias
-                    var title = item._title;
-                    console.log(sanitizedPrefix);
-                    if (sanitizedPrefix==="" || title.toLowerCase().indexOf(sanitizedPrefix)!=-1) {
-                        hasRows = true;
-                        var itemWidget = new ecahier.CompletionRowWidget({
-                            owner: this,
-                            item: item
-                        });
-                        itemWidget.startup();
-                        this.completionBoxNode.appendChild(itemWidget.domNode);
+        var cli = new woko.rpc.Client({ baseUrl: this.baseUrl });
+        cli.invokeFacet({
+            facetName: "usercompletion",
+            handleAs: "json",
+            content: {
+                "facet.criteria": sanitizedPrefix
+            },
+            error: function() {
+                // TODO
+                alert("an error occured");
+            },
+            load: dojo.hitch(this, function(results) {
+                if (this._counter===capturedCount) {
+                    dojo.empty(this.completionBoxNode);
+                    var items = results.items;
+                    var hasRows = false;
+                    console.log(results);
+                    dojo.forEach(items, dojo.hitch(this, function(item) {
+                        // check if the item matches completion criterias
+                        var title = item._title;
+                        console.log(sanitizedPrefix);
+                        if (sanitizedPrefix==="" || title.toLowerCase().indexOf(sanitizedPrefix)!=-1) {
+                            hasRows = true;
+                            var itemWidget = new ecahier.CompletionRowWidget({
+                                owner: this,
+                                item: item
+                            });
+                            itemWidget.startup();
+                            this.completionBoxNode.appendChild(itemWidget.domNode);
+                        }
+                    }));
+                    if (!hasRows) {
+                        this.completionBoxNode.innerHTML = "Pas de r&eacute;sultats";
                     }
-                }));
-                if (!hasRows) {
-                    this.completionBoxNode.innerHTML = "Pas de r&eacute;sultats";
                 }
-            }
-        }), 1000);
+            })
+        });
     },
 
     _closeCompletion: function() {
