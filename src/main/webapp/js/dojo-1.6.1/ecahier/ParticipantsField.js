@@ -12,6 +12,7 @@ dojo.declare("ecahier.ParticipantsField", [ dijit._Widget, dijit._Templated ], {
 
     baseUrl: '',
     users: [],
+    inputFieldName: 'participants',
 
     _counter: 0,
     _rowWidgets: [],
@@ -29,6 +30,7 @@ dojo.declare("ecahier.ParticipantsField", [ dijit._Widget, dijit._Templated ], {
             }
         }
         this.participantsNode.setValue(s);
+        this.participantsNode.domNode.setAttribute("name", this.inputFieldName);
 
         dojo.connect(this.participantsNode, "onKeyUp", this, "_onKeyUp");
         dojo.connect(this.participantsNode, "onKeyDown", this, "_disableNavKeys");
