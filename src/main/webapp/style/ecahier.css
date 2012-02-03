@@ -48,3 +48,7 @@ h1 {
 .completionHidden {
     display: none;
 }
+
+.completionBox .hl {
+    font-weight: bold;
+}

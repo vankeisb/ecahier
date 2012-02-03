@@ -108,16 +108,15 @@ dojo.declare("ecahier.ParticipantsField", [ dijit._Widget, dijit._Templated ], {
                     dojo.empty(this.completionBoxNode);
                     var items = results.items;
                     var hasRows = false;
-                    console.log(results);
                     dojo.forEach(items, dojo.hitch(this, function(item) {
                         // check if the item matches completion criterias
                         var title = item._title;
-                        console.log(sanitizedPrefix);
                         if (sanitizedPrefix==="" || title.toLowerCase().indexOf(sanitizedPrefix)!=-1) {
                             hasRows = true;
                             var itemWidget = new ecahier.CompletionRowWidget({
                                 owner: this,
-                                item: item
+                                item: item,
+                                prefix: sanitizedPrefix
                             });
                             itemWidget.startup();
                             this.completionBoxNode.appendChild(itemWidget.domNode);
