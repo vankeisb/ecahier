@@ -42,14 +42,13 @@
             <div id="wrap">
                 <div id="header-space">
                     <div id="logo">
-                        eCahier
+                        <span id="logoStart">e</span>Cahier
                     </div>
-                    <div id="tagline">
+                    <div id="userInfo">
                         <c:if test="${skipLoginLink==null}">
-                            <span class="authInfo">
+                            <span id="authInfo">
                                 <c:choose>
                                     <c:when test="${username != null}">
-                                        <fmt:message key="woko.layout.loggedAs"/>
                                         <img src="${cp}/avatar/User/${layout.currentUserId}" alt="avatar"/><strong>${username}</strong> -
                                         <a href="${cp}/logout"><fmt:message key="woko.layout.logout"/> </a>
                                     </c:when>
@@ -61,12 +60,14 @@
                             </span>
                         </c:if>
                     </div>
+                    <%--
                     <div id="wokoSearchBox">
                         <s:form action="/search">
                             <s:text name="facet.query"/>
                             <s:submit name="search"/>
                         </s:form>
                     </div>
+                    --%>
                 </div>
                 <div id="navbar">
                     <div id="nbar">
