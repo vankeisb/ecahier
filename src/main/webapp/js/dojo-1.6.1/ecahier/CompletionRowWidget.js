@@ -59,6 +59,13 @@ dojo.declare("ecahier.CompletionRowWidget", [ dijit._Widget, dijit._Templated ],
     buildRendering: function() {
         this.highlightedTitle = this._highlight(this.item._title, this.prefix);
         this.inherited('buildRendering', arguments);
+
+        dojo.connect(this, 'onClick', dojo.hitch(this, function() {
+            this.onItemClicked(this);
+        }));
+    },
+
+    onItemClicked: function(item) {
     },
 
     setSelected: function(selected) {

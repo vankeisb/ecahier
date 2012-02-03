@@ -32,13 +32,11 @@ dojo.declare("ecahier.ParticipantsField", [ dijit._Widget, dijit._Templated ], {
 
         dojo.connect(this.participantsNode, "onKeyUp", this, "_onKeyUp");
         dojo.connect(this.participantsNode, "onKeyDown", this, "_disableNavKeys");
-        dojo.connect(this.participantsNode, "onBlur", this, function() {
-            this._closeCompletion(true);
-        });
     },
 
     _isNavKey: function(evt) {
-        return evt.keyCode>=37 && evt.keyCode<=40;
+        var c = evt.keyCode;
+        return (c>=37 && c<=40) || c===13;
     },
 
     _disableNavKeys: function(evt) {
@@ -79,6 +77,31 @@ dojo.declare("ecahier.ParticipantsField", [ dijit._Widget, dijit._Templated ], {
         this._selectedRowWidget.setSelected(true);
     },
 
+    onItemSelected: function(rowWidget) {
+        var itemText = rowWidget.item._title;
+        // obtain selections
+        var pn = this.participantsNode;
+        var value = pn.getValue();
+        var caretPos = pn.domNode.selectionStart;
+        var start = value.substring(0, caretPos);
+        var end = value.substring(caretPos, value.length);
+        console.log(start);
+        console.log(end);
+        var i = start.lastIndexOf(",");
+        if (i>=0) {
+            if (i<start.length-1) {
+                start = start.substring(0, i+1);
+                start += ' ';
+            }
+        } else {
+            start = '';
+        }
+        var all = start + itemText + end;
+        pn.setValue(all);
+
+        this._closeCompletion();
+    },
+
     _onKeyUp: function(evt) {
         this._counter++;
 
@@ -87,6 +110,12 @@ dojo.declare("ecahier.ParticipantsField", [ dijit._Widget, dijit._Templated ], {
         if (evt.keyCode===27) {
             // escape
             this._closeCompletion();
+        } else if (evt.keyCode===13) {
+            // enter
+            if (this._isCompletionOpen()) {
+                // choice selected, fire
+                this.onItemSelected(this._selectedRowWidget);
+            }
         } else {
             if (this._isNavKey(evt)) {
                 if (this._isCompletionOpen()) {
@@ -195,6 +224,12 @@ dojo.declare("ecahier.ParticipantsField", [ dijit._Widget, dijit._Templated ], {
                                 this._selectedRowWidget = itemWidget;
                                 isFirstRow = false;
                             }
+                            dojo.connect(itemWidget, 'onItemClicked', dojo.hitch(this, function(item) {
+                                // item clicked : select it and close completion
+                                this._selectedRowWidget.setSelected(false);
+                                this._selectedRowWidget = item;
+                                this.onItemSelected(item);
+                            }));
                         }
                     }));
                     if (!hasRows) {
