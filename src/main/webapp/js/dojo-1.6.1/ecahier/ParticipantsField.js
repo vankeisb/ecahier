@@ -44,7 +44,7 @@ dojo.declare("ecahier.ParticipantsField", [ dijit._Widget, dijit._Templated ], {
                     var value = this.participantsNode.getValue() || "";
                     // retrieve caret offset TODO check browser compat ! looks magical...
                     var caretPos = this.participantsNode.domNode.selectionStart;
-                    if (caretPos > 0) {
+                    if (caretPos >= 0) {
                         // react only when we know where the caret is
                         var s = value;
                         if (caretPos < value.length) {
@@ -66,17 +66,31 @@ dojo.declare("ecahier.ParticipantsField", [ dijit._Widget, dijit._Templated ], {
         }
         prefix = dojo.trim(prefix);
         // we have the prefix for searching, let's go
+
+        // set position
         var fieldPos = dojo.position(this.domNode);
         dojo.style(this.completionBoxNode, {
             top: fieldPos.y + fieldPos.h,
             left: fieldPos.x
         });
+
+        // show if needed
         dojo.removeClass(this.completionBoxNode, "completionHidden");
+
+        // load message
         this.completionBoxNode.innerHTML = "Chargement...";
+
+        // populate with rows
         this._populateCompletion(prefix, capturedCount);
     },
 
+    _isCompletionOpen: function() {
+        return this.completionBoxNode &&
+          !dojo.hasClass(this.completionBoxNode, "completionHidden");
+    },
+
     _populateCompletion: function(prefix, capturedCount) {
+        var sanitizedPrefix = prefix.toLowerCase();
         // TODO simulated xhr & results
         var results = {
             limit: 10,
@@ -101,20 +115,32 @@ dojo.declare("ecahier.ParticipantsField", [ dijit._Widget, dijit._Templated ], {
             if (this._counter===capturedCount) {
                 dojo.empty(this.completionBoxNode);
                 var items = results.items;
+                var hasRows = false;
                 dojo.forEach(items, dojo.hitch(this, function(item) {
-                    var itemWidget = new ecahier.CompletionRowWidget({
-                        owner: this,
-                        item: item
-                    });
-                    itemWidget.startup();
-                    this.completionBoxNode.appendChild(itemWidget.domNode);
+                    // check if the item matches completion criterias
+                    var title = item._title;
+                    console.log(sanitizedPrefix);
+                    if (sanitizedPrefix==="" || title.toLowerCase().indexOf(sanitizedPrefix)!=-1) {
+                        hasRows = true;
+                        var itemWidget = new ecahier.CompletionRowWidget({
+                            owner: this,
+                            item: item
+                        });
+                        itemWidget.startup();
+                        this.completionBoxNode.appendChild(itemWidget.domNode);
+                    }
                 }));
+                if (!hasRows) {
+                    this.completionBoxNode.innerHTML = "Pas de r&eacute;sultats";
+                }
             }
         }), 1000);
     },
 
     _closeCompletion: function() {
-        dojo.addClass(this.completionBoxNode, "completionHidden");
+        if (this._isCompletionOpen()) {
+            dojo.addClass(this.completionBoxNode, "completionHidden");
+        }
         dijit.focus(this.domNode);
     }
 
