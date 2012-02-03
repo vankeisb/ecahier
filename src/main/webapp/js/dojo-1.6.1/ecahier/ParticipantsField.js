@@ -14,6 +14,8 @@ dojo.declare("ecahier.ParticipantsField", [ dijit._Widget, dijit._Templated ], {
     users: [],
 
     _counter: 0,
+    _rowWidgets: [],
+    _selectedRowWidget: null,
 
     buildRendering: function() {
         this.inherited('buildRendering', arguments);
@@ -47,17 +49,54 @@ dojo.declare("ecahier.ParticipantsField", [ dijit._Widget, dijit._Templated ], {
         return false;
     },
 
+    _moveSelectionUp: function() {
+        var selectionIndex = 0;
+        if (this._selectedRowWidget) {
+            selectionIndex = this._rowWidgets.indexOf(this._selectedRowWidget);
+            this._selectedRowWidget.setSelected(false);
+        }
+        if (selectionIndex>0) {
+            selectionIndex--;
+        } else {
+            selectionIndex = this._rowWidgets.length - 1;
+        }
+        this._selectedRowWidget = this._rowWidgets[selectionIndex];
+        this._selectedRowWidget.setSelected(true);
+    },
+
+    _moveSelectionDown: function() {
+        var selectionIndex = 0;
+        if (this._selectedRowWidget) {
+            selectionIndex = this._rowWidgets.indexOf(this._selectedRowWidget);
+            this._selectedRowWidget.setSelected(false);
+        }
+        if (selectionIndex<this._rowWidgets.length-1) {
+            selectionIndex++;
+        } else {
+            selectionIndex = 0;
+        }
+        this._selectedRowWidget = this._rowWidgets[selectionIndex];
+        this._selectedRowWidget.setSelected(true);
+    },
+
     _onKeyUp: function(evt) {
         this._counter++;
 
-//        console.log(evt);
+        console.log(evt);
 
         if (evt.keyCode===27) {
             // escape
             this._closeCompletion();
         } else {
-            var popCompletion = false;
-            if (this._isNavKey(evt) && !this._isCompletionOpen()) {
+            if (this._isNavKey(evt)) {
+                if (this._isCompletionOpen()) {
+                    // move selection in the completion list
+                    if (evt.keyCode===40) {
+                        this._moveSelectionDown();
+                    } else if (evt.keyCode===38) {
+                        this._moveSelectionUp();
+                    }
+                }
                 return;
             }
             var capturedCount = this._counter;
@@ -136,6 +175,8 @@ dojo.declare("ecahier.ParticipantsField", [ dijit._Widget, dijit._Templated ], {
                     dojo.empty(this.completionBoxNode);
                     var items = results.items;
                     var hasRows = false;
+                    var isFirstRow = true;
+                    this._rowWidgets = []; // TODO dispose previous widgets
                     dojo.forEach(items, dojo.hitch(this, function(item) {
                         // check if the item matches completion criterias
                         var title = item._title;
@@ -146,8 +187,14 @@ dojo.declare("ecahier.ParticipantsField", [ dijit._Widget, dijit._Templated ], {
                                 item: item,
                                 prefix: sanitizedPrefix
                             });
+                            this._rowWidgets.push(itemWidget);
                             itemWidget.startup();
                             this.completionBoxNode.appendChild(itemWidget.domNode);
+                            if (isFirstRow) {
+                                itemWidget.setSelected(true);
+                                this._selectedRowWidget = itemWidget;
+                                isFirstRow = false;
+                            }
                         }
                     }));
                     if (!hasRows) {

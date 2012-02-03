@@ -52,3 +52,13 @@ h1 {
 .completionBox .hl {
     font-weight: bold;
 }
+
+.completionRow:hover {
+    cursor: pointer;
+    background-color: #e0ffff;
+}
+
+.completionRow.completionRowSelected {
+    cursor: pointer;
+    background-color: #add8e6;
+}

@@ -12,6 +12,8 @@ dojo.declare("ecahier.CompletionRowWidget", [ dijit._Widget, dijit._Templated ],
     prefix: '',
     highlightedTitle: '',
 
+    CSS_CLASS_SELECTED: 'completionRowSelected',
+
     _highlight: function(bodyText, searchTerm, highlightStartTag, highlightEndTag) {
         if (!bodyText) {
             return "";
@@ -57,6 +59,14 @@ dojo.declare("ecahier.CompletionRowWidget", [ dijit._Widget, dijit._Templated ],
     buildRendering: function() {
         this.highlightedTitle = this._highlight(this.item._title, this.prefix);
         this.inherited('buildRendering', arguments);
+    },
+
+    setSelected: function(selected) {
+        if (selected) {
+            dojo.addClass(this.domNode, this.CSS_CLASS_SELECTED);
+        } else {
+            dojo.removeClass(this.domNode, this.CSS_CLASS_SELECTED);
+        }
     }
 
 });
