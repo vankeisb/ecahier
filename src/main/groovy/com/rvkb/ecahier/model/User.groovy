@@ -9,4 +9,16 @@ class User extends HbUser {
     String firstName
     String lastName
 
+    // hack for completion : we don't want to join for roles all the time
+    boolean devel = false
+
+    @Override
+    void setRoles(List<String> roles) {
+        super.setRoles(roles)
+        if (getRoles().contains("developer")) {
+            isDevel = true
+        }
+    }
+
+
 }

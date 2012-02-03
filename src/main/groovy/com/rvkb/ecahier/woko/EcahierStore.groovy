@@ -18,7 +18,7 @@ class EcahierStore extends HibernateCompassStore {
     }
 
     ResultIterator<User> getCompletionUsers(String criteria, Integer start, Integer limit) {
-        Criteria crit = session.createCriteria(User.class);
+        Criteria crit = session.createCriteria(User.class).add( Restrictions.eq("devel", false) )
         if (criteria) {
             crit.add(
                 Restrictions.ilike("username", criteria, MatchMode.ANYWHERE)
