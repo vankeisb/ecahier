@@ -168,3 +168,20 @@ h1 {
     cursor: pointer;
     background-color: #add8e6;
 }
+
+#moreEntries:hover {
+    text-decoration: underline;
+    color: #6666ff;
+    background-color: #a5a5ff;
+    cursor: pointer;
+}
+
+#moreEntries {
+    background-color: #dadafe;
+    font-weight: bold;
+    color: #a1a1ff;
+    max-width: 600px;
+    text-align: center;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}

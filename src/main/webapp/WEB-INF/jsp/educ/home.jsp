@@ -17,39 +17,62 @@
             dojo.require("ecahier.EntryListItem");
 
             dojo.addOnLoad(function() {
-
-
+                var cuid = ${currentUserId};
+                var cntr = dojo.byId("entries");
+                var page = 0;
+                var pageSize = 10;
                 var cli = new woko.rpc.Client({baseUrl:"${pageContext.request.contextPath}"});
-                <%-- populate the entries list --%>
-                cli.find({
-                    className: "Entry",
 
-                    load: function(resp) {
-                        var cntr = dojo.byId("entries");
-                        dojo.empty(cntr);
-                        var items = resp.items;
-                        dojo.forEach(items, function(item) {
-                            var editable = ${currentUserId} == item.createdBy._key;
-                            var eli = new ecahier.EntryListItem({
-                                baseUrl: "${pageContext.request.contextPath}",
-                                entry: item,
-                                editLink: editable
-                            });
-                            eli.startup();
-                            cntr.appendChild(eli.domNode);
+                var populateEntries = function(entries) {
+                    dojo.forEach(entries, function(entry) {
+                        var editable = cuid == entry.createdBy._key;
+                        var eli = new ecahier.EntryListItem({
+                            baseUrl: "${pageContext.request.contextPath}",
+                            entry: entry,
+                            editLink: editable
                         });
-                    },
+                        eli.startup();
+                        cntr.appendChild(eli.domNode);
+                    });
+                };
 
-                    error: function(resp) {
-                        // TODO
-                        alert('An error occured.');
-                    }
-                });
+                var fetchEntries = function() {
+                    cli.find({
+                        className: "Entry",
+                        content: {
+                            "facet.resultsPerPage": pageSize,
+                            "facet.page": page
+                        },
+                        load: function(resp) {
+                            if (page==0) {
+                                dojo.empty(cntr);
+                            }
+                            populateEntries(resp.items);
+                            page++;
+                        },
+
+                        error: function(resp) {
+                            // TODO
+                            alert('An error occured.');
+                        }
+                    });
+                };
+
+                fetchEntries();
+
+                // handle "more entries" link
+                var moreEntries = dojo.byId('moreEntries');
+                dojo.connect(moreEntries, 'onclick', fetchEntries);
+
             });
         </script>
 
         <div id="entries">
             Chargement des entrées...
+        </div>
+
+        <div id="moreEntries">
+            Suivants...
         </div>
 
     </s:layout-component>

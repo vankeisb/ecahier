@@ -22,5 +22,10 @@ class EcahierLayout extends LayoutAll {
         return []
     }
 
+    @Override
+    String getAppTitle() {
+        'ecahier'
+    }
+
 
 }
