@@ -163,7 +163,7 @@ dojo.declare("ecahier.ParticipantsField", [ dijit._Widget, dijit._Templated ], {
             // we have the prefix for searching, let's go
 
             // set position
-            var fieldPos = dojo.position(this.domNode);
+            var fieldPos = dojo.position(this.domNode, true);
             dojo.style(this.completionBoxNode, {
                 top: fieldPos.y + fieldPos.h,
                 left: fieldPos.x

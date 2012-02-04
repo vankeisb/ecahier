@@ -42,7 +42,7 @@
             <div id="wrap">
                 <div id="header-space">
                     <div id="logo">
-                        <span id="logoStart">e</span>Cahier
+                        <span id="logoStart">e</span>cahier
                     </div>
                     <div id="userInfo">
                         <c:if test="${skipLoginLink==null}">
