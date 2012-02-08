@@ -1,0 +1,75 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.rvkb:ecahier:war:1.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for com.rvkb:woko-maven-plugin is missing. @ line 109, column 19
+[WARNING] 'build.plugins.plugin.version' for org.codehaus.groovy.maven:gmaven-plugin is missing. @ line 72, column 21
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ line 64, column 21
+[WARNING] 'build.plugins.plugin.version' for org.codehaus.cargo:cargo-maven2-plugin is missing. @ line 89, column 21
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building ecahier 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.1:tree (default-cli) @ ecahier ---
+[INFO] com.rvkb:ecahier:war:1.0-SNAPSHOT
+[INFO] +- com.rvkb:woko-ri:jar:2.0-beta1-SNAPSHOT:compile
+[INFO] |  +- com.rvkb:woko-builtin-auth-core:jar:2.0-beta1-SNAPSHOT:compile
+[INFO] |  |  \- com.rvkb:woko-core:jar:2.0-beta1-SNAPSHOT:compile
+[INFO] |  |     +- com.rvkb:stripes-woko-plugins:jar:2.0-beta1-SNAPSHOT:compile
+[INFO] |  |     |  \- net.sourceforge.stripes:stripes:jar:1.5.5:compile
+[INFO] |  |     +- servlets.com:cos:jar:05Nov2002:compile
+[INFO] |  |     +- org.apache.commons:commons-io:jar:1.3.2:compile
+[INFO] |  |     +- net.sourceforge.jfacets:jfacets-core:jar:3.2:compile
+[INFO] |  |     +- org.json:json:jar:20090211:compile
+[INFO] |  |     +- log4j:log4j:jar:1.2.15:compile
+[INFO] |  |     +- javax.servlet:jstl:jar:1.1.2:compile
+[INFO] |  |     +- taglibs:standard:jar:1.1.2:compile
+[INFO] |  |     \- javax.mail:mail:jar:1.4.1:compile
+[INFO] |  |        \- javax.activation:activation:jar:1.1:compile
+[INFO] |  +- com.rvkb:woko-compass-hibernate-core:jar:2.0-beta1-SNAPSHOT:compile
+[INFO] |  |  +- com.rvkb:woko-hibernate:jar:2.0-beta1-SNAPSHOT:compile
+[INFO] |  |  |  +- org.hibernate:hibernate-annotations:jar:3.5.6-Final:compile
+[INFO] |  |  |  |  +- org.hibernate:hibernate-core:jar:3.5.6-Final:compile
+[INFO] |  |  |  |  |  +- commons-collections:commons-collections:jar:3.1:compile
+[INFO] |  |  |  |  |  +- dom4j:dom4j:jar:1.6.1:compile
+[INFO] |  |  |  |  |  |  \- xml-apis:xml-apis:jar:1.0.b2:compile
+[INFO] |  |  |  |  |  \- javax.transaction:jta:jar:1.1:compile
+[INFO] |  |  |  |  +- org.hibernate:hibernate-commons-annotations:jar:3.2.0.Final:compile
+[INFO] |  |  |  |  +- org.hibernate.javax.persistence:hibernate-jpa-2.0-api:jar:1.0.0.Final:compile
+[INFO] |  |  |  |  \- org.slf4j:slf4j-api:jar:1.5.8:compile
+[INFO] |  |  |  +- org.hibernate:hibernate-validator:jar:4.2.0.Final:compile
+[INFO] |  |  |  |  \- javax.validation:validation-api:jar:1.0.0.GA:compile
+[INFO] |  |  |  +- org.slf4j:slf4j-log4j12:jar:1.6.2:compile
+[INFO] |  |  |  +- hsqldb:hsqldb:jar:1.8.0.7:runtime
+[INFO] |  |  |  +- javassist:javassist:jar:3.4.GA:compile
+[INFO] |  |  |  \- org.hibernate:hibernate-cglib-repack:jar:2.1_3:compile
+[INFO] |  |  \- org.compass-project:compass:jar:2.2.0:compile
+[INFO] |  |     +- commons-logging:commons-logging:jar:1.1.1:compile
+[INFO] |  |     \- org.apache.lucene:lucene-core:jar:2.4.1:compile
+[INFO] |  \- com.rvkb:woko-usermanagement-hibernate:jar:2.0-beta1-SNAPSHOT:compile
+[INFO] |     \- com.rvkb:woko-usermanagement-core:jar:2.0-beta1-SNAPSHOT:compile
+[INFO] +- com.rvkb:woko-web:war:2.0-beta1-SNAPSHOT:compile
+[INFO] +- com.rvkb:woko-builtin-auth-web:war:2.0-beta1-SNAPSHOT:compile
+[INFO] +- com.rvkb:woko-usermanagement-web:war:2.0-beta1-SNAPSHOT:compile
+[INFO] +- com.rvkb:woko-compass-hibernate-web:war:2.0-beta1-SNAPSHOT:compile
+[INFO] +- javax.servlet:servlet-api:jar:2.3:provided
+[INFO] +- org.codehaus.groovy:groovy:jar:1.7.4:compile
+[INFO] |  +- antlr:antlr:jar:2.7.7:compile
+[INFO] |  +- asm:asm:jar:3.2:compile
+[INFO] |  +- asm:asm-commons:jar:3.2:compile
+[INFO] |  +- asm:asm-util:jar:3.2:compile
+[INFO] |  +- asm:asm-analysis:jar:3.2:compile
+[INFO] |  \- asm:asm-tree:jar:3.2:compile
+[INFO] \- com.rvkb:woko-dojo:war:1.6.1:compile
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 4.782s
+[INFO] Finished at: Wed Feb 08 01:23:20 CET 2012
+[INFO] Final Memory: 7M/81M
+[INFO] ------------------------------------------------------------------------

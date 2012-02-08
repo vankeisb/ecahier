@@ -127,16 +127,21 @@ h1 {
     border-top: 1px solid #d3d3d3;
 }
 
-.entryListItem .user {
-    float: left;
-}
-
 .entryListItem .date {
-    float: right;
+    float: left;
 }
 
 .entryListItem .commands {
     float: right;
+}
+
+.entryListItem .user {
+    vertical-align: middle;
+    float: left;
+}
+
+.user img {
+    vertical-align: middle;
 }
 
 .withoutPeople {
@@ -185,3 +190,5 @@ h1 {
     padding-top: 4px;
     padding-bottom: 4px;
 }
+
+

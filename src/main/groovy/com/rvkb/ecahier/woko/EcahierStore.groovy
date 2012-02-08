@@ -60,7 +60,7 @@ class EcahierStore extends HibernateCompassStore {
         def l = limit && limit>0 && start+limit < totalSize ? limit : totalSize
         def subList = results.subList(s,l)
 
-        return new ListResultIterator<User>(results, s, l, totalSize)
+        return new ListResultIterator<User>(subList, s, l, totalSize)
     }
 
 }

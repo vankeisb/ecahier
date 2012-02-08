@@ -1,20 +1,22 @@
 <div class="entryListItem">
-    <div class="commands">
-        <span class="viewLink">
-            <a href="${baseUrl}/view/Entry/${entry._key}">voir</a>
-        </span>
-        <span class="editLink" data-dojo-attach-point="editLinkNode"></span>
+    <div class="head">
+        <span class="date">${entry._creationDateFormatted}</span>
+        <div class="commands">
+            <span class="viewLink">
+                <a href="${baseUrl}/view/Entry/${entry._key}">voir</a>
+            </span>
+            <span class="editLink" data-dojo-attach-point="editLinkNode"></span>
+        </div>
     </div>
     <div class="clearfix"></div>
-    <div>
-        <img src="${baseUrl}/avatar/User/${entry.createdBy._key}" alt="avatar"/>
-        <span data-dojo-type="ecahier.UserLink" data-dojo-props="user: this.entry.createdBy"></span>
-        <span class="date">${entry.creationDate}</span>
+    <div class="user">
+        <span data-dojo-type="ecahier.UserLink" data-dojo-props="user: this.entry.createdBy, baseUrl: this.baseUrl"></span>
     </div>
     <div class="clearfix"></div>
     <div>
         <div class="text">${entry.text}</div>
-        <div class="participants">Avec :
+        <div class="with">Avec</div>
+        <div class="participants user">
             <span data-dojo-attach-point="participantsNode"></span>
         </div>
     </div>

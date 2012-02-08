@@ -33,6 +33,9 @@
                         });
                         eli.startup();
                         cntr.appendChild(eli.domNode);
+                        var clf = document.createElement("div");
+                        dojo.addClass(clf, "clearfix");
+                        cntr.appendChild(clf);
                     });
                 };
 
