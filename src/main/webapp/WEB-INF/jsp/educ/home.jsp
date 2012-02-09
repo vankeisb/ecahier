@@ -19,7 +19,7 @@
             dojo.addOnLoad(function() {
                 var cuid = ${currentUserId};
                 var cntr = dojo.byId("entries");
-                var page = 0;
+                var page = 1;
                 var pageSize = 10;
                 var cli = new woko.rpc.Client({baseUrl:"${pageContext.request.contextPath}"});
 
@@ -47,7 +47,7 @@
                             "facet.page": page
                         },
                         load: function(resp) {
-                            if (page==0) {
+                            if (page==1) {
                                 dojo.empty(cntr);
                             }
                             populateEntries(resp.items);

@@ -15,9 +15,6 @@
 
 #header-space {
 	height: 70px;
-    background-image: url("blue-sky-banner.jpg");
-    background-position: right;
-    background-repeat: no-repeat;
     background-color: #1961AA;
 }
 
@@ -36,7 +33,7 @@
 #authInfo {
     position: absolute;
     right: 10px;
-    top: 75px;
+    top: 15px;
 }
 
 #authInfo img {
@@ -46,18 +43,15 @@
 /* Navigation Bar */
 
 #navbar {
-	height: 50px;
 	background: none;
 }
 
 #nbar {
     background-color: #f1f0f0;
 	margin: 0;
-    height: 50px;
 }
 
 #nbar ul {
-    height: 50px;
 	list-style : none;
 	padding: 0;
     margin: 0;
@@ -65,8 +59,8 @@
 }
 
 #nbar ul li {
+    height: 30px;
 	display: table-cell;
-    height: 50px;
     border-right:  1px dotted #b4b3b3;
     vertical-align: middle;
     padding-right: 6px;
@@ -110,38 +104,47 @@ h1 {
     font-size: 30px;
 }
 
-#entries {
-    border-left: 1px solid #d3d3d3;
-}
-
 .clearfix {
     clear: both;
 }
 
 .entryListItem {
     max-width: 600px;
-    padding-left: 4px;
-    padding-right: 4px;
-    padding-top: 4px;
-    padding-bottom: 6px;
-    border-top: 1px solid #d3d3d3;
+    border: 1px solid #d3d3d3;
+    margin-bottom: 4px;
 }
 
-.entryListItem .date {
-    float: left;
+.entryListItem table.head {
+    width: 100%;
+    background-color: #d3d3d3;
+    padding: 4px;
 }
 
 .entryListItem .commands {
-    float: right;
-}
-
-.entryListItem .user {
-    vertical-align: middle;
-    float: left;
+    text-align: right;
 }
 
 .user img {
     vertical-align: middle;
+}
+
+.entryListItem table.people {
+    width: 100%;
+    padding: 2px 4px 2px 4px;
+
+    background-color: #f3f3f3;
+}
+
+.entryListItem table.people .createdBy {
+    text-align: left;
+}
+
+.entryListItem table.people .participants {
+    text-align: right;
+}
+
+.entryListItem .text {
+    margin: 4px;
 }
 
 .withoutPeople {
@@ -150,10 +153,10 @@ h1 {
 
 .completionBox {
     width: 200px;
-    height: 300px;
+    height: 250px;
     position: absolute;
     background: #ffffff;
-    border: 4px solid red;
+    border: 1px solid #769DC0;
 }
 
 .completionHidden {
@@ -162,6 +165,10 @@ h1 {
 
 .completionBox .hl {
     font-weight: bold;
+}
+
+.completionRow {
+    padding: 2px;
 }
 
 .completionRow:hover {
@@ -182,10 +189,11 @@ h1 {
 }
 
 #moreEntries {
+    margin: 20px;
     background-color: #dadafe;
     font-weight: bold;
     color: #a1a1ff;
-    max-width: 600px;
+    max-width: 560px;
     text-align: center;
     padding-top: 4px;
     padding-bottom: 4px;

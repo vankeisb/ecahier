@@ -23,8 +23,8 @@ dojo.declare("ecahier.CompletionRowWidget", [ dijit._Widget, dijit._Templated ],
         }
         // the highlightStartTag and highlightEndTag parameters are optional
         if ((!highlightStartTag) || (!highlightEndTag)) {
-            highlightStartTag = "<font style='color:blue; background-color:yellow;'>";
-            highlightEndTag = "</font>";
+            highlightStartTag = "<b>";
+            highlightEndTag = "</b>";
         }
         // find all occurences of the search term in the given text,
         // and add some "highlight" tags to them (we're not using a

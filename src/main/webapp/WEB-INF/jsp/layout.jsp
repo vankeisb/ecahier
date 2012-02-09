@@ -44,22 +44,20 @@
                     <div id="logo">
                         <span id="logoStart">e</span>cahier
                     </div>
-                    <div id="userInfo">
-                        <c:if test="${skipLoginLink==null}">
-                            <span id="authInfo">
-                                <c:choose>
-                                    <c:when test="${username != null}">
-                                        <img src="${cp}/avatar/User/${layout.currentUserId}" alt="avatar"/><strong>${username}</strong> -
-                                        <a href="${cp}/logout"><fmt:message key="woko.layout.logout"/> </a>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <fmt:message key="woko.layout.notLogged"/>
-                                        <a href="${cp}/login"><fmt:message key="woko.layout.login"/> </a>
-                                    </c:otherwise>
-                                </c:choose>
-                            </span>
-                        </c:if>
-                    </div>
+                    <c:if test="${skipLoginLink==null}">
+                        <span id="authInfo">
+                            <c:choose>
+                                <c:when test="${username != null}">
+                                    <img src="${cp}/avatar/User/${layout.currentUserId}" alt="avatar"/><strong>${username}</strong> -
+                                    <a href="${cp}/logout"><fmt:message key="woko.layout.logout"/> </a>
+                                </c:when>
+                                <c:otherwise>
+                                    <fmt:message key="woko.layout.notLogged"/>
+                                    <a href="${cp}/login"><fmt:message key="woko.layout.login"/> </a>
+                                </c:otherwise>
+                            </c:choose>
+                        </span>
+                    </c:if>
                     <%--
                     <div id="wokoSearchBox">
                         <s:form action="/search">

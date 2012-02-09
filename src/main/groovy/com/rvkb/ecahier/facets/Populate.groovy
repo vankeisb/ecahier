@@ -23,13 +23,13 @@ class Populate extends BaseResolutionFacet {
 
         range.each {
             if (it % 2 == 0) {
-                Entry e = new Entry([text:"this is the text of the entry in <b>HTML</b>",
+                Entry e = new Entry([text:"$it this is the text of the entry in <b>HTML</b>",
                   createdBy:kakou])
                 e.addToParticipants(sofiane)
                 e.addToParticipants(david)
                 objectStore.save(e)
             } else {
-                Entry e = new Entry([text:"this is the text of the entry in <b>HTML</b>",
+                Entry e = new Entry([text:"$it this is the text of the entry in <b>HTML</b>",
                   createdBy:david])
                 e.addToParticipants(kakou)
                 e.addToParticipants(sofiane)

@@ -24,6 +24,7 @@ class Entry {
     @SearchableProperty
     Date creationDate = new Date()
 
+    @NotNull
     String text
 
     @ManyToOne(fetch=FetchType.LAZY)
