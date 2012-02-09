@@ -87,8 +87,6 @@ dojo.declare("ecahier.ParticipantsField", [ dijit._Widget, dijit._Templated ], {
         var caretPos = pn.domNode.selectionStart;
         var start = value.substring(0, caretPos);
         var end = value.substring(caretPos, value.length);
-        console.log(start);
-        console.log(end);
         var i = start.lastIndexOf(",");
         if (i>=0) {
             if (i<start.length-1) {
@@ -106,8 +104,6 @@ dojo.declare("ecahier.ParticipantsField", [ dijit._Widget, dijit._Templated ], {
 
     _onKeyUp: function(evt) {
         this._counter++;
-
-        console.log(evt);
 
         if (evt.keyCode===27) {
             // escape

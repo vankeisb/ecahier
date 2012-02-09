@@ -15,9 +15,7 @@ dojo.declare("ecahier.EntryListItem", [ dijit._Widget, dijit._Templated ], {
     buildRendering: function() {
         this.entry.text = this.entry.text || "Pas de texte !";
         // format the creation date of the entry for display
-        console.log(this.entry.creationDate);
         var d = woko.rpc.convertDate(this.entry.creationDate);
-        console.log(d);
         if (d && d.getMonth) {
             this.entry._creationDateFormatted = dojo.date.locale.format(d);
         } else {

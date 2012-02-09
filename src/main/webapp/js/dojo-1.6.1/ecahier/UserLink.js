@@ -6,7 +6,6 @@ dojo.declare("ecahier.UserLink", [ dijit._Widget, dijit._Templated ], {
     baseUrl:'',
 
     _onClick: function() {
-        console.log(this.user);
     },
 
     buildRendering: function() {

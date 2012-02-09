@@ -17,8 +17,8 @@ class User extends HbUser {
     @Override
     void setRoles(List<String> roles) {
         super.setRoles(roles)
-        if (getRoles().contains("developer")) {
-            isDevel = true
+        if (roles && roles.contains("developer")) {
+            devel = true
         }
     }
 
