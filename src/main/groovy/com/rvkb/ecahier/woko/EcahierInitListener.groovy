@@ -8,6 +8,7 @@ import woko.auth.builtin.SessionUsernameResolutionStrategy
 
 class EcahierInitListener extends HibernateCompassWokoInitListener {
 
+    public static final String DEFAULT_FALLBACK_ROLE = "eguest"
     private EcahierStore store
 
     @Override
@@ -25,6 +26,11 @@ class EcahierInitListener extends HibernateCompassWokoInitListener {
     @Override
     protected UsernameResolutionStrategy createUsernameResolutionStrategy() {
         new SessionUsernameResolutionStrategy()
+    }
+
+    @Override
+    protected List<String> createFallbackRoles() {
+        return Arrays.asList(DEFAULT_FALLBACK_ROLE);
     }
 
 
