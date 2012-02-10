@@ -52,74 +52,19 @@
     </head>
 
     <body class="claro">
-    <div class="navbar navbar-fixed-top">
-        <div class="navbar-inner">
-            <div class="container">
-                <s:link class="brand" href="/home">eCahier</s:link>
-                <w:includeFacet facetName="topNavBar"/>
-
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <s:link class="brand" href="/home">eCahier</s:link>
+                    <w:includeFacet facetName="navBar" targetObject="${layout.facetContext.targetObject}"/>
+                </div>
             </div>
         </div>
-    </div> <%-- /.header --%>
-
-
-
-    <div class="container">
-        <div class="subnav subnav-fixed">
-            <w:includeFacet facetName="navBar" targetObject="${layout.facetContext.targetObject}"/>
+        <div class="container">
+            <s:messages/>
+            <s:layout-component name="body"/>
         </div>
-        <s:messages/>
-        <s:layout-component name="body"/>
-    </div>
-
     </body>
 
-
-
-        <%--<body class="claro">--%>
-        <%--<div id="wrap">--%>
-        <%--<div id="header-space">--%>
-        <%--<div id="logo">--%>
-        <%--<span id="logoStart">e</span>cahier--%>
-        <%--</div>--%>
-        <%--<c:if test="${skipLoginLink==null}">--%>
-        <%--<span id="authInfo">--%>
-        <%--<c:choose>--%>
-        <%--<c:when test="${username != null}">--%>
-        <%--<img src="${cp}/avatar/User/${layout.currentUserId}" alt="avatar"/><strong>${username}</strong> ---%>
-        <%--<a href="${cp}/logout"><fmt:message key="woko.layout.logout"/> </a>--%>
-        <%--</c:when>--%>
-        <%--<c:otherwise>--%>
-        <%--<fmt:message key="woko.layout.notLogged"/>--%>
-        <%--<a href="${cp}/login"><fmt:message key="woko.layout.login"/> </a>--%>
-        <%--</c:otherwise>--%>
-        <%--</c:choose>--%>
-        <%--</span>--%>
-        <%--</c:if>--%>
-        <%--&lt;%&ndash;--%>
-        <%--<div id="wokoSearchBox">--%>
-        <%--<s:form action="/search">--%>
-        <%--<s:text name="facet.query"/>--%>
-        <%--<s:submit name="search"/>--%>
-        <%--</s:form>--%>
-        <%--</div>--%>
-        <%--&ndash;%&gt;--%>
-        <%--</div>--%>
-        <%--<div id="navbar">--%>
-        <%--<div id="nbar">--%>
-        <%--<w:includeFacet facetName="navBar" targetObject="${layout.facetContext.targetObject}"/>--%>
-        <%--</div>--%>
-        <%--</div>--%>
-        <%--<div id="content-wrap">--%>
-        <%--<div id="content">--%>
-        <%--<s:messages/>--%>
-        <%--<s:errors/>--%>
-        <%--<s:layout-component name="body"/>--%>
-        <%--</div>--%>
-        <%--</div>--%>
-        <%--</div>--%>
-        <%--<div class="clearfix"></div>--%>
-        <%--<div id="divider-line"></div>--%>
-        <%--</body>--%>
-    </html>
+</html>
 </s:layout-definition>

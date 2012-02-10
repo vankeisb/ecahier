@@ -5,10 +5,7 @@
 
 .entryDate {
     font-size: 1.2em;
-}
-
-.entryLinks {
-    text-align: right;
+    font-weight: bold;
 }
 
 .entryParticipants {
