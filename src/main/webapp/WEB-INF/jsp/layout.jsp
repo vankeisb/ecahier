@@ -37,7 +37,7 @@
         <s:layout-component name="customCss"/>
         <s:layout-component name="customJs"/>
 
-            <%--<link rel="stylesheet" type="text/css" href="${cp}/style/ecahier.css">--%>
+         <link rel="stylesheet" type="text/css" href="${cp}/style/ecahier.css">
 
         <%-- Use Bootstrap for UI (needs Jquery for now...) --%>
         <style type="text/css">
@@ -51,7 +51,7 @@
 
     </head>
 
-    <body>
+    <body class="claro">
     <div class="navbar navbar-fixed-top">
         <div class="navbar-inner">
             <div class="container">

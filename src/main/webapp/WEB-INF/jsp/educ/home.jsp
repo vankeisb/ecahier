@@ -70,7 +70,7 @@
             });
         </script>
 
-        <div id="entries">
+        <div id="entries" class="row">
             Chargement des entrées...
         </div>
 

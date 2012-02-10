@@ -40,6 +40,7 @@ dojo.declare("ecahier.EntryListItem", [ dijit._Widget, dijit._Templated ], {
             var link = document.createElement("a");
             link.setAttribute("href", this.baseUrl + "/edit/Entry/" + this.entry._key);
             link.innerHTML = "&eacute;diter";
+            dojo.addClass(link, "btn");
             this.editLinkNode.appendChild(link);
         }
     }

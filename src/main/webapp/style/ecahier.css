@@ -1,150 +1,22 @@
-#wokoSearchBox {
-    position: absolute;
-    top: 18px;
-    right: 10px;
-}
-
-#wrap {
-	width: 100%;
-    background-image: url("spirales.jpg");
-    background-position: left;
-    background-repeat: repeat-y;
-}
-
-/* Header */
-
-#header-space {
-	height: 70px;
-    background-color: #1961AA;
-}
-
-
-#logo {
-    margin-left: 8px;
-    font-size: 58px;
-    color: #ffffff;
-    padding-top: 4px;
-}
-
-#logoStart {
-    color: #ccccff;
-}
-
-#authInfo {
-    position: absolute;
-    right: 10px;
-    top: 15px;
-}
-
-#authInfo img {
-    vertical-align: middle;
-}
-
-/* Navigation Bar */
-
-#navbar {
-	background: none;
-}
-
-#nbar {
-    background-color: #f1f0f0;
-	margin: 0;
-}
-
-#nbar ul {
-	list-style : none;
-	padding: 0;
-    margin: 0;
-    vertical-align: middle;
-}
-
-#nbar ul li {
-    height: 30px;
-	display: table-cell;
-    border-right:  1px dotted #b4b3b3;
-    vertical-align: middle;
-    padding-right: 6px;
-    padding-left: 6px;
-}
-
-#nbar ul li a {
-    color: #6e6d6d;
-    font-size: 1.1em;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-#nbar ul li a:hover {
-	color: #000000;
-    text-decoration: underline;
-}
-
-/*
-#nbar ul li#selected a {
-	color: #3399FF;
-	background: url(nbg-inv.png) top repeat-x;
-	font-weight: bold;
-}
-*/
-
-/* Content */
-
-#content-wrap {
-    padding-left: 50px;
-}
-
-#content {
-}
-
-h1 {
-    border: none;
-    margin-top: 8px;
-    margin-bottom: 12px;
-    color: #666565;
-    font-size: 30px;
-}
-
-.clearfix {
-    clear: both;
-}
-
 .entryListItem {
-    max-width: 600px;
-    border: 1px solid #d3d3d3;
-    margin-bottom: 4px;
+    margin-top: 4px;
+    margin-bottom: 8px;
 }
 
-.entryListItem table.head {
-    width: 100%;
-    background-color: #d3d3d3;
-    padding: 4px;
+.entryDate {
+    font-size: 1.2em;
 }
 
-.entryListItem .commands {
+.entryLinks {
     text-align: right;
 }
 
-.user img {
+.entryParticipants {
+    text-align: right;
+}
+
+.userLink img {
     vertical-align: middle;
-}
-
-.entryListItem table.people {
-    width: 100%;
-    padding: 2px 4px 2px 4px;
-
-    background-color: #f3f3f3;
-}
-
-.entryListItem table.people .createdBy {
-    text-align: left;
-}
-
-.entryListItem table.people .participants {
-    text-align: right;
-}
-
-.entryListItem .text {
-    margin: 4px;
 }
 
 .withoutPeople {
@@ -161,10 +33,6 @@ h1 {
 
 .completionHidden {
     display: none;
-}
-
-.completionBox .hl {
-    font-weight: bold;
 }
 
 .completionRow {
@@ -189,14 +57,10 @@ h1 {
 }
 
 #moreEntries {
-    margin: 20px;
     background-color: #dadafe;
     font-weight: bold;
     color: #a1a1ff;
-    max-width: 560px;
     text-align: center;
     padding-top: 4px;
     padding-bottom: 4px;
 }
-
-
