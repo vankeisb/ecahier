@@ -58,6 +58,15 @@
           <type>war</type>
         </dependency>
     </dependencies>
+    <repositories>
+        <repository>
+            <id>oss</id>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+        </repository>
+    </repositories>
     <build>
         <finalName>ecahier</finalName>
         <plugins>
