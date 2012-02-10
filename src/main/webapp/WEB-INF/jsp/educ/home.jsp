@@ -10,7 +10,18 @@
 <fmt:message var="pageTitle" key="woko.guest.home.pageTitle"/>
 <s:layout-render name="${layout.layoutPath}" layout="${layout}" pageTitle="${pageTitle}">
     <s:layout-component name="body">
-        <h1>Accueil</h1>
+
+        <div class="page-header">
+            <h1>Accueil</h1>
+        </div>
+
+        <div id="entries" class="row">
+            Chargement des entrées...
+        </div>
+
+        <div id="moreEntries">
+            Suivants...
+        </div>
 
         <script type="text/javascript">
 
@@ -33,9 +44,6 @@
                         });
                         eli.startup();
                         cntr.appendChild(eli.domNode);
-                        var clf = document.createElement("div");
-                        dojo.addClass(clf, "clearfix");
-                        cntr.appendChild(clf);
                     });
                 };
 
@@ -69,14 +77,6 @@
 
             });
         </script>
-
-        <div id="entries" class="row">
-            Chargement des entrées...
-        </div>
-
-        <div id="moreEntries">
-            Suivants...
-        </div>
 
     </s:layout-component>
 </s:layout-render>

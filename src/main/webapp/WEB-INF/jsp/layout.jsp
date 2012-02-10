@@ -42,7 +42,7 @@
         <%-- Use Bootstrap for UI (needs Jquery for now...) --%>
         <style type="text/css">
           body {
-            padding-top: 96px; /* 60px to make the container go all the way to the bottom of the topbar */
+            padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
           }
         </style>
         <script type="text/javascript" src="${cp}/js/bootstrap/jquery.min.js"></script>
