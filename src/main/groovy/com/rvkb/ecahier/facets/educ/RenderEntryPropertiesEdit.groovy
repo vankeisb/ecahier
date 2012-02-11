@@ -11,5 +11,4 @@ class RenderEntryPropertiesEdit extends RenderPropertiesEditImpl {
     List<String> getPropertyNames() {
         ["participants", "text"]
     }
-
 }
