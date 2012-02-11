@@ -33,7 +33,7 @@
             <%-- Infos --%>
             <div class="span10">
                 <% if (user.getName() == null){%>
-                    <strong>Vous devriez éditer votre profil !</strong>
+                    <strong>Aucune information disponible</strong>
                 <%}else {%>
                 <address>
                     <strong><%=user.getName()%></strong><br/>
