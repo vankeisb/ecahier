@@ -27,7 +27,7 @@ class RenderTitleUser extends RenderTitleImpl {
         User u = facetContext.targetObject
         StringBuilder sb = new StringBuilder(u.username)
         if(u.name)
-            sb.append(" ($u.name)")
+            sb.append(" <small>($u.name)</small>")
 
         return sb.toString()
     }
