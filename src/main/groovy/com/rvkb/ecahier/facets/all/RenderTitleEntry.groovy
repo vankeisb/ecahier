@@ -1,14 +1,25 @@
-package com.rvkb.ecahier.facets.educ
+package com.rvkb.ecahier.facets.all
 
-import net.sourceforge.jfacets.annotations.FacetKey
-import com.rvkb.ecahier.model.Entry
 import woko.facets.builtin.all.RenderTitleImpl
+import net.sourceforge.jfacets.annotations.FacetKey
+import net.sourceforge.jfacets.annotations.FacetKeyList
+import com.rvkb.ecahier.model.Entry
 import java.text.DateFormat
 import com.rvkb.ecahier.facets.FacetCategory
 
-@FacetKey(name="renderTitle", profileId="educ", targetObjectType=Entry.class)
+@FacetKeyList(
+    keys=[
+    @FacetKey(name="renderTitle", profileId="eguest", targetObjectType=Entry.class),
+    @FacetKey(name="renderTitle", profileId="educ", targetObjectType=Entry.class)
+    ]
+)
 @Mixin(FacetCategory)
 class RenderTitleEntry extends RenderTitleImpl {
+
+    @Override
+    String getPath() {
+        return '/WEB-INF/jsp/all/renderTitle.jsp'
+    }
 
     @Override
     String getTitle() {
@@ -20,3 +31,4 @@ class RenderTitleEntry extends RenderTitleImpl {
 
 
 }
+

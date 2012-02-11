@@ -1,1 +1,3 @@
-${renderPropertyValue.propertyValue}
+<div class="well">
+    ${renderPropertyValue.propertyValue}
+</div>
