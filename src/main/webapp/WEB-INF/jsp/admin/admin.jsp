@@ -43,6 +43,7 @@
             <tr>
                 <th>Nom</th>
                 <th>Username</th>
+                <th>Roles</th>
                 <th>Actions</th>
             </tr>
             </thead>
@@ -58,6 +59,7 @@
             <tr>
                 <td><%=u.getName()%></td>
                 <td><%=u.getUsername()%></td>
+                <td><%=u.getRoles()%></td>
                 <td>
                     <div class="btn-group">
                       <s:link class="btn btn-small" href="/view/User/${id}"><i class="icon-eye-open"></i>Voir</s:link>
