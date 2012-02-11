@@ -25,7 +25,7 @@
         formUrl += "/" + key;
     }
 %>
-
+<s:errors/>
 <s:form action="<%=formUrl%>" class="form-horizontal">
 
      <fieldset>
@@ -47,7 +47,7 @@
         <div class="control-group">
             <jsp:include page="<%=pNameFragmentPath%>"/>
             <div class="controls">
-                <jsp:include page="<%=pValFragmentPath%>"/><s:errors field="<%=fullFieldName%>"/>
+                <jsp:include page="<%=pValFragmentPath%>"/>
             </div>
         </div>
 
