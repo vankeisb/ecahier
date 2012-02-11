@@ -9,6 +9,6 @@ class RenderUserPropertiesEdit extends RenderPropertiesEditImpl {
 
     @Override
     List<String> getPropertyNames() {
-        ["name", "email", "phoneNumber", "jobPosition"]
+        ["name", "email", "phoneNumber", "jobPosition", "avatarStripes"]
     }
 }

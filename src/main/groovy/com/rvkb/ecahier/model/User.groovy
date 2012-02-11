@@ -4,6 +4,9 @@ import javax.persistence.Entity
 import woko.ext.usermanagement.hibernate.HbUser
 import javax.persistence.Lob
 import javax.persistence.FetchType
+import java.sql.Blob
+import javax.persistence.Transient
+import net.sourceforge.stripes.action.FileBean
 
 @Entity
 class User extends HbUser {
@@ -24,8 +27,14 @@ class User extends HbUser {
         }
     }
 
-    @Lob
-    byte[] avatar
+//    @Lob
+//    byte[] avatar
+
+    // My tricks for easily avatar/woko integration
+    @Transient
+    FileBean avatarStripes
+
+    Blob avatar
 
 
 }

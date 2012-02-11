@@ -24,13 +24,22 @@ class Avatar extends BaseResolutionFacet {
     static final byte[] DEFAULT_AVATAR_BYTES = getBytes();
 
     Resolution getResolution(ActionBeanContext actionBeanContext) {
+//        User user = facetContext.targetObject
+//        def avatarBytes = user.avatar
+//        if (avatarBytes==null) {
+//            // use default avatar
+//            avatarBytes = DEFAULT_AVATAR_BYTES
+//        }
+//        return new StreamingResolution("image/jpeg", new ByteArrayInputStream(avatarBytes))
+
+        // Update from Alex : use Blob instead of byte array
         User user = facetContext.targetObject
-        def avatarBytes = user.avatar
-        if (avatarBytes==null) {
-            // use default avatar
-            avatarBytes = DEFAULT_AVATAR_BYTES
+        if (!user.avatar){
+            def stream = Avatar.class.getResourceAsStream("/unknown.jpg")
+            return new StreamingResolution('image/jpg', stream)
         }
-        return new StreamingResolution("image/jpeg", new ByteArrayInputStream(avatarBytes))
+        return new StreamingResolution('image/jpg', user.avatar.binaryStream)
+
     }
 
 

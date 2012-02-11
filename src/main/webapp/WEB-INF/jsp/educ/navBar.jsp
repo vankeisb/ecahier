@@ -30,7 +30,7 @@
                             <div class="span3">
                                 <div class="row">
                                     <div class="span-one-third">
-                                        <img src="${cp}/avatar/User/${layout.currentUserId}" alt="avatar"/>
+                                        <img src="${cp}/avatar/User/${layout.currentUserId}" alt="avatar" height="32px" width="32px"/>
                                     </div>
                                     <div class="span-two-third">
                                         <h4>

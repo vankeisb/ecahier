@@ -11,6 +11,7 @@
 <w:facet facetName="layout" targetObject="${o}"/>
 <w:facet targetObject="${o}" facetName="renderTitle"/>
 <c:set var="pageTitle" value="${renderTitle.title}"/>
+<c:set var="cp" value="${pageContext.request.contextPath}"/>
 
 <%
     ViewUser view = (ViewUser)request.getAttribute("view");
@@ -34,7 +35,7 @@
         <div class="row">
             <%-- Avatar--%>
             <div class="span3">
-                <img src="${cp}/avatar/User/<%=user.getId()%>" alt="avatar"/>
+                <img src="${cp}/avatar/User/<%=user.getId()%>" alt="avatar" width="150px" height="150px"/>
             </div>
 
             <%-- Infos --%>
@@ -51,8 +52,6 @@
                 <%}%>
             </div>
         </div>
-
-        <h1>Toutes les entrées <small>(32)</small></h1>
 
     </s:layout-component>
 </s:layout-render>

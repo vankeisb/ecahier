@@ -13,6 +13,16 @@ import org.hibernate.Hibernate
 @Mixin(FacetCategory)
 class SaveUser extends SaveImpl implements IInstanceFacet {
 
+    @Override
+    protected void doSave(ActionBeanContext abc) {
+        // Decode avatar and create User avatar
+        User user = facetContext.targetObject
+        if (user.avatarStripes)
+            user.avatar = Hibernate.createBlob(user.avatarStripes.inputStream)
+
+        super.doSave(abc)
+    }
+
     boolean matchesTargetObject(Object targetObject) {
         return currentUser.equals(targetObject)
     }
