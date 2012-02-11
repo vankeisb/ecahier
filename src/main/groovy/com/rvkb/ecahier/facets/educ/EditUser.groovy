@@ -12,6 +12,9 @@ import com.rvkb.ecahier.model.User
 class EditUser extends EditImpl implements IInstanceFacet {
 
     boolean matchesTargetObject(Object targetObject) {
+        if (currentUser.roles.contains("admin")){
+            return true
+        }
         return currentUser.equals(targetObject)
     }
 }

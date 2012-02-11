@@ -27,7 +27,15 @@
         %>
 
         <div class="page-header">
-            <h1><fmt:message key="woko.admin.title"/></h1>
+            <h1>
+                <fmt:message key="woko.admin.title"/>
+                <div class="pull-right">
+                    <s:link href="/save" class="btn btn-small"><s:param name="className" value="User"/>
+                        <i class="icon-plus"></i>
+                        Ajouter un utilisateur
+                    </s:link>
+                </div>
+            </h1>
         </div>
 
         <table>

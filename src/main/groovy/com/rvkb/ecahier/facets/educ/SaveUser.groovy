@@ -20,10 +20,19 @@ class SaveUser extends SaveImpl implements IInstanceFacet {
         if (user.avatarStripes)
             user.avatar = Hibernate.createBlob(user.avatarStripes.inputStream)
 
+        // During user creation (by admin) we need to generate a password
+        if (!user.id){
+            String pwd = user.username + "!"
+            user.setPassword(Integer.toString(pwd.hashCode()))
+        }
+
         super.doSave(abc)
     }
 
     boolean matchesTargetObject(Object targetObject) {
+        if (currentUser.roles.contains("admin")){
+            return true
+        }
         return currentUser.equals(targetObject)
     }
 

@@ -16,6 +16,11 @@ class User extends HbUser {
     String phoneNumber
     String jobPosition
 
+    User(){
+        // Add default password for user creation
+        super.setPassword(Integer.toString("password".hashCode()))
+    }
+
     // hack for completion : we don't want to join for roles all the time
     boolean devel = false
 

@@ -25,11 +25,15 @@ class RenderTitleUser extends RenderTitleImpl {
     @Override
     String getTitle() {
         User u = facetContext.targetObject
-        StringBuilder sb = new StringBuilder(u.username)
-        if(u.name)
-            sb.append(" <small>($u.name)</small>")
+        if (!u.id){
+            return "Ajout d'un nouvel utilisateur"
+        }else {
+            StringBuilder sb = new StringBuilder(u.username)
+            if(u.name)
+                sb.append(" <small>($u.name)</small>")
 
-        return sb.toString()
+            return sb.toString()
+        }
     }
 }
 

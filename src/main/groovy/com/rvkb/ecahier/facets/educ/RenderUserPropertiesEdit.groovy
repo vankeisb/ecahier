@@ -9,6 +9,11 @@ class RenderUserPropertiesEdit extends RenderPropertiesEditImpl {
 
     @Override
     List<String> getPropertyNames() {
-        ["name", "email", "phoneNumber", "jobPosition", "avatarStripes"]
+        if(facetContext.targetObject.id)
+            return ["name", "email", "phoneNumber", "jobPosition", "avatarStripes"]
+        else{
+            // This case is an use creation, add username and role
+            return ["username", "roles", "name", "email", "phoneNumber", "jobPosition", "avatarStripes"]
+        }
     }
 }
