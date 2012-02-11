@@ -25,7 +25,7 @@
             </a>
             <ul class="dropdown-menu">
                 <li>
-                    <a href="#">
+                    <a href="view/User/${topNavBar.currentUserId}">
                         <div class="row">
                             <div class="span3">
                                 <div class="row">
