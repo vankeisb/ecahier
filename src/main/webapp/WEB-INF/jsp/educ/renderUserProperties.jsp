@@ -23,23 +23,15 @@
 <s:layout-render name="${layout.layoutPath}" layout="${layout}" pageTitle="${pageTitle}">
     <s:layout-component name="body">
 
-        <%-- User name--%>
-        <div class="page-header">
-            <h1>${renderTitle.title}</h1>
-            <div class="pull-right">
-                <w:includeFacet targetObject="${o}" facetName="renderLinks"/>
-            </div>
-        </div>
-
         <%-- First display avatar and some info--%>
         <div class="row">
             <%-- Avatar--%>
-            <div class="span3">
+            <div class="span2">
                 <img src="${cp}/avatar/User/<%=user.getId()%>" alt="avatar" width="150px" height="150px"/>
             </div>
 
             <%-- Infos --%>
-            <div class="span6">
+            <div class="span10">
                 <% if (user.getName() == null){%>
                     <strong>Vous devriez éditer votre profil !</strong>
                 <%}else {%>
