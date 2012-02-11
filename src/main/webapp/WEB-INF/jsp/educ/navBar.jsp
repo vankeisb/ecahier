@@ -25,12 +25,12 @@
             </a>
             <ul class="dropdown-menu">
                 <li>
-                    <a href="view/User/${topNavBar.currentUserId}">
+                    <a href="view/User/${layout.currentUserId}">
                         <div class="row">
                             <div class="span3">
                                 <div class="row">
                                     <div class="span-one-third">
-                                        <img src="${cp}/avatar/User/${topNavBar.currentUserId}" alt="avatar"/>
+                                        <img src="${cp}/avatar/User/${layout.currentUserId}" alt="avatar"/>
                                     </div>
                                     <div class="span-two-third">
                                         <h4>

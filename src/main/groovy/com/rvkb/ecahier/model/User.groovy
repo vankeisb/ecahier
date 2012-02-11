@@ -8,8 +8,10 @@ import javax.persistence.FetchType
 @Entity
 class User extends HbUser {
 
-    String firstName
-    String lastName
+    String name
+    String email
+    String phoneNumber
+    String jobPosition
 
     // hack for completion : we don't want to join for roles all the time
     boolean devel = false
