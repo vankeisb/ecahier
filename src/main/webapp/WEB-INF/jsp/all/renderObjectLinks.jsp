@@ -3,6 +3,7 @@
 <div class="btn-group">
     <c:forEach var="link" items="${renderLinks.links}">
         <a class="btn btn-small" href="${pageContext.request.contextPath}/${link.href}">
+            <i class="${link.cssClass}"></i>
             <c:out value="${link.text}"/>
         </a>
     </c:forEach>
