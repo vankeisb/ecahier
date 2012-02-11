@@ -212,7 +212,8 @@ dojo.declare("ecahier.ParticipantsField", [ dijit._Widget, dijit._Templated ], {
                             var itemWidget = new ecahier.CompletionRowWidget({
                                 owner: this,
                                 item: item,
-                                prefix: sanitizedPrefix
+                                prefix: sanitizedPrefix,
+                                baseUrl: this.baseUrl
                             });
                             this._rowWidgets.push(itemWidget);
                             itemWidget.startup();

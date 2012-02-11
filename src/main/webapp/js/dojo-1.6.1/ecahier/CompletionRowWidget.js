@@ -11,6 +11,7 @@ dojo.declare("ecahier.CompletionRowWidget", [ dijit._Widget, dijit._Templated ],
     item: null,
     prefix: '',
     highlightedTitle: '',
+    baseUrl: '',
 
     CSS_CLASS_SELECTED: 'completionRowSelected',
 
