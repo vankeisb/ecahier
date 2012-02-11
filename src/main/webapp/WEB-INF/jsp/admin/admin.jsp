@@ -38,7 +38,7 @@
             </h1>
         </div>
 
-        <table>
+        <table class="table table-striped">
             <thead>
             <tr>
                 <th>Nom</th>
@@ -53,10 +53,18 @@
                 while (results.hasNext()){
                     User u = (User)results.next();
             %>
+            <c:set var="id" value="<%=u.getId()%>"/>
 
             <tr>
                 <td><%=u.getName()%></td>
                 <td><%=u.getUsername()%></td>
+                <td>
+                    <div class="btn-group">
+                      <s:link class="btn btn-small" href="/view/User/${id}"><i class="icon-eye-open"></i>Voir</s:link>
+                      <s:link class="btn btn-small" href="/edit/User/${id}"><i class="icon-edit"></i>Editer</s:link>
+                      <s:link class="btn btn-small" href="/delete/User/${id}"><i class="icon-trash"></i>Supprimer</s:link>
+                    </div>
+                </td>
             </tr>
             <%}%>
             </tbody>
