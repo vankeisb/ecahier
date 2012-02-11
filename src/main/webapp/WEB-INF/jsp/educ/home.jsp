@@ -19,7 +19,7 @@
             Chargement des entrées...
         </div>
 
-        <div id="moreEntries">
+        <div id="moreEntries" style="display: none;">
             Suivants...
         </div>
 
@@ -32,7 +32,10 @@
                 var cntr = dojo.byId("entries");
                 var page = 1;
                 var pageSize = 10;
+                var totalSize = null;
                 var cli = new woko.rpc.Client({baseUrl:"${pageContext.request.contextPath}"});
+
+                var moreEntries = dojo.byId('moreEntries');
 
                 var populateEntries = function(entries) {
                     dojo.forEach(entries, function(entry) {
@@ -45,6 +48,11 @@
                         eli.startup();
                         cntr.appendChild(eli.domNode);
                     });
+                    // handle moreEntries link visibility
+                    var disp = 'none';
+                    dojo.style(moreEntries,
+                      "display",
+                      totalSize > page * pageSize ? 'block' : 'none');
                 };
 
                 var fetchEntries = function() {
@@ -57,9 +65,10 @@
                         load: function(resp) {
                             if (page==1) {
                                 dojo.empty(cntr);
+                                totalSize = resp.totalSize;
                             }
-                            populateEntries(resp.items);
                             page++;
+                            populateEntries(resp.items);
                         },
 
                         error: function(resp) {
@@ -71,8 +80,6 @@
 
                 fetchEntries();
 
-                // handle "more entries" link
-                var moreEntries = dojo.byId('moreEntries');
                 dojo.connect(moreEntries, 'onclick', fetchEntries);
 
             });
