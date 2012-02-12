@@ -74,47 +74,71 @@
         </div>
 
         <footer>
-            <div class="links-wrapper">
-                <div class="container">
-                    <div class="row">
-                        <div class="span12">
-                            <div class="row">
-                                <div class="span4">
-                                    <dl>
-                                        <dt><strong>eCahier</strong></dt>
-                                        <dd>About</dd>
-                                        <dd>Blog</dd>
-                                        <dd>...</dd>
-                                    </dl>
-                                </div>
-                                <div class="span4">
-                                    <dl>
-                                        <dt><strong>Some other bullshit !</strong></dt>
-                                        <dd>...</dd>
-                                        <dd>...</dd>
-                                    </dl>
-                                </div>
-                                <div class="span4">
-                                    <dl>
-                                        <dt><strong>Aide</strong></dt>
-                                        <dd>putain on sait jamais quoi mettre dans les footers</dd>
-                                    </dl>
-                                </div>
+            <div class="container">
+                <div class="row">
+                    <div class="span12">
+                        <div class="row">
+                            <div class="span4">
+                                <h3>
+                                    eCahier<br/>
+                                    <small>Le cahier de liaison &eacute;lectronique</small>
+                                </h3>
+                            </div>
+
+                            <div class="span4">
+                                    <s:link href="#">A propos</s:link> - <s:link href="#">Conditions d'utilisation</s:link><br/>
+                                    Powered with <a href="https://github.com/vankeisb/woko2">Woko</a> by R&eacute;mi and Alex.
+                            </div>
+                            <div class="span4">
+                                &copy;2012 eCahier, tous droits r&eacute;serv&eacute;s.<br/>
+                                Icons from <a href="http://glyphicons.com/">Glyphicons Free</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-             <div class="container">
-                    <div class="row">
-                        <div class="span12 copy">
-                            &copy;2012 - eCahier
-                        </div>
-                    </div>
-             </div>
-
         </footer>
+            <%--<div class="links-wrapper">--%>
+                <%--<div class="container">--%>
+                    <%--<div class="row">--%>
+                        <%--<div class="span12">--%>
+                            <%--<div class="row">--%>
+                                <%--<div class="span4">--%>
+                                    <%--<dl>--%>
+                                        <%--<dt><strong>eCahier</strong></dt>--%>
+                                        <%--<dd>About</dd>--%>
+                                        <%--<dd>Blog</dd>--%>
+                                        <%--<dd>...</dd>--%>
+                                    <%--</dl>--%>
+                                <%--</div>--%>
+                                <%--<div class="span4">--%>
+                                    <%--<dl>--%>
+                                        <%--<dt><strong>Some other bullshit !</strong></dt>--%>
+                                        <%--<dd>...</dd>--%>
+                                        <%--<dd>...</dd>--%>
+                                    <%--</dl>--%>
+                                <%--</div>--%>
+                                <%--<div class="span4">--%>
+                                    <%--<dl>--%>
+                                        <%--<dt><strong>Aide</strong></dt>--%>
+                                        <%--<dd>putain on sait jamais quoi mettre dans les footers</dd>--%>
+                                    <%--</dl>--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
+                <%--</div>--%>
+            <%--</div>--%>
+
+             <%--<div class="container">--%>
+                    <%--<div class="row">--%>
+                        <%--<div class="span12 copy">--%>
+                            <%--&copy;2012 - eCahier--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
+             <%--</div>--%>
+
+        <%--</footer>--%>
 
     </body>
 
