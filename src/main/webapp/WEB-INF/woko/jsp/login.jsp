@@ -15,17 +15,57 @@
                 <%-- Quick presentation here --%>
                 <h1>
                     eCahier
-                    <small>My best slogan here...</small>
+                    <small>Le cahier de liaison électronique</small>
                 </h1>
                 <p>
-                    Forcément la meilleure App !
+                    Les dernières technologies à votre service
                 </p>
-                <p>
-                    Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah<br/>
-                    Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah <br/>
-                    Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah <br/>
-                    Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah
-                </p>
+                <br/><br/>
+
+                <div class="row">
+                    <div class="span1">
+                        <img src="${pageContext.request.contextPath}/style/images/earth.png" width="64px"/>
+                    </div>
+                    <div class="span7">
+                        <p>
+                            Il est grand temps de sauver la planète...<br/>
+                            Fini les impressions, les photocopies.
+                        </p>
+                    </div>
+                </div>
+
+                <br/>
+
+                <div class="row">
+                    <div class="span1">
+                        <img src="${pageContext.request.contextPath}/style/images/time.png" width="64px"/>
+                    </div>
+                    <div class="span7">
+                        <p>
+                            Avec toutes les informations à porter de souris,<br/>
+                            eCahier vous fera gagner un temps précieux
+                        </p>
+                    </div>
+                </div>
+
+                <br/>
+
+                <div class="row">
+                    <div class="span1">
+                        <img src="${pageContext.request.contextPath}/style/images/users.png" width="64px"/>
+                    </div>
+                    <div class="span7">
+                        <p>
+                            Partagez avec vos collègues les informations nécessaires<br/>
+                            Tous les avis comptent faites partager le votre !
+                        </p>
+                    </div>
+                </div>
+
+                <br/><br/>
+
+                <span class="label label-success">New</span> eCahier est bientôt disponible
+
             </div>
 
             <div class="span4">
