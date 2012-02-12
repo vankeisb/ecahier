@@ -65,3 +65,12 @@
 .wokoButtonRow {
     padding: 4px;
 }
+
+.loader {
+    background-image: url("ajax-loader.gif");
+    background-position: left;
+    background-repeat: no-repeat;
+    padding-left: 38px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+}

@@ -19,7 +19,11 @@
         </div>
 
         <div id="entries" class="row">
-            <fmt:message key="ecahier.educ.home.loadEntries"/>
+            <div class="span6">
+                <span class="loader">
+                    <fmt:message key="ecahier.educ.home.loadEntries"/>
+                </span>
+            </div>
         </div>
 
         <div id="moreEntries" style="display: none;">
@@ -69,6 +73,10 @@
                             if (page==1) {
                                 dojo.empty(cntr);
                                 totalSize = resp.totalSize;
+                                if (totalSize==0) {
+                                    cntr.innerHTML = '<div class="alert alert-info"><h4 class="alert-heading">Base vide !</h4>' +
+                                      "La base de donn&eacute;es est vide. Aucune entrée trouvée.";
+                                }
                             }
                             page++;
                             populateEntries(resp.items);

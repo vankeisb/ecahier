@@ -6,6 +6,9 @@
 <ul class="nav nav-pills">
     <li><a href="${pageContext.request.contextPath}/home"><fmt:message key="ecahier.educ.navbar.home"/></a></li>
     <li><a href="${pageContext.request.contextPath}/save/Entry"><fmt:message key="ecahier.educ.navbar.addEntry"/></a></li>
+    <c:if test="${navBar.admin}">
+        <li><a href="${pageContext.request.contextPath}/admin"><fmt:message key="ecahier.admin.navbar.admin"/></a>
+    </c:if>
 </ul>
 
 <w:username var="username"/>
@@ -13,7 +16,7 @@
 
 <div class="nav-collapse pull-right">
     <s:form action="/search" class="navbar-search">
-        <input type="text" name="facet.query" class="search-query" placeholder="<fmt:message key='ecahier.educ.navbar.search'/> "/>
+        <input type="text" name="facet.query" class="search-query" placeholder="<fmt:message key='ecahier.educ.navbar.search'/>"/>
     </s:form>
 
     <ul class="nav pull-right">
@@ -35,7 +38,7 @@
                                     <div class="span-two-third">
                                         <h4>
                                             ${username}<br/>
-                                            <small><fmt:message key="ecahier.educ.navbar.seeProfil"/> </small>
+                                            <small><fmt:message key="ecahier.educ.navbar.seeProfil"/></small>
                                         </h4>
                                     </div>
                                 </div>
