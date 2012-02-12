@@ -80,3 +80,30 @@
     float: left;
     padding-right: 4px;
 }
+
+html, body {
+        height: 100%;
+}
+.wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -170px;
+}
+footer, .push {
+    height: 170px;
+}
+footer {
+    color: #333;
+
+}
+
+.links-wrapper {
+    border-top: solid 1px #CCC;
+    border-bottom: solid 1px #CCC;
+    color: #333;
+    background: #EEE;
+    margin-bottom: 10px;
+    padding: 10px 0;
+}
+

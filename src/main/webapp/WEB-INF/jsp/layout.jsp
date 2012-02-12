@@ -41,7 +41,7 @@
 
         <%-- Use Bootstrap for UI (needs Jquery for now...) --%>
         <style type="text/css">
-          body {
+          .main-content {
             padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
           }
         </style>
@@ -52,18 +52,70 @@
     </head>
 
     <body class="claro">
-        <div class="navbar navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container">
-                    <s:link class="brand" href="/home">${layout.appTitle}</s:link>
-                    <w:includeFacet facetName="navBar" targetObject="${layout.facetContext.targetObject}"/>
+        <div class="wrapper">
+
+            <div class="navbar navbar-fixed-top">
+                <div class="navbar-inner">
+                    <div class="container">
+                        <s:link class="brand" href="/home">${layout.appTitle}</s:link>
+                        <w:includeFacet facetName="navBar" targetObject="${layout.facetContext.targetObject}"/>
+                    </div>
                 </div>
             </div>
+
+            <div class="main-content">
+                <div class="container">
+                    <s:messages/>
+                    <s:layout-component name="body"/>
+                </div>
+
+                <div class="push"></div>
+            </div>
         </div>
-        <div class="container">
-            <s:messages/>
-            <s:layout-component name="body"/>
-        </div>
+
+        <footer>
+            <div class="links-wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="span12">
+                            <div class="row">
+                                <div class="span4">
+                                    <dl>
+                                        <dt><strong>eCahier</strong></dt>
+                                        <dd>About</dd>
+                                        <dd>Blog</dd>
+                                        <dd>...</dd>
+                                    </dl>
+                                </div>
+                                <div class="span4">
+                                    <dl>
+                                        <dt><strong>Some other bullshit !</strong></dt>
+                                        <dd>...</dd>
+                                        <dd>...</dd>
+                                    </dl>
+                                </div>
+                                <div class="span4">
+                                    <dl>
+                                        <dt><strong>Aide</strong></dt>
+                                        <dd>putain on sait jamais quoi mettre dans les footers</dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+             <div class="container">
+                    <div class="row">
+                        <div class="span12 copy">
+                            &copy;2012 - eCahier
+                        </div>
+                    </div>
+             </div>
+
+        </footer>
+
     </body>
 
 </html>
