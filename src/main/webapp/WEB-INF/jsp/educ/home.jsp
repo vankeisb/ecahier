@@ -14,7 +14,7 @@
         <div class="page-header">
             <h1>
                 <fmt:message key="ecahier.educ.home.title"/>
-                <small>Dernières entrées dans le cahier</small>
+                <small><fmt:message key="ecahier.educ.home.subtitle"/></small>
             </h1>
         </div>
 
