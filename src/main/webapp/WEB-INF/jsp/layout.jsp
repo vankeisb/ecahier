@@ -87,11 +87,11 @@
 
                             <div class="span4">
                                     <s:link href="#">A propos</s:link> - <s:link href="#">Conditions d'utilisation</s:link><br/>
-                                    Powered with <a href="https://github.com/vankeisb/woko2">Woko</a> by R&eacute;mi and Alex.
+                                    Powered with <a target="_blank" href="https://github.com/vankeisb/woko2">Woko</a> by R&eacute;mi and Alex.
                             </div>
                             <div class="span4">
                                 &copy;2012 eCahier, tous droits r&eacute;serv&eacute;s.<br/>
-                                Icons from <a href="http://glyphicons.com/">Glyphicons Free</a>
+                                Icons from <a target="_blank" href="http://glyphicons.com/">Glyphicons Free</a>
                             </div>
                         </div>
                     </div>
