@@ -1,7 +1,9 @@
 <div class="entryListItem span9">
     <div class="row head">
-        <div class="span3 entryDate">
-            ${entry._creationDateFormatted}
+        <div class="span3">
+            <span class="entryDate">
+                ${entry._creationDateFormatted}
+            </span>
         </div>
         <div class="span6 entryLinks">
             <span class="commands">
@@ -11,7 +13,7 @@
             </span>
         </div>
     </div>
-    <div class="row">
+    <div class="row people">
         <div class="span3 entryCreatedBy">
             <span data-dojo-type="ecahier.UserLink" data-dojo-props="user: this.entry.createdBy, baseUrl: this.baseUrl"></span>
         </div>
