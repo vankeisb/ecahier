@@ -39,8 +39,8 @@ dojo.declare("ecahier.EntryListItem", [ dijit._Widget, dijit._Templated ], {
             dojo.addClass(this.domNode, "editable");
             var link = document.createElement("a");
             link.setAttribute("href", this.baseUrl + "/edit/Entry/" + this.entry._key);
-            link.innerHTML = "&eacute;diter";
-            dojo.addClass(link, "btn");
+            link.innerHTML = '<i class="icon-pencil"></i> &eacute;diter';
+            dojo.addClass(link, ["btn", "btn-small"]);
             this.editLinkNode.appendChild(link);
         }
     }

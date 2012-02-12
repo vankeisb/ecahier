@@ -4,7 +4,8 @@
 }
 
 .entryDate {
-    font-size: 1.2em;
+    padding-top: 4px;
+    font-size: 24px;
     font-weight: bold;
 }
 
@@ -81,6 +82,7 @@
     padding-right: 4px;
 }
 
+<<<<<<< HEAD
 html, body {
         height: 100%;
 }
@@ -107,3 +109,24 @@ footer {
     padding: 10px 0;
 }
 
+=======
+span.commands .btn-group {
+    text-align: right;
+}
+
+.entryListItem .people {
+    padding-top: 4px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding-bottom: 4px;
+}
+
+.entryText {
+    padding: 8px;
+    border-bottom: 1px dotted #d3d3d3;
+}
+
+.wokoProperties th, .wokoProperties td {
+    padding: 4px;
+}
+>>>>>>> f6dec977ae26f9ebcdf8c5d1365ac646f1b653b1
