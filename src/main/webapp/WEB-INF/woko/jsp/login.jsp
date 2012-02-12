@@ -23,9 +23,8 @@
 
                 <div class="row">
                     <div class="span4">
-                        <h2>Facile d'accès</h2>
+                        <h2><img src="${cp}/style/images/easy.png" alt="easy"/>Facile d'accès</h2>
                         <p>
-                            <img src="${cp}/style/images/easy.png" alt="easy"/>
                             Accédez eCahier où que vous soyez : en établissement,
                             depuis un ordinateur équippé d'une connection internet,
                             ou même depuis votre smart-phone !
@@ -33,27 +32,25 @@
                     </div>
 
                     <div class="span4">
-                        <h2>Pour tous</h2>
+                        <h2><img src="${cp}/style/images/roles.png" alt="roles"/>Pour tous</h2>
                         <p>
-                            <img src="${cp}/style/images/roles.png" alt="roles"/>
+
                             eCahier s'adresse à tous les acteurs de la vie de l'établissement. Que vous soyez
                             usager, personnel encadrant ou administratif, l'interface et les fonctionnalités sont
                             spécifiques à votre rôle.
                         </p>
                     </div>
                     <div class="span4">
-                        <h2>Efficace</h2>
+                        <h2><img src="${cp}/style/images/efficient.png" alt="efficient"/>Efficace</h2>
                         <p>
-                            <img src="${cp}/style/images/efficient.png" alt="efficient"/>
                             Simple et intuitif, eCahier vous donne les outils adaptés au suivi de l'activité
                             sans imposer de charge de travail supplémentaire. Saisir des entrées, naviguer dans
                             le cahier ou consulter des rapports : tout se fait en quelques clicks.
                         </p>
                     </div>
                     <div class="span4">
-                        <h2>Sécurisé</h2>
+                        <h2><img src="${cp}/style/images/secure.png" alt="secure"/>Sécurisé</h2>
                         <p>
-                            <img src="${cp}/style/images/secure.png" alt="secure"/>
                             eCahier assure la confidentialité et la pérénnité de vos informations.
                             La consultation des entrées nécéssite de s'authentifier et
                             repose sur un système de permissions.
