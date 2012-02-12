@@ -13,7 +13,7 @@
 
 <div class="nav-collapse pull-right">
     <s:form action="/search" class="navbar-search">
-        <input type="text" name="facet.query" class="search-query" placeholder="<fmt:message key='ecahier.educ.navbar.search'/> "/>
+        <input type="text" name="facet.query" class="search-query" placeholder="<fmt:message key='ecahier.educ.navbar.search'/>"/>
     </s:form>
 
     <ul class="nav pull-right">
@@ -35,7 +35,7 @@
                                     <div class="span-two-third">
                                         <h4>
                                             ${username}<br/>
-                                            <small><fmt:message key="ecahier.educ.navbar.seeProfil"/> </small>
+                                            <small><fmt:message key="ecahier.educ.navbar.seeProfil"/></small>
                                         </h4>
                                     </div>
                                 </div>
@@ -43,6 +43,8 @@
                         </div>
                     </a>
                 </li>
+                <li class="divider"></li>
+                <li><a href="${cp}/admin"><h4><fmt:message key="ecahier.admin.navbar.admin"/></h4></a></li>
                 <li class="divider"></li>
                 <li><a href="${cp}/logout"><h4><fmt:message key="ecahier.educ.navbar.logout"/></h4></a></li>
             </ul>

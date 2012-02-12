@@ -63,4 +63,20 @@ class EcahierStore extends HibernateCompassStore {
         return new ListResultIterator<User>(subList, s, l, totalSize)
     }
 
+//    ResultIterator<User> getAllUsers(Integer start, Integer limit) {
+//        Criteria crit = session.createCriteria(User.class).add( Restrictions.eq("devel", false) )
+//        if (criteria) {
+//            crit.add(
+//                Restrictions.ilike("username", criteria, MatchMode.ANYWHERE)
+//            )
+//        }
+//        def results = crit.list()
+//        def totalSize = results.size()
+//        def s = start && start>0 ? start : 0
+//        def l = limit && limit>0 && start+limit < totalSize ? limit : totalSize
+//        def subList = results.subList(s,l)
+//
+//        return new ListResultIterator<User>(subList, s, l, totalSize)
+//    }
+
 }

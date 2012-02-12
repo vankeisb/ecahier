@@ -15,7 +15,7 @@ class EcahierUserManager extends HibernateUserManager {
     @Override
     DatabaseUserManager createDefaultUsers() {
         super.createDefaultUsers()
-        createUser("kakou", "kakou", Arrays.asList("educ"))
+        createUser("kakou", "kakou", ["admin", "educ"])
         createUser("david", "david", Arrays.asList("educ"))
         createUser("sofiane", "sofiane", Arrays.asList("usager"))
         return this

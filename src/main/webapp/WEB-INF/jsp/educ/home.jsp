@@ -7,20 +7,20 @@
 <w:facet facetName="layout" targetObject="${o}"/>
 <w:facet targetObject="${o}" facetName="renderTitle"/>
 <c:set var="currentUserId" value="${layout.currentUserId}"/>
-<fmt:message var="pageTitle" key="woko.guest.home.pageTitle"/>
+<fmt:message var="pageTitle" key="ecahier.educ.home.pageTitle"/>
 <s:layout-render name="${layout.layoutPath}" layout="${layout}" pageTitle="${pageTitle}">
     <s:layout-component name="body">
 
         <div class="page-header">
-            <h1>Accueil</h1>
+            <h1><fmt:message key="ecahier.educ.home.title"/></h1>
         </div>
 
         <div id="entries" class="row">
-            Chargement des entrées...
+            <fmt:message key="ecahier.educ.home.loadEntries"/>
         </div>
 
         <div id="moreEntries" style="display: none;">
-            Suivants...
+            <fmt:message key="ecahier.educ.home.nextEntries"/>
         </div>
 
         <script type="text/javascript">

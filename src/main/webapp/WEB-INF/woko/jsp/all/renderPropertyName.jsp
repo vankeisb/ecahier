@@ -14,7 +14,6 @@
     Object owningObject = fctx.getTargetObject();
     String objectKey = "object." + propertyName;
     String propertyLabel = propertyName;
-    String propertyClassName = os.getClassMapping(Util.getPropertyType(owningObject.getClass(), propertyName));
 %>
 
 <s:label class="control-label" for="<%=objectKey%>"><%=propertyLabel%></s:label>

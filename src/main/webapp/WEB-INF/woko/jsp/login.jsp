@@ -14,18 +14,55 @@
             <div class="span8">
                 <%-- Quick presentation here --%>
                 <h1>
-                    eCahier
-                    <small>My best slogan here...</small>
+                    <fmt:message key="ecahier.common.appTitle"/>
+                    <small><fmt:message key="ecahier.common.slogan"/></small>
                 </h1>
                 <p>
-                    Forcément la meilleure App !
+                    <fmt:message key="ecahier.guest.login.first"/>
                 </p>
-                <p>
-                    Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah<br/>
-                    Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah <br/>
-                    Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah <br/>
-                    Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah
-                </p>
+                <br/><br/>
+
+                <div class="row">
+                    <div class="span1">
+                        <img src="${pageContext.request.contextPath}/style/images/earth.png" width="64px"/>
+                    </div>
+                    <div class="span7">
+                        <p>
+                            <fmt:message key="ecahier.guest.login.market.ecolo"/>
+                        </p>
+                    </div>
+                </div>
+
+                <br/>
+
+                <div class="row">
+                    <div class="span1">
+                        <img src="${pageContext.request.contextPath}/style/images/time.png" width="64px"/>
+                    </div>
+                    <div class="span7">
+                        <p>
+                            <fmt:message key="ecahier.guest.login.market.time"/>
+                        </p>
+                    </div>
+                </div>
+
+                <br/>
+
+                <div class="row">
+                    <div class="span1">
+                        <img src="${pageContext.request.contextPath}/style/images/users.png" width="64px"/>
+                    </div>
+                    <div class="span7">
+                        <p>
+                            <fmt:message key="ecahier.guest.login.market.users"/>
+                        </p>
+                    </div>
+                </div>
+
+                <br/><br/>
+
+                <span class="label label-success">New</span> <fmt:message key="ecahier.guest.login.news.out"/>
+
             </div>
 
             <div class="span4">
