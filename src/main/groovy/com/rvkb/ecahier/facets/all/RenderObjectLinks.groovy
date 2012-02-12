@@ -10,6 +10,8 @@ import woko.persistence.ObjectStore
 import woko.facets.builtin.Edit
 import woko.facets.builtin.Delete
 import woko.facets.builtin.Json
+import net.sourceforge.stripes.controller.StripesFilter
+import woko.actions.WokoLocalizationBundleFactory
 
 @FacetKey(name="renderLinks", profileId="educ")
 class RenderObjectLinks extends RenderLinksImpl {
@@ -29,13 +31,18 @@ class RenderObjectLinks extends RenderLinksImpl {
         HttpServletRequest request = getRequest();
         ObjectStore store = woko.getObjectStore();
 
+        // Get Localization Bundle to internationalize links
+        WokoLocalizationBundleFactory localizationBundle = (WokoLocalizationBundleFactory)StripesFilter.getConfiguration().getLocalizationBundleFactory();
+
         // display edit link if object can be edited (use instanceof because could be a login required facet)
         Object editFacet = woko.getFacet("edit", request, o, oc);
         if (editFacet instanceof Edit) {
             String className = store.getClassMapping(oc);
             String key = store.getKey(o);
             if (key!=null) {
-                links.add(new Link("edit/" + className + "/" + key, "Edit").setCssClass("icon-edit"));
+                // Get internationalized link label
+                String editLabel = localizationBundle.getFormFieldBundle(facetContext.request.getLocale()).getString("ecahier.links.edit")
+                links.add(new Link("edit/" + className + "/" + key, editLabel).setCssClass("icon-edit"));
             }
         }
 
@@ -44,7 +51,9 @@ class RenderObjectLinks extends RenderLinksImpl {
             String className = store.getClassMapping(oc);
             String key = store.getKey(o);
             if (key!=null) {
-                links.add(new Link("delete/" + className + "/" + key, "Delete").setCssClass("icon-trash"));
+                // Get internationalized link label
+                String deleteLabel = localizationBundle.getFormFieldBundle(facetContext.request.getLocale()).getString("ecahier.links.delete")
+                links.add(new Link("delete/" + className + "/" + key, deleteLabel).setCssClass("icon-trash"));
             }
         }
 
@@ -53,7 +62,9 @@ class RenderObjectLinks extends RenderLinksImpl {
             String className = store.getClassMapping(oc);
             String key = store.getKey(o);
             if (key!=null) {
-                links.add(new Link("json/" + className + "/" + key, "Json").setCssClass("icon-file"));
+                // Get internationalized link label
+                String jsonLabel = localizationBundle.getFormFieldBundle(facetContext.request.getLocale()).getString("ecahier.links.json")
+                links.add(new Link("json/" + className + "/" + key, jsonLabel).setCssClass("icon-file"));
             }
         }
 

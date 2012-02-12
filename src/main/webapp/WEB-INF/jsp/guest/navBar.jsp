@@ -10,7 +10,7 @@
         <li>
             <a href="${cp}/login">
                 <i class="icon-user icon-white"></i>
-                <fmt:message key="woko.layout.login"/>
+                <fmt:message key="ecahier.guest.navbar.login"/>
             </a>
         </li>
     </ul>

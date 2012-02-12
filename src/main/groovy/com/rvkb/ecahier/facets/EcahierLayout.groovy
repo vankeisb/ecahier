@@ -32,6 +32,6 @@ class EcahierLayout extends LayoutAll {
 
     @Override
     String getAppTitle() {
-        'ecahier'
+        'eCahier'
     }
 }

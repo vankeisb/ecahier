@@ -33,7 +33,7 @@
             <%-- Infos --%>
             <div class="span10">
                 <% if (user.getName() == null){%>
-                    <strong>Aucune information disponible</strong>
+                    <strong><fmt:message key="ecahier.educ.profil.noinfo"/> </strong>
                 <%}else {%>
                 <address>
                     <strong><%=user.getName()%></strong><br/>

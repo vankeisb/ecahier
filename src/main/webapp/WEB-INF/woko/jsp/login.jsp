@@ -14,11 +14,11 @@
             <div class="span8">
                 <%-- Quick presentation here --%>
                 <h1>
-                    eCahier
-                    <small>Le cahier de liaison électronique</small>
+                    <fmt:message key="ecahier.common.appTitle"/>
+                    <small><fmt:message key="ecahier.common.slogan"/></small>
                 </h1>
                 <p>
-                    Les dernières technologies à votre service
+                    <fmt:message key="ecahier.guest.login.first"/>
                 </p>
                 <br/><br/>
 
@@ -28,8 +28,7 @@
                     </div>
                     <div class="span7">
                         <p>
-                            Il est grand temps de sauver la planète...<br/>
-                            Fini les impressions, les photocopies.
+                            <fmt:message key="ecahier.guest.login.market.ecolo"/>
                         </p>
                     </div>
                 </div>
@@ -42,8 +41,7 @@
                     </div>
                     <div class="span7">
                         <p>
-                            Avec toutes les informations à porter de souris,<br/>
-                            eCahier vous fera gagner un temps précieux
+                            <fmt:message key="ecahier.guest.login.market.time"/>
                         </p>
                     </div>
                 </div>
@@ -56,15 +54,14 @@
                     </div>
                     <div class="span7">
                         <p>
-                            Partagez avec vos collègues les informations nécessaires<br/>
-                            Tous les avis comptent faites partager le votre !
+                            <fmt:message key="ecahier.guest.login.market.users"/>
                         </p>
                     </div>
                 </div>
 
                 <br/><br/>
 
-                <span class="label label-success">New</span> eCahier est bientôt disponible
+                <span class="label label-success">New</span> <fmt:message key="ecahier.guest.login.news.out"/>
 
             </div>
 

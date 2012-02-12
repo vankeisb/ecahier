@@ -55,7 +55,7 @@
         <div class="navbar navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container">
-                    <s:link class="brand" href="/home">eCahier</s:link>
+                    <s:link class="brand" href="/home">${layout.appTitle}</s:link>
                     <w:includeFacet facetName="navBar" targetObject="${layout.facetContext.targetObject}"/>
                 </div>
             </div>
