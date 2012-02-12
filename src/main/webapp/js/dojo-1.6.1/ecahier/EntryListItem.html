@@ -7,23 +7,29 @@
         </div>
         <div class="span6 entryLinks">
             <span class="commands">
-                <div class="btn-group" data-dojo-attach-point="editLinkNode">
+                <div class="btn-group pull-right" data-dojo-attach-point="editLinkNode">
                     <a class="btn" href="${baseUrl}/view/Entry/${entry._key}">voir</a>
                 </div>
             </span>
         </div>
     </div>
-    <div class="row people">
-        <div class="span3 entryCreatedBy">
-            <span data-dojo-type="ecahier.UserLink" data-dojo-props="user: this.entry.createdBy, baseUrl: this.baseUrl"></span>
-        </div>
-        <div class="span6 entryParticipants">
-            <span data-dojo-attach-point="participantsNode"></span>
+    <div class="row">
+        <div class="span9 people">
+            <div class="row">
+                <div class="span3 entryCreatedBy">
+                    <strong>Auteur</strong>
+                    <span data-dojo-type="ecahier.UserLink" data-dojo-props="user: this.entry.createdBy, baseUrl: this.baseUrl"></span>
+                </div>
+                <div class="span6 entryParticipants">
+                    <strong>Participants</strong>
+                    <span data-dojo-attach-point="participantsNode"></span>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row entryText">
         <div class="span9">
-            <div class="well">${entry.text}</div>
+            ${entry.text}
         </div>
     </div>
 </div>

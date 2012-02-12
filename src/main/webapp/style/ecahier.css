@@ -86,6 +86,13 @@ span.commands .btn-group {
 }
 
 .entryListItem .people {
+    padding-top: 4px;
     margin-top: 4px;
     margin-bottom: 4px;
+    padding-bottom: 4px;
+}
+
+.entryText {
+    padding: 8px;
+    border-bottom: 1px dotted #d3d3d3;
 }
