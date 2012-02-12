@@ -1,14 +1,12 @@
 <div class="entryListItem span9">
     <div class="row head">
-        <div class="span3">
-            <span class="entryDate">
-                ${entry._creationDateFormatted}
-            </span>
+        <div class="span3 entryDate">
+            ${entry._creationDateFormatted}
         </div>
         <div class="span6 entryLinks">
             <span class="commands">
                 <div class="btn-group pull-right" data-dojo-attach-point="editLinkNode">
-                    <a class="btn" href="${baseUrl}/view/Entry/${entry._key}">voir</a>
+                    <a class="btn" href="${baseUrl}/view/Entry/${entry._key}"><i class="icon-check"></i> voir</a>
                 </div>
             </span>
         </div>
