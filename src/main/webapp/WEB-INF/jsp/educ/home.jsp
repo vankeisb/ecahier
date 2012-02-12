@@ -18,11 +18,13 @@
             </h1>
         </div>
 
-        <div id="entries" class="row">
-            <div class="span6">
-                <span class="loader">
-                    <fmt:message key="ecahier.educ.home.loadEntries"/>
-                </span>
+        <div class="row">
+            <div id="entries" class="span12">
+                <div class="span6">
+                    <span class="loader">
+                        <fmt:message key="ecahier.educ.home.loadEntries"/>
+                    </span>
+                </div>
             </div>
         </div>
 
