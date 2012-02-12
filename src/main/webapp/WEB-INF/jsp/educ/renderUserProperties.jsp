@@ -20,31 +20,28 @@
 
 %>
 
-<s:layout-render name="${layout.layoutPath}" layout="${layout}" pageTitle="${pageTitle}">
-    <s:layout-component name="body">
 
-        <%-- First display avatar and some info--%>
-        <div class="row">
-            <%-- Avatar--%>
-            <div class="span2">
-                <img src="${cp}/avatar/User/<%=user.getId()%>" alt="avatar" width="150px" height="150px"/>
-            </div>
 
-            <%-- Infos --%>
-            <div class="span10">
-                <% if (user.getName() == null){%>
-                    <strong><fmt:message key="ecahier.educ.profil.noinfo"/> </strong>
-                <%}else {%>
-                <address>
-                    <strong><%=user.getName()%></strong><br/>
-                    <%=user.getJobPosition()%> @ La croix rouge francaise<br/>
-                    Tel : <%=user.getPhoneNumber()%><br/>
-                    Email : <a href="mailto:<%=user.getEmail()%>"><%=user.getEmail()%></a>
-                </address>
-                <%}%>
-            </div>
-        </div>
+<%-- First display avatar and some info--%>
+<div class="row">
+    <%-- Avatar--%>
+    <div class="span2">
+        <img src="${cp}/avatar/User/<%=user.getId()%>" alt="avatar" width="150px" height="150px"/>
+    </div>
 
-    </s:layout-component>
-</s:layout-render>
+    <%-- Infos --%>
+    <div class="span10">
+        <% if (user.getName() == null){%>
+            <strong><fmt:message key="ecahier.educ.profil.noinfo"/> </strong>
+        <%}else {%>
+        <address>
+            <strong><%=user.getName()%></strong><br/>
+            <%=user.getJobPosition()%> @ La croix rouge francaise<br/>
+            Tel : <%=user.getPhoneNumber()%><br/>
+            Email : <a href="mailto:<%=user.getEmail()%>"><%=user.getEmail()%></a>
+        </address>
+        <%}%>
+    </div>
+</div>
+
 
