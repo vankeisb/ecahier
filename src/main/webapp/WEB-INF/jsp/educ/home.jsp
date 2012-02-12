@@ -12,7 +12,10 @@
     <s:layout-component name="body">
 
         <div class="page-header">
-            <h1><fmt:message key="ecahier.educ.home.title"/></h1>
+            <h1>
+                <fmt:message key="ecahier.educ.home.title"/>
+                <small>Dernières entrées dans le cahier</small>
+            </h1>
         </div>
 
         <div id="entries" class="row">
