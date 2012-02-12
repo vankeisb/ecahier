@@ -15,7 +15,6 @@
     String objectKey = "object." + propertyName;
     String propertyLabel = propertyName;
 %>
-
 <s:label class="control-label" for="<%=objectKey%>"><%=propertyLabel%></s:label>
 
 

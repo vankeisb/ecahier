@@ -97,3 +97,7 @@ span.commands .btn-group {
     padding: 8px;
     border-bottom: 1px dotted #d3d3d3;
 }
+
+.wokoProperties th, .wokoProperties td {
+    padding: 4px;
+}
