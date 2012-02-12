@@ -6,6 +6,7 @@
 <ul class="nav nav-pills">
     <li><a href="${pageContext.request.contextPath}/home"><fmt:message key="ecahier.educ.navbar.home"/></a></li>
     <li><a href="${pageContext.request.contextPath}/save/Entry"><fmt:message key="ecahier.educ.navbar.addEntry"/></a></li>
+    <li><a href="${pageContext.request.contextPath}/admin"><fmt:message key="ecahier.admin.navbar.admin"/></a>
 </ul>
 
 <w:username var="username"/>
@@ -43,8 +44,6 @@
                         </div>
                     </a>
                 </li>
-                <li class="divider"></li>
-                <li><a href="${cp}/admin"><h4><fmt:message key="ecahier.admin.navbar.admin"/></h4></a></li>
                 <li class="divider"></li>
                 <li><a href="${cp}/logout"><h4><fmt:message key="ecahier.educ.navbar.logout"/></h4></a></li>
             </ul>
