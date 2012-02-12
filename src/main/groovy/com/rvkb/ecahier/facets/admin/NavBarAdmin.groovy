@@ -11,5 +11,9 @@ class NavBarAdmin extends NavBarAll {
         '/WEB-INF/jsp/admin/navBar.jsp'
     }
 
+    boolean isAdmin() {
+        true
+    }
+
 
 }

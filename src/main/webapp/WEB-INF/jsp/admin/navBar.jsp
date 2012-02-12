@@ -6,7 +6,9 @@
 <ul class="nav nav-pills">
     <li><a href="${pageContext.request.contextPath}/home"><fmt:message key="ecahier.educ.navbar.home"/></a></li>
     <li><a href="${pageContext.request.contextPath}/save/Entry"><fmt:message key="ecahier.educ.navbar.addEntry"/></a></li>
-    <li><a href="${pageContext.request.contextPath}/admin"><fmt:message key="ecahier.admin.navbar.admin"/></a>
+    <c:if test="${navBar.admin}">
+        <li><a href="${pageContext.request.contextPath}/admin"><fmt:message key="ecahier.admin.navbar.admin"/></a>
+    </c:if>
 </ul>
 
 <w:username var="username"/>
