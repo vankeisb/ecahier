@@ -75,3 +75,8 @@
     padding-top: 14px;
     padding-bottom: 14px;
 }
+
+.loginPage .span4 img {
+    float: left;
+    padding-right: 4px;
+}
