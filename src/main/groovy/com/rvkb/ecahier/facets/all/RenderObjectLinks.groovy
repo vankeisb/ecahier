@@ -35,7 +35,7 @@ class RenderObjectLinks extends RenderLinksImpl {
             String className = store.getClassMapping(oc);
             String key = store.getKey(o);
             if (key!=null) {
-                links.add(new Link("edit/" + className + "/" + key, "Edit").setCssClass("icon-pencil"));
+                links.add(new Link("edit/" + className + "/" + key, "Edit").setCssClass("icon-edit"));
             }
         }
 
