@@ -98,10 +98,10 @@
         var fetchEntries = function() {
             cli.find({
                 className: "Entry",
-                key: "<%=user.getId()%>",
                 content: {
                     "facet.resultsPerPage": pageSize,
-                    "facet.page": page
+                    "facet.page": page,
+                    "facet.user": "<%=user.getId()%>"
                 },
                 load: function(resp) {
                     if (page==1) {

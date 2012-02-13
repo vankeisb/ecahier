@@ -12,21 +12,17 @@ import com.rvkb.ecahier.model.User
 @Mixin(FacetCategory)
 class FindEntries extends ListImpl {
 
+    User user
+
     @Override
     protected ResultIterator<?> createResultIterator(ActionBeanContext abc, int start, int limit) {
-        // Get key from request parameter
-        String key = facetContext.request.getParameter("key")
-        if(key){
-            // We are looking for entries with user correspondence
-            User u = (User)store.load("User", key)
-            // If User is an Educ -> Display only its authored news
-            if (u.roles.contains('educ'))
-                return store.getAuthoredEntriesForUser(u, start, limit)
-            // Else, user is an Usager -> Display news where he participates
-            else
-                return store.getParticipatedEntriesForUser(u, start, limit)
+        if (!user) {
+            // user not bound, default behavior
+            return super.createResultIterator(abc, start, limit)
         }
-        return super.createResultIterator(abc, start, limit)
+        user?.roles?.contains("educ") ?
+            store.getAuthoredEntriesForUser(user, start, limit) :
+            store.getParticipatedEntriesForUser(user, start, limit)
     }
 
 
