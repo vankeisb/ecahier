@@ -20,8 +20,6 @@
 
 %>
 
-
-
 <%-- First display avatar and some info--%>
 <div class="row">
     <%-- Avatar--%>
@@ -43,5 +41,93 @@
         <%}%>
     </div>
 </div>
+
+<div class="page-header">
+    <h2><fmt:message key="ecahier.educ.profil.entries"/> </h2>
+</div>
+
+<%-- Display associated entries--%>
+<div class="row">
+    <div class="span12">
+        <div id="entries" class="span12">
+            <div class="span6">
+                <span class="loader">
+                    <fmt:message key="ecahier.educ.home.loadEntries"/>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="moreEntries" style="display: none;">
+    <fmt:message key="ecahier.educ.home.nextEntries"/>
+</div>
+
+<script type="text/javascript">
+
+    dojo.require("ecahier.EntryListItem");
+
+    dojo.addOnLoad(function() {
+        var cuid = <%=user.getId()%>;
+        var cntr = dojo.byId("entries");
+        var page = 1;
+        var pageSize = 10;
+        var totalSize = null;
+        var cli = new woko.rpc.Client({baseUrl:"${pageContext.request.contextPath}"});
+
+        var moreEntries = dojo.byId('moreEntries');
+
+        var populateEntries = function(entries) {
+            dojo.forEach(entries, function(entry) {
+                var editable = cuid == entry.createdBy._key;
+                var eli = new ecahier.EntryListItem({
+                    baseUrl: "${pageContext.request.contextPath}",
+                    entry: entry,
+                    editLink: editable
+                });
+                eli.startup();
+                cntr.appendChild(eli.domNode);
+            });
+            // handle moreEntries link visibility
+            var disp = 'none';
+            dojo.style(moreEntries,
+              "display",
+              totalSize > page * pageSize ? 'block' : 'none');
+        };
+
+        var fetchEntries = function() {
+            cli.find({
+                className: "Entry",
+                key: "<%=user.getId()%>",
+                content: {
+                    "facet.resultsPerPage": pageSize,
+                    "facet.page": page
+                },
+                load: function(resp) {
+                    if (page==1) {
+                        dojo.empty(cntr);
+                        totalSize = resp.totalSize;
+                        if (totalSize==0) {
+                            cntr.innerHTML = '<div class="alert alert-info"><h4 class="alert-heading">Base vide !</h4>' +
+                              "La base de donn&eacute;es est vide. Aucune entrée trouvée.";
+                        }
+                    }
+                    page++;
+                    populateEntries(resp.items);
+                },
+
+                error: function(resp) {
+                    // TODO
+                    alert('An error occured.');
+                }
+            });
+        };
+
+        fetchEntries();
+
+        dojo.connect(moreEntries, 'onclick', fetchEntries);
+
+    });
+</script>
 
 

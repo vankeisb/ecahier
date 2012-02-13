@@ -47,6 +47,68 @@ class EcahierStore extends HibernateCompassStore {
         }
     }
 
+    /**
+     * Display the news where the user is the author
+     */
+    ResultIterator getAuthoredEntriesForUser(User u, Integer start, Integer limit) {
+        Class clazz = getMappedClass("Entry");
+        int s = start==null ? 0 : start;
+        int l = limit==null ? -1 : limit;
+        if (clazz==null) {
+          return new ListResultIterator(Collections.emptyList(), s, l, 0);
+        } else {
+          Criteria crit = getSession().
+            createCriteria(clazz).
+            setFirstResult(s).
+            addOrder(Order.desc("creationDate")).
+            add(Restrictions.like("createdBy", u));
+          if (l!=-1) {
+            crit.setMaxResults(l);
+          }
+
+          // TODO optimize with scrollable results ?
+          List objects = crit.list();
+
+          // compute total count
+          String mappedClassName = getClassMapping(clazz);
+          String query = new StringBuilder("select count(*) from Entry where createdBy.id like('$u.id')").toString();
+          Long count = (Long)getSession().createQuery(query).list().get(0);
+
+          return new ListResultIterator(objects, s, l, count.intValue());
+        }
+    }
+
+    /**
+     * Display the news where the user is in the participant list
+     */
+    ResultIterator getParticipatedEntriesForUser(User u, Integer start, Integer limit) {
+        Class clazz = getMappedClass("Entry");
+        int s = start==null ? 0 : start;
+        int l = limit==null ? -1 : limit;
+        if (clazz==null) {
+            return new ListResultIterator(Collections.emptyList(), s, l, 0);
+        } else {
+            Criteria crit = getSession().
+                    createCriteria(clazz).
+                    setFirstResult(s).
+                    addOrder(Order.desc("creationDate")).
+                    createCriteria("participants").
+                        add(Restrictions.like("id", u.id))
+
+            if (l!=-1) {
+                crit.setMaxResults(l);
+            }
+
+            // TODO optimize with scrollable results ?
+            List objects = crit.list();
+
+            String query = new StringBuilder("select count(*) from Entry e join e.participants p where p.id like('$u.id')").toString();
+            Long count = (Long)getSession().createQuery(query).list().get(0);
+
+            return new ListResultIterator(objects, s, l, count.intValue());
+        }
+    }
+
     ResultIterator<User> getCompletionUsers(String criteria, Integer start, Integer limit) {
         Criteria crit = session.createCriteria(User.class).add( Restrictions.eq("devel", false) )
         if (criteria) {
@@ -62,21 +124,5 @@ class EcahierStore extends HibernateCompassStore {
 
         return new ListResultIterator<User>(subList, s, l, totalSize)
     }
-
-//    ResultIterator<User> getAllUsers(Integer start, Integer limit) {
-//        Criteria crit = session.createCriteria(User.class).add( Restrictions.eq("devel", false) )
-//        if (criteria) {
-//            crit.add(
-//                Restrictions.ilike("username", criteria, MatchMode.ANYWHERE)
-//            )
-//        }
-//        def results = crit.list()
-//        def totalSize = results.size()
-//        def s = start && start>0 ? start : 0
-//        def l = limit && limit>0 && start+limit < totalSize ? limit : totalSize
-//        def subList = results.subList(s,l)
-//
-//        return new ListResultIterator<User>(subList, s, l, totalSize)
-//    }
 
 }
