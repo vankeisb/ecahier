@@ -80,7 +80,7 @@ dojo.declare("ecahier.ParticipantsField", [ dijit._Widget, dijit._Templated ], {
     },
 
     onItemSelected: function(rowWidget) {
-        var itemText = rowWidget.item._title;
+        var itemText = rowWidget.item.username;
         // obtain selections
         var pn = this.participantsNode;
         var value = pn.getValue();
