@@ -1,4 +1,4 @@
-package com.rvkb.ecahier.facets.educ
+package com.rvkb.ecahier.facets.users
 
 import net.sourceforge.jfacets.annotations.FacetKey
 import net.sourceforge.stripes.action.FileBean
