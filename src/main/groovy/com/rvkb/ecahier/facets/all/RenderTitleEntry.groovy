@@ -26,7 +26,7 @@ class RenderTitleEntry extends RenderTitleImpl {
             return "$formattedDate - ${currentUser.username}"
         // Title for Entry already created
         else
-            return "$formattedDate - ${e.createdBy.username}"
+            return "$formattedDate - ${e?.createdBy?.username}"
     }
 
 

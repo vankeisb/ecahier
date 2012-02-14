@@ -7,13 +7,33 @@ import javax.persistence.FetchType
 import java.sql.Blob
 import javax.persistence.Transient
 import net.sourceforge.stripes.action.FileBean
+import org.compass.annotations.Searchable
+import org.compass.annotations.SearchableId
+import org.compass.annotations.SearchableProperty
 
 @Entity
+@Searchable(boost=2.0f)
 class User extends HbUser {
 
+    @SearchableId
+    @Override
+    Long getId() {
+        return super.getId()
+    }
+
+    @SearchableProperty
+    @Override
+    String getUsername() {
+        return super.getUsername()
+    }
+
+    @SearchableProperty
     String name
+
     String email
     String phoneNumber
+
+    @SearchableProperty
     String jobPosition
 
     User(){
@@ -31,9 +51,6 @@ class User extends HbUser {
             devel = true
         }
     }
-
-//    @Lob
-//    byte[] avatar
 
     // My tricks for easily avatar/woko integration
     @Transient

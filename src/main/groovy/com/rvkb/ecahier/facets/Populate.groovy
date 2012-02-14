@@ -36,7 +36,7 @@ class Populate extends BaseResolutionFacet {
                 objectStore.save(e)
             }
         }
-        return new RedirectResolution("/view/Entry/$e.id")
+        return new RedirectResolution("/home")
     }
 
 

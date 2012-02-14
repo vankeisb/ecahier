@@ -7,9 +7,6 @@
 <c:set var="cp" value="${pageContext.request.contextPath}"/>
 
 <div class="nav-collapse pull-right">
-    <s:form action="/search" class="navbar-search">
-        <input type="text" name="facet.query" class="search-query" placeholder="<fmt:message key='ecahier.common.navbar.search'/>"/>
-    </s:form>
 
     <ul class="nav pull-right">
 

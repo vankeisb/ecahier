@@ -25,6 +25,7 @@ class Entry {
     Date creationDate = new Date()
 
     @NotNull
+    @SearchableProperty
     String text
 
     @ManyToOne(fetch=FetchType.LAZY)
@@ -40,6 +41,36 @@ class Entry {
         }
         if (!participants.contains(participant))
         participants << participant
+    }
+
+    private void appendUser(StringBuilder sb, User u) {
+        if (u) {
+            sb << u.username
+            sb << ' '
+            sb << u.name
+            sb << ' '
+        }
+    }
+
+    // used for indexing the participants string
+    @SearchableProperty
+    String getParticipantsStr() {
+        if (participants) {
+            def res = new StringBuilder()
+            participants.each { p->
+                appendUser(res, p)
+            }
+            return res.toString()
+        }
+        return null
+    }
+
+    // used for indexing the created by field
+    @SearchableProperty
+    String getCreatedByStr() {
+        def res = new StringBuilder()
+        appendUser(res, createdBy)
+        return res.toString()
     }
 
 }
