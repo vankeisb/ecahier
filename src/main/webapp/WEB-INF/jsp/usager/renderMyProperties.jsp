@@ -1,7 +1,7 @@
 <%@ page import="woko.facets.WokoFacetContext" %>
 <%@ page import="woko.Woko" %>
 <%@ page import="com.rvkb.ecahier.model.User" %>
-<%@ page import="com.rvkb.ecahier.facets.usager.ViewUserUsager" %>
+<%@ page import="com.rvkb.ecahier.facets.users.ViewUser" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="w" tagdir="/WEB-INF/tags/woko" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -14,7 +14,7 @@
 <c:set var="cp" value="${pageContext.request.contextPath}"/>
 
 <%
-    ViewUserUsager view = (ViewUserUsager)request.getAttribute("view");
+    ViewUser view = (ViewUser)request.getAttribute("view");
     WokoFacetContext fctx = view.getFacetContext();
     User user = (User)fctx.getTargetObject();
 %>

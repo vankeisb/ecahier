@@ -5,13 +5,7 @@ import net.sourceforge.jfacets.annotations.FacetKeyList
 import woko.facets.builtin.all.RenderObjectImpl
 import woko.facets.builtin.all.RenderObjectEditImpl
 
-@FacetKeyList(
-    keys=[
-    @FacetKey(name="renderObjectEdit", profileId="eguest"),
-    @FacetKey(name="renderObjectEdit", profileId="educ"),
-    @FacetKey(name="renderObject", profileId="usager"),
-    ]
-)
+@FacetKey(name="renderObjectEdit", profileId="all")
 class RenderObjectEdit extends RenderObjectEditImpl{
 
     @Override

@@ -7,13 +7,7 @@ import com.rvkb.ecahier.model.Entry
 import java.text.DateFormat
 import com.rvkb.ecahier.facets.FacetCategory
 
-@FacetKeyList(
-    keys=[
-    @FacetKey(name="renderTitle", profileId="eguest", targetObjectType=Entry.class),
-    @FacetKey(name="renderTitle", profileId="educ", targetObjectType=Entry.class),
-    @FacetKey(name="renderTitle", profileId="usager", targetObjectType=Entry.class)
-    ]
-)
+@FacetKey(name="renderTitle", profileId="all", targetObjectType=Entry.class)
 @Mixin(FacetCategory)
 class RenderTitleEntry extends RenderTitleImpl {
 
@@ -27,7 +21,12 @@ class RenderTitleEntry extends RenderTitleImpl {
         DateFormat df = DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.SHORT);
         Entry e = facetContext.targetObject
         def formattedDate = df.format(e.creationDate)
-        return "$formattedDate - ${currentUser.username}"
+        // Title for entry creation
+        if (!e.id)
+            return "$formattedDate - ${currentUser.username}"
+        // Title for Entry already created
+        else
+            return "$formattedDate - ${e.createdBy.username}"
     }
 
 

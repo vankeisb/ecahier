@@ -1,4 +1,4 @@
-<%@ page import="com.rvkb.ecahier.facets.educ.ViewUser" %>
+<%@ page import="com.rvkb.ecahier.facets.users.ViewUser" %>
 <%@ page import="woko.facets.WokoFacetContext" %>
 <%@ page import="woko.Woko" %>
 <%@ page import="com.rvkb.ecahier.model.User" %>

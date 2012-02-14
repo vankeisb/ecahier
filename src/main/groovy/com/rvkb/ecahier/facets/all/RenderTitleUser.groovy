@@ -8,13 +8,7 @@ import net.sourceforge.jfacets.annotations.FacetKeyList
 import woko.facets.builtin.all.RenderTitleImpl
 import com.rvkb.ecahier.model.User
 
-@FacetKeyList(
-    keys=[
-    @FacetKey(name="renderTitle", profileId="eguest", targetObjectType=User.class),
-    @FacetKey(name="renderTitle", profileId="educ", targetObjectType=User.class),
-    @FacetKey(name="renderTitle", profileId="educ", targetObjectType=User.class)
-    ]
-)
+@FacetKey(name="renderTitle", profileId="all", targetObjectType=User.class)
 @Mixin(FacetCategory)
 class RenderTitleUser extends RenderTitleImpl {
 
