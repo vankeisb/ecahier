@@ -32,27 +32,25 @@
         <div class="row">
             <div class="span9">
                 <s:form class="form-inline" id="searchForm" action="/search" method="GET">
-                    <s:text name="facet.query" class="span6"/>
+                    <s:text name="facet.query" class="span6" id="searchField"/>
                     <button class="btn btn-primary" type="submit"><i class="icon-search icon-white"></i></button>
                 </s:form>
             </div>
         </div>
 
-        <c:choose>
-            <c:when test="<%=totalSize==0%>">
-                <div class="alert alert-info">
-                    Aucune entrée dans le cahier ne répond aux critères soumis.
-                </div>
-            </c:when>
-            <c:otherwise>
-                <div class="row">
-                    <div class="span12">
+        <div class="row">
+            <div class="span12">
+                <c:choose>
+                    <c:when test="<%=totalSize==0%>">
+                        <h2>Pas de résultats pour cette recherche</h2>
+                        <p>Aucune entrée dans le cahier ne répond aux critères soumis.</p>
+                    </c:when>
+                    <c:otherwise>
                         <h2>Résultats de votre recherche <small>(<%=totalSize%> trouvés)</small></h2>
-                    </div>
-                </div>
-            </c:otherwise>
-        </c:choose>
-
+                    </c:otherwise>
+                </c:choose>
+            </div>
+        </div>
         <ul>
             <%
               while (results.hasNext()) {
@@ -116,6 +114,13 @@
                 </div>
             </div>
         </c:if>
+
+        <script type="text/javascript">
+            dojo.require("dijit._base.focus");
+            dojo.addOnLoad(function() {
+                dijit.focus(dojo.byId("searchField"));
+            });
+        </script>
 
     </s:layout-component>
 </s:layout-render>
