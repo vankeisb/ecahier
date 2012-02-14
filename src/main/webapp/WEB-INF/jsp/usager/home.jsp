@@ -7,14 +7,14 @@
 <w:facet facetName="layout" targetObject="${o}"/>
 <w:facet targetObject="${o}" facetName="renderTitle"/>
 <c:set var="currentUserId" value="${layout.currentUserId}"/>
-<fmt:message var="pageTitle" key="ecahier.educ.home.pageTitle"/>
+<fmt:message var="pageTitle" key="ecahier.usager.home.pageTitle"/>
 <s:layout-render name="${layout.layoutPath}" layout="${layout}" pageTitle="${pageTitle}">
     <s:layout-component name="body">
 
         <div class="page-header">
             <h1>
-                <fmt:message key="ecahier.educ.home.title"/>
-                <small><fmt:message key="ecahier.educ.home.subtitle"/></small>
+                <fmt:message key="ecahier.usager.home.title"/>
+                <small><fmt:message key="ecahier.usager.home.subtitle"/></small>
             </h1>
         </div>
 
@@ -69,7 +69,8 @@
                         className: "Entry",
                         content: {
                             "facet.resultsPerPage": pageSize,
-                            "facet.page": page
+                            "facet.page": page,
+                            "facet.user": "${currentUserId}"
                         },
                         load: function(resp) {
                             if (page==1) {

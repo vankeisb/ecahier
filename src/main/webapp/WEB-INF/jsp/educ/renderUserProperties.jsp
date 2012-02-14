@@ -52,7 +52,7 @@
         <div id="entries" class="span12">
             <div class="span6">
                 <span class="loader">
-                    <fmt:message key="ecahier.educ.home.loadEntries"/>
+                    <fmt:message key="ecahier.common.loadEntries"/>
                 </span>
             </div>
         </div>
@@ -60,7 +60,7 @@
 </div>
 
 <div id="moreEntries" style="display: none;">
-    <fmt:message key="ecahier.educ.home.nextEntries"/>
+    <fmt:message key="ecahier.common.nextEntries"/>
 </div>
 
 <script type="text/javascript">
