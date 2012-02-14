@@ -8,7 +8,8 @@ import woko.facets.builtin.all.RenderObjectImpl
 @FacetKeyList(
     keys=[
     @FacetKey(name="renderObject", profileId="eguest"),
-    @FacetKey(name="renderObject", profileId="educ")
+    @FacetKey(name="renderObject", profileId="educ"),
+    @FacetKey(name="renderObject", profileId="usager"),
     ]
 )
 class RenderObject extends RenderObjectImpl{

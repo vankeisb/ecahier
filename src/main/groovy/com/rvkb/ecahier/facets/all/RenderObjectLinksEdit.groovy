@@ -10,8 +10,14 @@ import woko.Woko
 import woko.facets.WokoFacetContext
 import net.sourceforge.stripes.controller.StripesFilter
 import woko.actions.WokoLocalizationBundleFactory
+import net.sourceforge.jfacets.annotations.FacetKeyList
 
-@FacetKey(name="renderLinksEdit", profileId="educ")
+@FacetKeyList(
+    keys=[
+    @FacetKey(name="renderLinksEdit", profileId="educ"),
+    @FacetKey(name="renderLinksEdit", profileId="usager")
+    ]
+)
 class RenderObjectLinksEdit extends RenderLinksEditImpl {
 
     @Override

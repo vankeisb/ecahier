@@ -11,6 +11,7 @@ import com.rvkb.ecahier.model.User
 @FacetKeyList(
     keys=[
     @FacetKey(name="renderTitle", profileId="eguest", targetObjectType=User.class),
+    @FacetKey(name="renderTitle", profileId="educ", targetObjectType=User.class),
     @FacetKey(name="renderTitle", profileId="educ", targetObjectType=User.class)
     ]
 )

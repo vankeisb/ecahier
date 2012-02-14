@@ -11,16 +11,13 @@ import woko.persistence.ListResultIterator
 
 @FacetKey(name="list", profileId="usager", targetObjectType=Entry.class)
 @Mixin(FacetCategory)
-class FindEntries extends ListImpl {
+class FindEntriesUsager extends ListImpl {
 
     User user
 
     @Override
     protected ResultIterator<?> createResultIterator(ActionBeanContext abc, int start, int limit) {
-        if ( (user) && (user.roles.contains("usager")) ){
-            return store.getParticipatedEntriesForUser(user, start, limit)
-        }
-        // Should never happen.
-        return new ListResultIterator<Object>(Collections.emptyList(), start, limit, 0);
+        // An 'usager' can see only the news where he participates
+        return store.getParticipatedEntriesForUser(currentUser, start, limit)
     }
 }

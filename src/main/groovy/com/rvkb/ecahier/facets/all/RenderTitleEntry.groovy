@@ -10,7 +10,8 @@ import com.rvkb.ecahier.facets.FacetCategory
 @FacetKeyList(
     keys=[
     @FacetKey(name="renderTitle", profileId="eguest", targetObjectType=Entry.class),
-    @FacetKey(name="renderTitle", profileId="educ", targetObjectType=Entry.class)
+    @FacetKey(name="renderTitle", profileId="educ", targetObjectType=Entry.class),
+    @FacetKey(name="renderTitle", profileId="usager", targetObjectType=Entry.class)
     ]
 )
 @Mixin(FacetCategory)

@@ -12,7 +12,14 @@ import woko.facets.builtin.Delete
 import woko.facets.builtin.Json
 import net.sourceforge.stripes.controller.StripesFilter
 import woko.actions.WokoLocalizationBundleFactory
+import net.sourceforge.jfacets.annotations.FacetKeyList
 
+@FacetKeyList(
+    keys=[
+    @FacetKey(name="renderLinks", profileId="educ"),
+    @FacetKey(name="renderLinks", profileId="usager")
+    ]
+)
 @FacetKey(name="renderLinks", profileId="educ")
 class RenderObjectLinks extends RenderLinksImpl {
 
