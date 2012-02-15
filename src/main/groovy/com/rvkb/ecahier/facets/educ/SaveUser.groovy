@@ -8,6 +8,7 @@ import net.sourceforge.stripes.action.ActionBeanContext
 import woko.facets.builtin.developer.SaveImpl
 import com.rvkb.ecahier.model.User
 import org.hibernate.Hibernate
+import com.rvkb.ecahier.utils.ImageUtils
 
 @FacetKey(name="save",profileId="educ",targetObjectType=User.class)
 @Mixin(FacetCategory)
@@ -17,8 +18,11 @@ class SaveUser extends SaveImpl implements IInstanceFacet {
     protected void doSave(ActionBeanContext abc) {
         // Decode avatar and create User avatar
         User user = facetContext.targetObject
-        if (user.avatarStripes)
-            user.avatar = Hibernate.createBlob(user.avatarStripes.inputStream)
+        if (user.avatarStripes) {
+            ByteArrayOutputStream bos = new ByteArrayOutputStream()
+            ImageUtils.rescaleImage(user.avatarStripes.inputStream, 150, bos)
+            user.avatar = Hibernate.createBlob(new ByteArrayInputStream(bos.toByteArray()))
+        }
 
         // During user creation (by admin) we need to generate a password
         if (!user.id){
