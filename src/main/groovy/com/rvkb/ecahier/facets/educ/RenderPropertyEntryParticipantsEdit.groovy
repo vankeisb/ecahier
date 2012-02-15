@@ -20,7 +20,7 @@ class RenderPropertyEntryParticipantsEdit extends RenderPropertyValueEditStripes
             for (int i=0 ; i<users.size() ; i++) {
                 res += "{"
                 User user = users.get(i);
-                res += "username: '$user.username', _key: ${user.id}"
+                res += "username: '$user.username', _key: ${user.id}, name:'${user.name}'"
                 res += "}"
                 if (i<users.size()-1) {
                     res += ", "

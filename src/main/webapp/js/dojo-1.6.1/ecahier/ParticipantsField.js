@@ -24,7 +24,7 @@ dojo.declare("ecahier.ParticipantsField", [ dijit._Widget, dijit._Templated ], {
         var s = "";
         for (var i = 0 ; i<this.users.length ; i++) {
             var u = this.users[i];
-            s += u.username;
+            s += u.username + " (" + u.name + ")";
             if (i<this.users.length-1) {
                 s += ", ";
             }
@@ -80,7 +80,7 @@ dojo.declare("ecahier.ParticipantsField", [ dijit._Widget, dijit._Templated ], {
     },
 
     onItemSelected: function(rowWidget) {
-        var itemText = rowWidget.item.username;
+        var itemText = rowWidget.item.username + " (" + rowWidget.item.name + ")";
         // obtain selections
         var pn = this.participantsNode;
         var value = pn.getValue();

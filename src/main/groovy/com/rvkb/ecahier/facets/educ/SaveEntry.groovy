@@ -24,8 +24,14 @@ class SaveEntry extends SaveImpl implements IInstanceFacet {
         def um = facetContext.woko.userManager
         e.participants = []
         if (participantsStr) {
-            participantsStr.split(",").each { username ->
-                def u = um.getUserByUsername(username.trim());
+            participantsStr.split(",").each { fullName ->
+                def username = fullName
+                def i = username.indexOf('(')
+                if (i!=-1) {
+                    username = username.substring(0, i)
+                }
+                username = username.trim()
+                def u = um.getUserByUsername(username);
                 if (u) {
                     if (!e.participants.contains(u)) {
                         e.participants << u
