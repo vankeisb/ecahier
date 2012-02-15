@@ -157,10 +157,12 @@ span.commands .btn-group {
     padding: 8px;
     font-family: 'Architects Daughter', cursive;
     font-size: 20px;
+    border: none;
 }
 
 #entries .entryParticipants{
     padding-top: 5px;
 }
+
 
 

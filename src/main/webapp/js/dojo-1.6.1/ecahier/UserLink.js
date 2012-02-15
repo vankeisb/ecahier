@@ -10,7 +10,7 @@ dojo.declare("ecahier.UserLink", [ dijit._Widget, dijit._Templated ], {
     smallImage: false,
 
     buildRendering: function() {
-        this._imgSize = this.smallImage ? 16 : 32;
+        this._imgSize = this.smallImage ? 18 : 36;
         this.inherited('buildRendering', arguments);
     }
 
