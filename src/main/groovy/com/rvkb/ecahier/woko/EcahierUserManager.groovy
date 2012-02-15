@@ -19,7 +19,7 @@ class EcahierUserManager extends HibernateUserManager {
             hibernateStore.save(
               new User([
                   username:"kakou",
-                  name: "Guillaume Lefrançois",
+                  name: "Guillaume LefranÃ§ois",
                   password: encodePassword("kakou"),
                   roles: ["admin", "educ"],
                   email: "kakou@lefrancois.com"
