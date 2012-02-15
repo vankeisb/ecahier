@@ -37,7 +37,7 @@
                                     </div>
                                     <div class="span-two-third">
                                         <h4>
-                                            ${username}<br/>
+                                            ${layout.currentUserLongName}<br/>
                                             <small><fmt:message key="ecahier.common.navbar.seeProfil"/></small>
                                         </h4>
                                     </div>

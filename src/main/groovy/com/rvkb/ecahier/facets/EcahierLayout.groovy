@@ -25,6 +25,10 @@ class EcahierLayout extends LayoutAll {
         return null
     }
 
+    String getCurrentUserLongName() {
+        return currentUser?.name
+    }
+
     @Override
     List<String> getCssIncludes() {
         return []
