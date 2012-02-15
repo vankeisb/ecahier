@@ -62,6 +62,11 @@
             <artifactId>lucene-highlighter</artifactId>
             <version>2.4.1</version>
         </dependency>
+        <dependency>
+            <groupId>postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>8.4-702.jdbc4</version>
+        </dependency>
     </dependencies>
     <repositories>
         <repository>
