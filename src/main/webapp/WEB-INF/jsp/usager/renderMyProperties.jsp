@@ -47,13 +47,11 @@
 
 <%-- Display associated entries--%>
 <div class="row">
-    <div class="span12">
-        <div id="entries" class="span12">
-            <div class="span6">
-                <span class="loader">
-                    <fmt:message key="ecahier.common.loadEntries"/>
-                </span>
-            </div>
+    <div id="entries" class="span12">
+        <div class="span6">
+            <span class="loader">
+                <fmt:message key="ecahier.common.loadEntries"/>
+            </span>
         </div>
     </div>
 </div>
