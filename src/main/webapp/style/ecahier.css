@@ -125,3 +125,13 @@ span.commands .btn-group {
 .wokoProperties th, .wokoProperties td {
     padding: 4px;
 }
+
+.srEntry, .srUser {
+    margin-bottom: 8px;
+}
+
+.srEntry:hover, .srUser:hover {
+    background-color: #ebf7ff;
+}
+
+

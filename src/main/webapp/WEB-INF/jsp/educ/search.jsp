@@ -1,26 +1,30 @@
-<%@ page import="woko.persistence.ResultIterator" %>
-<%@ page import="woko.facets.builtin.RenderTitle" %>
 <%@ page import="woko.Woko" %>
 <%@ page import="woko.facets.builtin.Search" %>
+<%@ page import="com.rvkb.ecahier.model.User" %>
+<%@ page import="com.rvkb.ecahier.model.Entry" %>
+<%@ page import="com.rvkb.ecahier.woko.CompassResultIteratorWithHighlight" %>
+<%@ page import="com.rvkb.ecahier.woko.EcahierStore" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="w" tagdir="/WEB-INF/tags/woko" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="s" uri="http://stripes.sourceforge.net/stripes.tld" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="ec" tagdir="/WEB-INF/tags" %>
 <w:facet facetName="layout"/>
 <s:layout-render name="${layout.layoutPath}" layout="${layout}" pageTitle="Recherche">
     <s:layout-component name="body">
         <%
             Woko woko = Woko.getWoko(application);
-            Search search = (Search)request.getAttribute("search");
-            ResultIterator results = search.getResults();
+            EcahierStore store = (EcahierStore) woko.getObjectStore();
+            Search search = (Search) request.getAttribute("search");
+            CompassResultIteratorWithHighlight results = (CompassResultIteratorWithHighlight) search.getResults();
             String query = search.getQuery();
             int totalSize = results.getTotalSize();
             int p = search.getPage();
             int resultsPerPage = search.getResultsPerPage();
             int nbPages = totalSize / resultsPerPage;
             if (totalSize % resultsPerPage != 0) {
-              nbPages++;
+                nbPages++;
             }
         %>
         <div class="page-header">
@@ -43,52 +47,74 @@
                 <c:choose>
                     <c:when test="<%=totalSize==0%>">
                         <h2>Pas de résultats pour cette recherche</h2>
+
                         <p>Aucune entrée dans le cahier ne répond aux critères soumis.</p>
                     </c:when>
                     <c:otherwise>
-                        <h2>Résultats de votre recherche <small>(<%=totalSize%> trouvés)</small></h2>
+                        <h2>Résultats de votre recherche
+                            <small>(<%=totalSize%> trouvés)</small>
+                        </h2>
                     </c:otherwise>
                 </c:choose>
             </div>
         </div>
-        <ul>
-            <%
-              while (results.hasNext()) {
-                  Object result = results.next();
-                  // compute title
-                  RenderTitle renderTitle = (RenderTitle)woko.getFacet("renderTitle", request, result);
-                  String title = renderTitle!=null ? renderTitle.getTitle() : result.toString();
-                  // compute link if view facet is available
-                  String href = null;
-                  String resultKey = woko.getObjectStore().getKey(result);
-                  String className = woko.getObjectStore().getClassMapping(result.getClass());
-                  if (woko.getFacet("view", request, result)!=null) {
-                      href = request.getContextPath() + "/view/" + className + "/" + resultKey;
-                  }
-            %>
-                  <li>
-                      <%=resultKey%> -
-            <%
-                  if (href!=null) {
-            %>
-                    <a href="<%=href%>">
-            <%
-                  }
-            %>
-                    <c:out value="<%=title%>"/>
-            <%
-                  if (href!=null) {
-            %>
+
+        <%
+            int resultNum = results.getStart();
+            while (results.hasNext()) {
+                Object result = results.next();
+                if (result instanceof User) {
+                    User u = (User) result;
+                    String name = u.getName();
+        %>
+        <div class="row">
+            <div class="span12 srUser">
+                <h3>
+                    <a href="${pageContext.request.contextPath}/view/User/<%=u.getId()%>">
+                        <%=u.getUsername()%>
                     </a>
-            <%
-                  }
-            %>
-                      (<%=className%>)
-                  </li>
-            <%
-              }
-            %>
-        </ul>
+                </h3>
+                <span>
+                    <img src="${pageContext.request.contextPath}/avatar/User/<%=u.getId()%>" width="32px" height="32px"
+                         alt="avatar"/>
+                    <% if (name != null) { %>
+                        <c:out value="<%=name%>"/>
+                    <% } %>
+                </span>
+            </div>
+        </div>
+        <%
+        } else if (result instanceof Entry) {
+            Entry e = (Entry) result;
+            // re-hydrate object (compass-detached) for accessing non indexed fields
+            e = (Entry) store.load(store.getClassMapping(e.getClass()), Long.toString(e.getId()));
+            String hl = results.getHighlightedFragment(resultNum);
+        %>
+        <div class="row">
+            <div class="span12 srEntry">
+                <h3>
+                    <a href="${pageContext.request.contextPath}/view/Entry/<%=e.getId()%>">
+                        <fmt:formatDate value="<%=e.getCreationDate()%>"/>
+                    </a>
+                </h3>
+                <ec:userlink user="<%=e.getCreatedBy()%>" smallImage="true"/> -
+                <c:forEach var="p" items="<%=e.getParticipants()%>" varStatus="s">
+                    <ec:userlink user="${p}" smallImage="true"/>
+                </c:forEach>
+                <br/>
+                <% if (hl != null) { %>
+                    <%=hl%>
+                <% } else { %>
+                    <%=e.getText()%>
+                <% } %>
+            </div>
+        </div>
+
+        <%
+                }
+                resultNum++;
+            }
+        %>
 
         <c:if test="<%=nbPages>1%>">
             <div class="row">
@@ -110,7 +136,6 @@
                         %>
                         </ul>
                     </div>
-
                 </div>
             </div>
         </c:if>

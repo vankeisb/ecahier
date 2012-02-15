@@ -7,14 +7,11 @@ dojo.declare("ecahier.UserLink", [ dijit._Widget, dijit._Templated ], {
     templateString: dojo.cache("ecahier", "UserLink.html"),
 
     baseUrl:'',
-
-    _onClick: function() {
-    },
+    smallImage: false,
 
     buildRendering: function() {
+        this._imgSize = this.smallImage ? 16 : 32;
         this.inherited('buildRendering', arguments);
     }
-
-
 
 });
