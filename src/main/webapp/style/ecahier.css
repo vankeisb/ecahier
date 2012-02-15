@@ -133,4 +133,37 @@ span.commands .btn-group {
     background-color: #ebf7ff;
 }
 
+.wokoProperties .userLink {
+    display: inline-block;
+}
+
+
+/* For listEntries */
+#entries {
+    background: url('images/bg-cahier.png');
+}
+
+#entries .entryListItem{
+    padding: 8px;
+
+}
+#entries .userLink {
+    padding-top: 5px;
+}
+
+#entries .entryDate {
+    font-family: 'Architects Daughter', cursive;
+    padding: 0;
+}
+
+#entries .entryText, #entries .entryText p{
+    padding: 8px;
+    font-family: 'Architects Daughter', cursive;
+    font-size: 20px;
+}
+
+#entries .entryParticipants{
+    padding-top: 5px;
+}
+
 
