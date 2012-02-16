@@ -20,7 +20,7 @@ class Admin extends BaseResolutionFacet {
     ResultIterator<User> getUsers() {
         Integer start = (page-1) * resultsPerPage;
         ResultIterator<User> results;
-        results = store.getCompletionUsers(null, start, resultsPerPage)
+        results = store.getUsersForAdministration(currentUser, start, resultsPerPage)
 
         return results
     }

@@ -148,7 +148,7 @@ class EcahierStore extends HibernateCompassStore {
 
     ResultIterator<User> getUsersForAdministration(User currentUser, Integer start, Integer limit) {
         Criteria crit = session.createCriteria(User.class).add(Restrictions.eq("devel", false))
-
+        crit.add(Restrictions.not(Restrictions.like("username", currentUser.username)))
 
 
         def results = crit.list()
