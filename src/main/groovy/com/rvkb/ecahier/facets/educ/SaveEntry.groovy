@@ -6,6 +6,10 @@ import woko.facets.builtin.developer.SaveImpl
 import net.sourceforge.stripes.action.ActionBeanContext
 import com.rvkb.ecahier.facets.FacetCategory
 import net.sourceforge.jfacets.IInstanceFacet
+import net.sourceforge.stripes.action.Resolution
+import net.sourceforge.stripes.action.RedirectResolution
+import net.sourceforge.stripes.action.SimpleMessage
+import net.sourceforge.stripes.action.LocalizableMessage
 
 @FacetKey(name="save",profileId="educ",targetObjectType=Entry.class)
 @Mixin(FacetCategory)
@@ -40,7 +44,13 @@ class SaveEntry extends SaveImpl implements IInstanceFacet {
             }
         }
 
-        super.doSave(abc)
+        facetContext.woko.objectStore.save(e);
+        abc.messages << new LocalizableMessage("ecahier.entry.saved")
+    }
+
+    @Override
+    protected Resolution getNonRpcResolution(ActionBeanContext abc) {
+        return new RedirectResolution("/home")
     }
 
     boolean matchesTargetObject(Object targetObject) {
