@@ -57,7 +57,7 @@
     </div>
 </div>
 
-<div id="moreEntries" style="display: none;">
+<div id="moreEntries" style="display: none;" class="btn">
     <fmt:message key="ecahier.common.nextEntries"/>
 </div>
 
