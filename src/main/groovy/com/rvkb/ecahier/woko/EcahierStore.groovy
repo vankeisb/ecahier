@@ -18,6 +18,8 @@ import org.compass.core.CompassHitsOperations
 import woko.hbcompass.CompassResultIterator
 import com.rvkb.ecahier.model.Entry
 import org.compass.core.CompassCallback
+import com.rvkb.ecahier.utils.ImageUtils
+import org.hibernate.Hibernate
 
 class EcahierStore extends HibernateCompassStore {
 
@@ -27,6 +29,16 @@ class EcahierStore extends HibernateCompassStore {
         super(packageNames)
     }
 
+    User saveUser(User user){
+        if (user.avatarStripes) {
+            ByteArrayOutputStream bos = new ByteArrayOutputStream()
+            ImageUtils.rescaleImage(user.avatarStripes.inputStream, 150, bos)
+            user.avatar = Hibernate.createBlob(new ByteArrayInputStream(bos.toByteArray()))
+        }
+
+        return save(user)
+    }
+    
     // overriden to add orderBy to criteria...
     @Override
     ResultIterator list(String className, Integer start, Integer limit) {
@@ -125,6 +137,20 @@ class EcahierStore extends HibernateCompassStore {
               Restrictions.ilike("username", criteria, MatchMode.ANYWHERE)
             )
         }
+        def results = crit.list()
+        def totalSize = results.size()
+        def s = start && start > 0 ? start : 0
+        def l = limit && limit > 0 && start + limit < totalSize ? limit : totalSize
+        def subList = results.subList(s, l)
+
+        return new ListResultIterator<User>(subList, s, l, totalSize)
+    }
+
+    ResultIterator<User> getUsersForAdministration(User currentUser, Integer start, Integer limit) {
+        Criteria crit = session.createCriteria(User.class).add(Restrictions.eq("devel", false))
+
+
+
         def results = crit.list()
         def totalSize = results.size()
         def s = start && start > 0 ? start : 0
