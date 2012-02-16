@@ -9,6 +9,7 @@ import com.rvkb.ecahier.utils.ImageUtils
 import org.hibernate.Hibernate
 import net.sourceforge.stripes.action.Resolution
 import net.sourceforge.stripes.action.RedirectResolution
+import net.sourceforge.stripes.action.LocalizableMessage
 
 @FacetKey(name="save",profileId="admin",targetObjectType=User.class)
 @Mixin(FacetCategory)
@@ -29,9 +30,12 @@ class SaveUserAdmin extends SaveImpl {
     @Override
     protected Resolution getNonRpcResolution(ActionBeanContext abc) {
         // Admin edit its own profile
-        if (currentUser.equals(facetContext.targetObject))
+        if (currentUser.equals(facetContext.targetObject)){
+            abc.getMessages().add(new LocalizableMessage("users.save.my.profil"));
             return new RedirectResolution(woko.facetUrl("view",facetContext.targetObject));
-        else
+        }else{
+            abc.getMessages().add(new LocalizableMessage("admin.save.other.profil"));
             return new RedirectResolution('/admin')
+        }
     }
 }

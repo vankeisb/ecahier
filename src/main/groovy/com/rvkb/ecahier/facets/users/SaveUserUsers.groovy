@@ -11,6 +11,7 @@ import org.hibernate.Hibernate
 import net.sourceforge.jfacets.annotations.FacetKeyList
 import net.sourceforge.stripes.action.Resolution
 import net.sourceforge.stripes.action.RedirectResolution
+import net.sourceforge.stripes.action.LocalizableMessage
 
 @FacetKeyList(
     keys=[
@@ -34,6 +35,7 @@ class SaveUserUsers extends SaveImpl implements IInstanceFacet{
 
     @Override
     protected Resolution getNonRpcResolution(ActionBeanContext abc) {
+        abc.getMessages().add(new LocalizableMessage("users.save.my.profil"));
         return new RedirectResolution(woko.facetUrl("view",facetContext.targetObject));
     }
 
