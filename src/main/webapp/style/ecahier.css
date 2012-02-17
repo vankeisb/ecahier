@@ -145,14 +145,12 @@ p.abbreviate{
 }
 
 #entries .entryDate {
-    font-family: 'Architects Daughter', cursive;
     padding: 0;
 }
 
 #entries .entryText, #entries .entryText p{
     padding: 8px;
-    font-family: 'Architects Daughter', cursive;
-    font-size: 20px;
+    font-size: 18px;
     border: none;
 }
 
