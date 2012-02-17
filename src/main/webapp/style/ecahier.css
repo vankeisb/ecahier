@@ -125,6 +125,11 @@ span.commands .btn-group {
     display: inline-block;
 }
 
+p.abbreviate{
+    display: inline-block;
+    margin: 0;
+}
+
 
 /* For listEntries */
 #entries {
@@ -153,6 +158,13 @@ span.commands .btn-group {
 
 #entries .entryParticipants{
     padding-top: 5px;
+}
+
+#entries  p.abbreviate{
+    white-space: nowrap;
+    width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 
