@@ -38,7 +38,7 @@ dojo.declare("ecahier.EntryListItem", [ dijit._Widget, dijit._Templated ], {
         if (this.editLink) {
             dojo.addClass(this.domNode, "editable");
             var link = document.createElement("a");
-            link.setAttribute("href", this.baseUrl + "/edit/Entry/" + this.entry._key);
+            link.setAttribute("href", this.baseUrl + "/edit/Entry/" + this.entry.id);
             link.innerHTML = '<i class="icon-edit"></i> &eacute;diter';
             dojo.addClass(link, ["btn", "btn-small"]);
             this.editLinkNode.appendChild(link);

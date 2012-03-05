@@ -5,7 +5,6 @@
 <div data-dojo-type="dijit.Editor" id="text">
     ${renderPropertyValueEdit.propertyValue}
     <script type="dojo/method" data-dojo-event="onKeyUp" data-dojo-args="evt">
-        console.log(this.getValue());
-        dojo.attr(dojo.byId("entryText"), "value", this.getValue());
+        dojo.attr(dojo.byId("entryText"), "value", this.get('value'));
     </script>
 </div>

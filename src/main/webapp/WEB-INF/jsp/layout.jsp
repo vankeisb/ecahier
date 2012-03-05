@@ -1,10 +1,7 @@
-
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="s" uri="http://stripes.sourceforge.net/stripes.tld" %>
-<%@ taglib prefix="w" tagdir="/WEB-INF/tags/woko" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ include file="/WEB-INF/woko/jsp/taglibs.jsp" %>
 <w:username var="username"/>
-
+<c:set var="cp" value="${pageContext.request.contextPath}"/>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <s:layout-definition>
     <!DOCTYPE html>
     <html>
@@ -17,14 +14,15 @@
                 <title>${layout.appTitle}</title>
             </c:otherwise>
         </c:choose>
-        <c:set var="cp" value="${pageContext.request.contextPath}"/>
+        <c :set var="cp" value="${pageContext.request.contextPath}"/>
 
         <c:set var="dojoRoot" value="${cp}/js/dojo-1.6.1"/>
-        <script type="text/javascript" src="${dojoRoot}/dojo/dojo.js"
-                djConfig="debugAtAllCosts:true, parseOnLoad:true"></script>
+        <script type="text/javascript" src="${dojoRoot}/dojo/dojo.js.uncompressed.js"
+                data-dojo-config="debugAtAllCosts:true, parseOnLoad:true, isDebug:true"></script>
         <link rel="stylesheet" type="text/css" href="${dojoRoot}/dojo/resources/dojo.css">
         <link rel="stylesheet" type="text/css" href="${dojoRoot}/dijit/themes/claro/claro.css" />
         <script type="text/javascript" src="${cp}/woko/js/woko.base.js"></script>
+        <script type="text/javascript" src="${cp}/woko/js/woko.dojo.js"></script>
         <script type="text/javascript" src="${cp}/woko/js/woko.rpc.js"></script>
 
         <c:forEach items="${layout.cssIncludes}" var="cssLink">

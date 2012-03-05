@@ -11,6 +11,8 @@ dojo.declare("ecahier.UserLink", [ dijit._Widget, dijit._Templated ], {
 
     buildRendering: function() {
         this._imgSize = this.smallImage ? 18 : 36;
+        this._userKey = this.user.id || this.user._wokoInfo.key;
+        this._userTitle = this.user.username || this.user._wokoInfo.title;
         this.inherited('buildRendering', arguments);
     }
 

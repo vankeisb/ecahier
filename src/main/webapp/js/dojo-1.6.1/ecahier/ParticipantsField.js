@@ -185,18 +185,17 @@ dojo.declare("ecahier.ParticipantsField", [ dijit._Widget, dijit._Templated ], {
     _populateCompletion: function(prefix, capturedCount) {
         prefix = prefix || "";
         var sanitizedPrefix = prefix.toLowerCase();
-        var cli = new woko.rpc.Client({ baseUrl: this.baseUrl });
-        cli.invokeFacet({
-            facetName: "usercompletion",
+        var cli = new woko.rpc.Client(this.baseUrl);
+        cli.invokeFacet("usercompletion", {
             handleAs: "json",
             content: {
                 "facet.criteria": sanitizedPrefix
             },
-            error: function() {
+            onError: function() {
                 // TODO
                 alert("an error occured");
             },
-            load: dojo.hitch(this, function(results) {
+            onSuccess: dojo.hitch(this, function(results) {
                 if (this._counter===capturedCount) {
                     this._lastPrefix = prefix;
                     dojo.empty(this.completionBoxNode);
@@ -206,7 +205,7 @@ dojo.declare("ecahier.ParticipantsField", [ dijit._Widget, dijit._Templated ], {
                     this._rowWidgets = []; // TODO dispose previous widgets
                     dojo.forEach(items, dojo.hitch(this, function(item) {
                         // check if the item matches completion criterias
-                        var title = item._title;
+                        var title = item._wokoInfo.title;
                         if (sanitizedPrefix==="" || title.toLowerCase().indexOf(sanitizedPrefix)!=-1) {
                             hasRows = true;
                             var itemWidget = new ecahier.CompletionRowWidget({
