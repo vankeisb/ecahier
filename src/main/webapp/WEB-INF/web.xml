@@ -11,7 +11,7 @@
 
     <context-param>
         <param-name>javax.servlet.jsp.jstl.fmt.localizationContext</param-name>
-        <param-value>WokoResources</param-value>
+        <param-value>application</param-value>
     </context-param>
 
     <filter>

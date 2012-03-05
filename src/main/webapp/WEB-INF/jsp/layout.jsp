@@ -1,10 +1,7 @@
-
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="s" uri="http://stripes.sourceforge.net/stripes.tld" %>
-<%@ taglib prefix="w" tagdir="/WEB-INF/tags/woko" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ include file="/WEB-INF/woko/jsp/taglibs.jsp" %>
 <w:username var="username"/>
-
+<c:set var="cp" value="${pageContext.request.contextPath}"/>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <s:layout-definition>
     <!DOCTYPE html>
     <html>
@@ -17,7 +14,7 @@
                 <title>${layout.appTitle}</title>
             </c:otherwise>
         </c:choose>
-        <c:set var="cp" value="${pageContext.request.contextPath}"/>
+        <c :set var="cp" value="${pageContext.request.contextPath}"/>
 
         <c:set var="dojoRoot" value="${cp}/js/dojo-1.6.1"/>
         <script type="text/javascript" src="${dojoRoot}/dojo/dojo.js"
