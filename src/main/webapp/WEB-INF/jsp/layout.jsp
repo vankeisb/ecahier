@@ -17,11 +17,12 @@
         <c :set var="cp" value="${pageContext.request.contextPath}"/>
 
         <c:set var="dojoRoot" value="${cp}/js/dojo-1.6.1"/>
-        <script type="text/javascript" src="${dojoRoot}/dojo/dojo.js"
-                djConfig="debugAtAllCosts:true, parseOnLoad:true"></script>
+        <script type="text/javascript" src="${dojoRoot}/dojo/dojo.js.uncompressed.js"
+                data-dojo-config="debugAtAllCosts:true, parseOnLoad:true, isDebug:true"></script>
         <link rel="stylesheet" type="text/css" href="${dojoRoot}/dojo/resources/dojo.css">
         <link rel="stylesheet" type="text/css" href="${dojoRoot}/dijit/themes/claro/claro.css" />
         <script type="text/javascript" src="${cp}/woko/js/woko.base.js"></script>
+        <script type="text/javascript" src="${cp}/woko/js/woko.dojo.js"></script>
         <script type="text/javascript" src="${cp}/woko/js/woko.rpc.js"></script>
 
         <c:forEach items="${layout.cssIncludes}" var="cssLink">

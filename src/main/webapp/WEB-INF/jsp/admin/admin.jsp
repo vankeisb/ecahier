@@ -10,7 +10,7 @@
 <w:facet facetName="layout" targetObject="${o}"/>
 <w:facet targetObject="${o}" facetName="renderTitle"/>
 <c:set var="currentUserId" value="${layout.currentUserId}"/>
-<fmt:message var="pageTitle" key="ecahier.admin.pageTitle"/>
+<fmt:message var="pageTitle" key="app.ecahier.admin.pageTitle"/>
 <s:layout-render name="${layout.layoutPath}" layout="${layout}" pageTitle="${pageTitle}">
     <s:layout-component name="body">
 
@@ -28,11 +28,11 @@
 
         <div class="page-header">
             <h1>
-                <fmt:message key="ecahier.admin.title"/>
+                <fmt:message key="app.ecahier.admin.title"/>
                 <div class="pull-right">
                     <s:link href="/save" class="btn btn-small"><s:param name="className" value="User"/>
                         <i class="icon-plus"></i>
-                        <fmt:message key="ecahier.admin.addUser"/>
+                        <fmt:message key="app.ecahier.admin.addUser"/>
                     </s:link>
                 </div>
             </h1>
@@ -44,7 +44,7 @@
                 <th><fmt:message key="object.name"/> </th>
                 <th><fmt:message key="object.username"/></th>
                 <th><fmt:message key="object.roles"/></th>
-                <th><fmt:message key="ecahier.admin.actions"/></th>
+                <th><fmt:message key="app.ecahier.admin.actions"/></th>
             </tr>
             </thead>
 
@@ -62,9 +62,9 @@
                 <td><%=u.getRoles()%></td>
                 <td>
                     <div class="btn-group">
-                      <s:link class="btn btn-small" href="/view/User/${id}"><i class="icon-eye-open"></i><fmt:message key="ecahier.admin.actions.see"/> </s:link>
-                      <s:link class="btn btn-small" href="/edit/User/${id}"><i class="icon-edit"></i><fmt:message key="ecahier.admin.actions.edit"/></s:link>
-                      <s:link class="btn btn-small" href="/delete/User/${id}"><i class="icon-trash"></i><fmt:message key="ecahier.admin.actions.delete"/></s:link>
+                      <s:link class="btn btn-small" href="/view/User/${id}"><i class="icon-eye-open"></i><fmt:message key="app.ecahier.admin.actions.see"/> </s:link>
+                      <s:link class="btn btn-small" href="/edit/User/${id}"><i class="icon-edit"></i><fmt:message key="app.ecahier.admin.actions.edit"/></s:link>
+                      <s:link class="btn btn-small" href="/delete/User/${id}"><i class="icon-trash"></i><fmt:message key="app.ecahier.admin.actions.delete"/></s:link>
                     </div>
                 </td>
             </tr>

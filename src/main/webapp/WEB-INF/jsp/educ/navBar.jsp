@@ -4,10 +4,10 @@
 <%@ taglib prefix="w" tagdir="/WEB-INF/tags/woko" %>
 
 <ul class="nav nav-pills">
-    <li><a href="${pageContext.request.contextPath}/home"><fmt:message key="ecahier.educ.navbar.home"/></a></li>
-    <li><a href="${pageContext.request.contextPath}/save/Entry"><fmt:message key="ecahier.educ.navbar.addEntry"/></a></li>
+    <li><a href="${pageContext.request.contextPath}/home"><fmt:message key="app.ecahier.educ.navbar.home"/></a></li>
+    <li><a href="${pageContext.request.contextPath}/save/Entry"><fmt:message key="app.ecahier.educ.navbar.addEntry"/></a></li>
     <c:if test="${navBar.admin}">
-        <li><a href="${pageContext.request.contextPath}/admin"><fmt:message key="ecahier.admin.navbar.admin"/></a>
+        <li><a href="${pageContext.request.contextPath}/admin"><fmt:message key="app.ecahier.admin.navbar.admin"/></a>
     </c:if>
 </ul>
 
@@ -16,7 +16,7 @@
 
 <div class="nav-collapse pull-right">
     <s:form action="/search" class="navbar-search">
-        <input type="text" name="facet.query" class="search-query" placeholder="<fmt:message key='ecahier.common.navbar.search'/>"/>
+        <input type="text" name="facet.query" class="search-query" placeholder="<fmt:message key='app.ecahier.common.navbar.search'/>"/>
     </s:form>
 
     <ul class="nav pull-right">
@@ -38,7 +38,7 @@
                                     <div class="span-two-third">
                                         <h4>
                                             ${layout.currentUserLongName}<br/>
-                                            <small><fmt:message key="ecahier.common.navbar.seeProfil"/></small>
+                                            <small><fmt:message key="app.ecahier.common.navbar.seeProfil"/></small>
                                         </h4>
                                     </div>
                                 </div>
@@ -47,7 +47,7 @@
                     </a>
                 </li>
                 <li class="divider"></li>
-                <li><a href="${cp}/logout"><h4><fmt:message key="ecahier.common.navbar.logout"/></h4></a></li>
+                <li><a href="${cp}/logout"><h4><fmt:message key="app.ecahier.common.navbar.logout"/></h4></a></li>
             </ul>
         </li>
     </ul>

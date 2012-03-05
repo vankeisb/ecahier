@@ -1,20 +1,17 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="w" tagdir="/WEB-INF/tags/woko" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="s" uri="http://stripes.sourceforge.net/stripes.tld" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ include file="/WEB-INF/woko/jsp/taglibs.jsp"%>
 <c:set var="o" value="${actionBean.object}"/>
 <w:facet facetName="layout" targetObject="${o}"/>
 <w:facet targetObject="${o}" facetName="renderTitle"/>
 <c:set var="currentUserId" value="${layout.currentUserId}"/>
-<fmt:message var="pageTitle" key="ecahier.educ.home.pageTitle"/>
+<fmt:message var="pageTitle" key="app.ecahier.educ.home.pageTitle"/>
 <s:layout-render name="${layout.layoutPath}" layout="${layout}" pageTitle="${pageTitle}">
     <s:layout-component name="body">
 
         <div class="page-header">
             <h1>
-                <fmt:message key="ecahier.educ.home.title"/>
-                <small><fmt:message key="ecahier.educ.home.subtitle"/></small>
+                <fmt:message key="app.ecahier.educ.home.title"/>
+                <small><fmt:message key="app.ecahier.educ.home.subtitle"/></small>
             </h1>
         </div>
 
@@ -22,14 +19,14 @@
             <div id="entries" class="span12">
                 <div class="span6">
                     <span class="loader">
-                        <fmt:message key="ecahier.common.loadEntries"/>
+                        <fmt:message key="app.ecahier.common.loadEntries"/>
                     </span>
                 </div>
             </div>
         </div>
 
         <div id="moreEntries" style="display: none;" class="btn">
-            <fmt:message key="ecahier.common.nextEntries"/>
+            <fmt:message key="app.ecahier.common.nextEntries"/>
         </div>
 
         <script type="text/javascript">
@@ -42,13 +39,13 @@
                 var page = 1;
                 var pageSize = 10;
                 var totalSize = null;
-                var cli = new woko.rpc.Client({baseUrl:"${pageContext.request.contextPath}"});
+                var cli = new woko.rpc.Client("${pageContext.request.contextPath}");
 
                 var moreEntries = dojo.byId('moreEntries');
 
                 var populateEntries = function(entries) {
                     dojo.forEach(entries, function(entry) {
-                        var editable = cuid == entry.createdBy._key;
+                        var editable = cuid == cli.getWokoKey(entry.createdBy);
                         var eli = new ecahier.EntryListItem({
                             baseUrl: "${pageContext.request.contextPath}",
                             entry: entry,
@@ -65,13 +62,14 @@
                 };
 
                 var fetchEntries = function() {
-                    cli.find({
-                        className: "Entry",
-                        content: {
+                    cli.findObjects(
+                      "Entry",
+                      {
+                          content: {
                             "facet.resultsPerPage": pageSize,
                             "facet.page": page
-                        },
-                        load: function(resp) {
+                          },
+                          onSuccess: function(resp) {
                             if (page==1) {
                                 dojo.empty(cntr);
                                 totalSize = resp.totalSize;
@@ -82,9 +80,8 @@
                             }
                             page++;
                             populateEntries(resp.items);
-                        },
-
-                        error: function(resp) {
+                          },
+                          onError: function(resp) {
                             // TODO
                             alert('An error occured.');
                         }

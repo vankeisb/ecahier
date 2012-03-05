@@ -58,7 +58,7 @@ dojo.declare("ecahier.CompletionRowWidget", [ dijit._Widget, dijit._Templated ],
     },
 
     buildRendering: function() {
-        this.highlightedTitle = this._highlight(this.item._title, this.prefix);
+        this.highlightedTitle = this._highlight(this.item._wokoInfo.title, this.prefix);
         this.inherited('buildRendering', arguments);
 
         dojo.connect(this, 'onClick', dojo.hitch(this, function() {

@@ -3,7 +3,7 @@
 <%@ include file="/WEB-INF/woko/jsp/taglibs.jsp" %>
 <w:facet facetName="layout"/>
 <c:set var="cp" value="${pageContext.request.contextPath}"/>
-<fmt:message var="pageTitle" key="woko.login.pageTitle"/>
+<fmt:message var="pageTitle" key="woko.login.pageTitle" bundle="${wokoBundle}"/>
 <s:layout-render name="${layout.layoutPath}" layout="${layout}" pageTitle="${pageTitle}" skipLoginLink="true">
     <s:layout-component name="body">
 
@@ -12,8 +12,8 @@
 
                 <div class="page-header">
                     <h1 class="big">
-                        <fmt:message key="ecahier.common.appTitle"/>
-                        <small><fmt:message key="ecahier.common.slogan"/></small>
+                        <fmt:message key="app.ecahier.common.appTitle"/>
+                        <small><fmt:message key="app.ecahier.common.slogan"/></small>
                     </h1>
                 </div>
 

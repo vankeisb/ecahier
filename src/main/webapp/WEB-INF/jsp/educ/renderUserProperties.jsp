@@ -30,7 +30,7 @@
     <%-- Infos --%>
     <div class="span10">
         <% if (user.getName() == null){%>
-            <strong><fmt:message key="ecahier.educ.profil.noinfo"/> </strong>
+            <strong><fmt:message key="app.ecahier.educ.profil.noinfo"/> </strong>
         <%}else {%>
         <address>
             <strong><%=user.getName()%></strong><br/>
@@ -43,7 +43,7 @@
 </div>
 
 <div class="page-header">
-    <h2><fmt:message key="ecahier.educ.profil.entries"/> </h2>
+    <h2><fmt:message key="app.ecahier.educ.profil.entries"/> </h2>
 </div>
 
 <%-- Display associated entries--%>
@@ -51,14 +51,14 @@
     <div id="entries" class="span12">
         <div class="span6">
             <span class="loader">
-                <fmt:message key="ecahier.common.loadEntries"/>
+                <fmt:message key="app.ecahier.common.loadEntries"/>
             </span>
         </div>
     </div>
 </div>
 
 <div id="moreEntries" style="display: none;" class="btn">
-    <fmt:message key="ecahier.common.nextEntries"/>
+    <fmt:message key="app.ecahier.common.nextEntries"/>
 </div>
 
 <script type="text/javascript">
@@ -71,13 +71,13 @@
         var page = 1;
         var pageSize = 10;
         var totalSize = null;
-        var cli = new woko.rpc.Client({baseUrl:"${pageContext.request.contextPath}"});
+        var cli = new woko.rpc.Client("${pageContext.request.contextPath}");
 
         var moreEntries = dojo.byId('moreEntries');
 
         var populateEntries = function(entries) {
             dojo.forEach(entries, function(entry) {
-                var editable = cuid == entry.createdBy._key;
+                var editable = cuid == entry.createdBy._wokoInfo.key;
                 var eli = new ecahier.EntryListItem({
                     baseUrl: "${pageContext.request.contextPath}",
                     entry: entry,
@@ -94,14 +94,13 @@
         };
 
         var fetchEntries = function() {
-            cli.find({
-                className: "Entry",
+            cli.findObjects("Entry", {
                 content: {
                     "facet.resultsPerPage": pageSize,
                     "facet.page": page,
                     "facet.user": "<%=user.getId()%>"
                 },
-                load: function(resp) {
+                onSuccess: function(resp) {
                     if (page==1) {
                         dojo.empty(cntr);
                         totalSize = resp.totalSize;
@@ -114,7 +113,7 @@
                     populateEntries(resp.items);
                 },
 
-                error: function(resp) {
+                onError: function(resp) {
                     // TODO
                     alert('An error occured.');
                 }
