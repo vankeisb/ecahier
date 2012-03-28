@@ -4,7 +4,7 @@ import woko.ext.usermanagement.core.DatabaseUserManager
 import com.rvkb.ecahier.model.User
 import woko.hibernate.HibernateStore
 import woko.ext.usermanagement.hibernate.HibernateUserManager
-import woko.ext.usermanagement.hibernate.TxCallback
+import woko.hibernate.TxCallback
 
 class EcahierUserManager extends HibernateUserManager {
 
@@ -15,7 +15,7 @@ class EcahierUserManager extends HibernateUserManager {
     @Override
     DatabaseUserManager createDefaultUsers() {
         super.createDefaultUsers()
-        doInTx({ um, session ->
+        hibernateStore.doInTx({ um, session ->
             hibernateStore.save(
               new User([
                   username:"kakou",
