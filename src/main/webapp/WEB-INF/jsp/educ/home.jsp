@@ -39,13 +39,13 @@
                 var page = 1;
                 var pageSize = 10;
                 var totalSize = null;
-                var cli = new woko.rpc.Client({baseUrl:"${pageContext.request.contextPath}"});
+                var cli = new woko.rpc.Client("${pageContext.request.contextPath}");
 
                 var moreEntries = dojo.byId('moreEntries');
 
                 var populateEntries = function(entries) {
                     dojo.forEach(entries, function(entry) {
-                        var editable = cuid == entry.createdBy._key;
+                        var editable = cuid == cli.getWokoKey(entry.createdBy);
                         var eli = new ecahier.EntryListItem({
                             baseUrl: "${pageContext.request.contextPath}",
                             entry: entry,
@@ -62,13 +62,12 @@
                 };
 
                 var fetchEntries = function() {
-                    cli.find({
-                        className: "Entry",
+                    cli.findObjects("Entry", {
                         content: {
                             "facet.resultsPerPage": pageSize,
                             "facet.page": page
                         },
-                        load: function(resp) {
+                        onSuccess: function(resp) {
                             if (page==1) {
                                 dojo.empty(cntr);
                                 totalSize = resp.totalSize;
@@ -81,7 +80,7 @@
                             populateEntries(resp.items);
                         },
 
-                        error: function(resp) {
+                        onError: function(resp) {
                             // TODO
                             alert('An error occured.');
                         }

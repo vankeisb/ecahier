@@ -25,6 +25,7 @@
         <link rel="stylesheet" type="text/css" href="${dojoRoot}/dojo/resources/dojo.css">
         <link rel="stylesheet" type="text/css" href="${dojoRoot}/dijit/themes/claro/claro.css" />
         <script type="text/javascript" src="${cp}/woko/js/woko.base.js"></script>
+        <script type="text/javascript" src="${cp}/woko/js/woko.dojo.js"></script>
         <script type="text/javascript" src="${cp}/woko/js/woko.rpc.js"></script>
 
         <c:forEach items="${layout.cssIncludes}" var="cssLink">
