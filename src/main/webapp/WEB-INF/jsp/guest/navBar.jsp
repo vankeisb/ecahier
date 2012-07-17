@@ -5,7 +5,7 @@
         <li>
             <a href="${cp}/login">
                 <i class="icon-user icon-white"></i>
-                <fmt:message key="app.ecahier.guest.navbar.login"/>
+                <fmt:message key="ecahier.guest.navbar.login"/>
             </a>
         </li>
     </ul>

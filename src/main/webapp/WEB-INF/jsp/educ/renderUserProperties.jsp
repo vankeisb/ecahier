@@ -26,7 +26,7 @@
     <%-- Infos --%>
     <div class="span10">
         <% if (user.getName() == null){%>
-            <strong><fmt:message key="app.ecahier.educ.profil.noinfo"/> </strong>
+            <strong><fmt:message key="ecahier.educ.profil.noinfo"/> </strong>
         <%}else {%>
         <address>
             <strong><%=user.getName()%></strong><br/>
@@ -39,7 +39,7 @@
 </div>
 
 <div class="page-header">
-    <h2><fmt:message key="app.ecahier.educ.profil.entries"/> </h2>
+    <h2><fmt:message key="ecahier.educ.profil.entries"/> </h2>
 </div>
 
 <%-- Display associated entries--%>
@@ -47,14 +47,14 @@
     <div id="entries" class="span12">
         <div class="span6">
             <span class="loader">
-                <fmt:message key="app.ecahier.common.loadEntries"/>
+                <fmt:message key="ecahier.common.loadEntries"/>
             </span>
         </div>
     </div>
 </div>
 
 <div id="moreEntries" style="display: none;" class="btn">
-    <fmt:message key="app.ecahier.common.nextEntries"/>
+    <fmt:message key="ecahier.common.nextEntries"/>
 </div>
 
 <script type="text/javascript">

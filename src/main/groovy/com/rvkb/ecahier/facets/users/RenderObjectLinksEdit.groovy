@@ -45,7 +45,7 @@ class RenderObjectLinksEdit extends RenderLinksEditImpl {
             String key = store.getKey(o);
             if (key!=null) {
                 // Get internationalized link label
-                String closeLabel = localizationBundle.getFormFieldBundle(facetContext.request.getLocale()).getString("app.ecahier.links.close")
+                String closeLabel = localizationBundle.getFormFieldBundle(facetContext.request.getLocale()).getString("ecahier.links.close")
                 links.add(new Link("view/" + className + "/" + key, closeLabel).setCssClass("icon-remove"));
             }
         }
@@ -56,7 +56,7 @@ class RenderObjectLinksEdit extends RenderLinksEditImpl {
             String key = store.getKey(o);
             if (key!=null) {
                 // Get internationalized link label
-                String deleteLabel = localizationBundle.getFormFieldBundle(facetContext.request.getLocale()).getString("app.ecahier.links.delete")
+                String deleteLabel = localizationBundle.getFormFieldBundle(facetContext.request.getLocale()).getString("ecahier.links.delete")
                 links.add(new Link("delete/" + className + "/" + key, deleteLabel).setCssClass("icon-trash"));
             }
         }

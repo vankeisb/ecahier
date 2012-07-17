@@ -48,7 +48,7 @@ class RenderObjectLinks extends RenderLinksImpl {
             String key = store.getKey(o);
             if (key!=null) {
                 // Get internationalized link label
-                String editLabel = localizationBundle.getFormFieldBundle(facetContext.request.getLocale()).getString("app.ecahier.links.edit")
+                String editLabel = localizationBundle.getFormFieldBundle(facetContext.request.getLocale()).getString("ecahier.links.edit")
                 links.add(new Link("edit/" + className + "/" + key, editLabel).setCssClass("icon-edit"));
             }
         }
@@ -59,7 +59,7 @@ class RenderObjectLinks extends RenderLinksImpl {
             String key = store.getKey(o);
             if (key!=null) {
                 // Get internationalized link label
-                String deleteLabel = localizationBundle.getFormFieldBundle(facetContext.request.getLocale()).getString("app.ecahier.links.delete")
+                String deleteLabel = localizationBundle.getFormFieldBundle(facetContext.request.getLocale()).getString("ecahier.links.delete")
                 links.add(new Link("delete/" + className + "/" + key, deleteLabel).setCssClass("icon-trash"));
             }
         }
@@ -70,7 +70,7 @@ class RenderObjectLinks extends RenderLinksImpl {
             String key = store.getKey(o);
             if (key!=null) {
                 // Get internationalized link label
-                String jsonLabel = localizationBundle.getFormFieldBundle(facetContext.request.getLocale()).getString("app.ecahier.links.json")
+                String jsonLabel = localizationBundle.getFormFieldBundle(facetContext.request.getLocale()).getString("ecahier.links.json")
                 links.add(new Link("json/" + className + "/" + key, jsonLabel).setCssClass("icon-file"));
             }
         }

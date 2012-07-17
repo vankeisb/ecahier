@@ -45,7 +45,7 @@ class SaveEntry extends SaveImpl implements IInstanceFacet {
         }
 
         facetContext.woko.objectStore.save(e);
-        abc.messages << new LocalizableMessage("app.ecahier.entry.saved")
+        abc.messages << new LocalizableMessage("ecahier.entry.saved")
     }
 
     @Override

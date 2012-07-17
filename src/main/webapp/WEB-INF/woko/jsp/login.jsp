@@ -61,7 +61,7 @@
             <div class="span4">
                 <%-- The login form--%>
                 <s:form beanclass="<%=WokoLogin.class%>" class="well">
-                    <h4><fmt:message key="woko.login.title"/></h4>
+                    <h4><fmt:message bundle="${wokoBundle}" key="woko.login.title"/></h4>
                     <hr>
                     <s:errors/>
                     <s:hidden name="targetUrl"/>
