@@ -15,45 +15,60 @@ class EcahierUserManager extends HibernateUserManager {
     @Override
     DatabaseUserManager createDefaultUsers() {
         super.createDefaultUsers()
-        hibernateStore.doInTx({ st, session ->
+        hibernateStore.doInTx({ um, session ->
             hibernateStore.save(
-              new User([
-                  username:"kakou",
-                  name: "Guillaume Lefrançois",
-                  password: encodePassword("kakou"),
-                  roles: ["admin", "educ"],
-                  email: "kakou@lefrancois.com"
-              ])
+                    new User([
+//                  username:"kakou",
+//                  name: "Guillaume Lefrançois",
+//                  password: encodePassword("kakou"),
+//                  roles: ["admin", "educ"],
+//                  email: "kakou@lefrancois.com"
+                            username:"jean",
+                            name: "Jean Dupont",
+                            password: encodePassword("jean"),
+                            roles: ["admin", "educ"],
+                            email: "jean@fondation-chiris.com"
+                    ])
             )
 
             hibernateStore.save(
-              new User([
-                  username:"david",
-                  name: "David Hasseloff",
-                  password: encodePassword("david"),
-                  roles: ["educ"],
-                  email: "david@vincent.com"
-              ])
+                    new User([
+//                  username:"david",
+//                  name: "David Hasseloff",
+//                  password: encodePassword("david"),
+//                  roles: ["educ"],
+//                  email: "david@vincent.com"
+                            username:"marie",
+                            name: "Marie Dupond",
+                            password: encodePassword("marie"),
+                            roles: ["educ"],
+                            email: "marei@fondation-chiris.com"
+                    ])
             )
 
             hibernateStore.save(
-              new User([
-                  username:"sofiane",
-                  name: "Sofiane Belmondo",
-                  password: encodePassword("sofiane"),
-                  roles: ["usager"],
-                  email: "sofiane@fondation-chiris.com"
-              ])
+                    new User([
+//                  username:"sofiane",
+//                  name: "Sofiane Belmondo",
+//                  password: encodePassword("sofiane"),
+//                  roles: ["usager"],
+//                  email: "sofiane@fondation-chiris.com"
+                            username:"nicolas",
+                            name: "Nicolas Xxx",
+                            password: encodePassword("nicolas"),
+                            roles: ["usager"],
+                            email: "nicolas@fondation-chiris.com"
+                    ])
             )
 
             hibernateStore.save(
-              new User([
-                  username:"sandy",
-                  name: "Sandy Avecunnomvachementlong",
-                  password: encodePassword("sandy"),
-                  roles: ["usager"],
-                  email: "sandy@gmail.com"
-              ])
+                    new User([
+                            username:"audrey",
+                            name: "Audrey Yyy",
+                            password: encodePassword("audrey"),
+                            roles: ["usager"],
+                            email: "audrey@fondation-chiris.com"
+                    ])
             )
 
         } as TxCallback)
