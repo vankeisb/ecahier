@@ -10,8 +10,8 @@
     <name>ecahier</name>
     <properties>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <woko.version>2.0</woko.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <woko.version>2.0</woko.version>
     </properties>
     <dependencies>
         <dependency>

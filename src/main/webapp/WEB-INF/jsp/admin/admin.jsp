@@ -2,10 +2,7 @@
 <%@ page import="woko.persistence.ResultIterator" %>
 <%@ page import="com.rvkb.ecahier.model.User" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="w" tagdir="/WEB-INF/tags/woko" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="s" uri="http://stripes.sourceforge.net/stripes.tld" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ include file="/WEB-INF/woko/jsp/taglibs.jsp"%>
 <c:set var="o" value="${actionBean.object}"/>
 <w:facet facetName="layout" targetObject="${o}"/>
 <w:facet targetObject="${o}" facetName="renderTitle"/>

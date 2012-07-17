@@ -1,8 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="w" tagdir="/WEB-INF/tags/woko" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="s" uri="http://stripes.sourceforge.net/stripes.tld" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ include file="/WEB-INF/woko/jsp/taglibs.jsp"%>
 <c:set var="o" value="${actionBean.object}"/>
 <w:facet facetName="layout" targetObject="${o}"/>
 <w:facet targetObject="${o}" facetName="renderTitle"/>
@@ -42,13 +39,13 @@
                 var page = 1;
                 var pageSize = 10;
                 var totalSize = null;
-                var cli = new woko.rpc.Client({baseUrl:"${pageContext.request.contextPath}"});
+                var cli = new woko.rpc.Client("${pageContext.request.contextPath}");
 
                 var moreEntries = dojo.byId('moreEntries');
 
                 var populateEntries = function(entries) {
                     dojo.forEach(entries, function(entry) {
-                        var editable = cuid == entry.createdBy._key;
+                        var editable = cuid == entry.createdBy._wokoInfo.key;
                         var eli = new ecahier.EntryListItem({
                             baseUrl: "${pageContext.request.contextPath}",
                             entry: entry,
@@ -65,14 +62,13 @@
                 };
 
                 var fetchEntries = function() {
-                    cli.find({
-                        className: "Entry",
+                    cli.findObjects("Entry", {
                         content: {
                             "facet.resultsPerPage": pageSize,
                             "facet.page": page,
                             "facet.user": "${currentUserId}"
                         },
-                        load: function(resp) {
+                        onSuccess: function(resp) {
                             if (page==1) {
                                 dojo.empty(cntr);
                                 totalSize = resp.totalSize;
@@ -85,7 +81,7 @@
                             populateEntries(resp.items);
                         },
 
-                        error: function(resp) {
+                        onError: function(resp) {
                             // TODO
                             alert('An error occured.');
                         }

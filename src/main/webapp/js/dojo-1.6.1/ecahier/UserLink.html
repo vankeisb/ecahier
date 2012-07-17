@@ -1,8 +1,8 @@
 <div class="userLink">
-    <img src="${baseUrl}/avatar/User/${_userKey}" alt="avatar" width="${_imgSize}px" height="${_imgSize}px">
-    <a href="${baseUrl}/view/User/${_userKey}" class="userLink">
+    <img src="${baseUrl}/avatar/User/${user._wokoInfo.key}" alt="avatar" width="${_imgSize}px" height="${_imgSize}px">
+    <a href="${baseUrl}/view/User/${user._wokoInfo.key}" class="userLink">
         <p class="abbreviate">
-            ${_userTitle}
+            ${user._wokoInfo.title}
         </p>
     </a>
 </div>

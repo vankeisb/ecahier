@@ -12,4 +12,4 @@
     dojo.require("ecahier.UserLink");
 </script>
 <span data-dojo-type="ecahier.UserLink"
-      data-dojo-props="user: {_wokoInfo: {key:${user.id}, title:'${renderTitle.title}', className:'User'}, username:'${user.username}'}, baseUrl: '${pageContext.request.contextPath}', smallImage: <%=smallImage%>"></span>
+      data-dojo-props="user: { _wokoInfo: { key:${user.id}, title:'${renderTitle.title}' }, username:'${user.username}'}, baseUrl: '${pageContext.request.contextPath}', smallImage: <%=smallImage%>"></span>
