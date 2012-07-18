@@ -18,58 +18,43 @@ class EcahierUserManager extends HibernateUserManager {
         hibernateStore.doInTx({ um, session ->
             hibernateStore.save(
                     new User([
-//                  username:"kakou",
-//                  name: "Guillaume Lefrançois",
-//                  password: encodePassword("kakou"),
-//                  roles: ["admin", "educ"],
-//                  email: "kakou@lefrancois.com"
-                            username:"jean",
-                            name: "Jean Dupont",
-                            password: encodePassword("jean"),
+                            username:"guillaume",
+                            name: "Guillaume Lefrancois",
+                            password: encodePassword("guillaume!"),
                             roles: ["admin", "educ"],
-                            email: "jean@fondation-chiris.com"
+                            email: "guillaume.lefrancois@fondation-chiris.com"
                     ])
             )
 
-            hibernateStore.save(
-                    new User([
-//                  username:"david",
-//                  name: "David Hasseloff",
-//                  password: encodePassword("david"),
-//                  roles: ["educ"],
-//                  email: "david@vincent.com"
-                            username:"marie",
-                            name: "Marie Dupond",
-                            password: encodePassword("marie"),
-                            roles: ["educ"],
-                            email: "marei@fondation-chiris.com"
-                    ])
-            )
-
-            hibernateStore.save(
-                    new User([
-//                  username:"sofiane",
-//                  name: "Sofiane Belmondo",
-//                  password: encodePassword("sofiane"),
-//                  roles: ["usager"],
-//                  email: "sofiane@fondation-chiris.com"
-                            username:"nicolas",
-                            name: "Nicolas Xxx",
-                            password: encodePassword("nicolas"),
-                            roles: ["usager"],
-                            email: "nicolas@fondation-chiris.com"
-                    ])
-            )
-
-            hibernateStore.save(
-                    new User([
-                            username:"audrey",
-                            name: "Audrey Yyy",
-                            password: encodePassword("audrey"),
-                            roles: ["usager"],
-                            email: "audrey@fondation-chiris.com"
-                    ])
-            )
+//            hibernateStore.save(
+//                    new User([
+//                            username:"marie",
+//                            name: "Marie Dupond",
+//                            password: encodePassword("marie"),
+//                            roles: ["educ"],
+//                            email: "marei@fondation-chiris.com"
+//                    ])
+//            )
+//
+//            hibernateStore.save(
+//                    new User([
+//                            username:"nicolas",
+//                            name: "Nicolas Xxx",
+//                            password: encodePassword("nicolas"),
+//                            roles: ["usager"],
+//                            email: "nicolas@fondation-chiris.com"
+//                    ])
+//            )
+//
+//            hibernateStore.save(
+//                    new User([
+//                            username:"audrey",
+//                            name: "Audrey Yyy",
+//                            password: encodePassword("audrey"),
+//                            roles: ["usager"],
+//                            email: "audrey@fondation-chiris.com"
+//                    ])
+//            )
 
         } as TxCallback)
 
